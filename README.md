@@ -1,3 +1,14 @@
+Get-That-Home
+
+Capstone Project - 2021
+
+Members:
+
+-Nick Correa Garcia
+-Christian Tordoya Suca
+-Juan Carlos Echevarria Mesias
+-Abel Antonio Arbildo Jurupe
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
