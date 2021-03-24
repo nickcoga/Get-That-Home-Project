@@ -3,7 +3,6 @@ import Text from "./components/styles/Heading";
 import FooterLanding from "./components/UI/FooterLanding";
 
 function App() {
-  // clear this commit
   return (
     <div>
       <Text type="SemiBold" size="H1">
