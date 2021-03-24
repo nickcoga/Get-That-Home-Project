@@ -1,6 +1,6 @@
 import React from "react";
 import DefaultImage from "../../Images/DefaultImage.svg";
-import Icons from "../UI/Icons";
+import Icons from "./Icons";
 
 const CardComponentProperty = () => {
   return (
