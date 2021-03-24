@@ -7,6 +7,9 @@ function App() {
   return (
     <div>
       <CardComponentProperty />
+      <CardComponentProperty />
+      <CardComponentProperty />
+      <CardComponentProperty />
       <Text type="SemiBold" size="H1">
         Heading1
       </Text>

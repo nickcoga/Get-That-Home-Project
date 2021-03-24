@@ -87,12 +87,16 @@ const iconSet = {
 const Icons = ({
     type,
     color,
+    className,
 }) => {
     const ComponentToRender = iconSet[type];
     return (
         <ComponentToRender
+            className={className}
             css={ css`
                 color: ${color};
+                font-size: 24px;
+                fill: 24px;
             `}
         />
     )
