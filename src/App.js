@@ -1,6 +1,6 @@
 import React from "react";
 import Text from "./components/styles/Heading";
-import Prueba from "./components/UI/Prueba";
+import Prueba from "./components/UI/Test";
 
 function App() {
   // clear this commit

@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { InputText, InputTextArea, Select } from "../UI/Inputs";
+import { InputText, InputTextArea, Select } from "./Inputs";
 import formReducer from "../../reducers/formReducer";
 
 const Prueba = () => {
