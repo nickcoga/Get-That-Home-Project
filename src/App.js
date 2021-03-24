@@ -1,12 +1,10 @@
-import React from 'react';
-import CardChooseUser from './components/UI/CardChooseUser';
-import CardComponentProperty from './Components/CardComponentProperty/CardComponentProperty';
-import Text from "./Components/styles/Heading";
+import React from "react";
+import Text from "./components/styles/Heading";
+import FooterLanding from "./components/UI/FooterLanding";
 
 function App() {
   return (
     <div>
-      <CardComponentProperty />
       <Text type="SemiBold" size="H1">
         Heading1
       </Text>
@@ -16,6 +14,7 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
+      <FooterLanding></FooterLanding>
     </div>
   );
 }

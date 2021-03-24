@@ -89,8 +89,8 @@ function calcSize(size) {
 }
 
 const StyledText = styled.p`
-  font-family: ${(props) => (props.caption ? "Lato" : "Source Sans Pro")};
-  font-weight: ${(props) => (props.type === "SemiBold" ? 600 : "normal")};
+  font-family: ${(props) => (props.caption ? "Lato" : "Montserrat")};
+  font-weight: ${(props) => (props.type === "SemiBold" ? 500 : "normal")};
   ${(props) => calcSize(props.size)}
   color: ${(props) => colors[props.color]};
   margin: 0;
