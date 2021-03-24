@@ -5,7 +5,7 @@ function App() {
   // clear this commit
   return (
     <div>
-      <CardChooseUser type="landlord" />
+      App
     </div>
   )
 }

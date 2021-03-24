@@ -27,7 +27,33 @@ function CardChooseUser({type}) {
 }
 
 const StyledContainer = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 300px;
+  width: 280px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  padding: 16px 0px; 
+  font-family: 'Montserrat', sans-serif;
+  color: #373737;
+  height: 274px;
+  & > h2 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 6px;
+  }
 
+  & >  p {
+    margin: 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 export default CardChooseUser
