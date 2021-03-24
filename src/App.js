@@ -1,14 +1,15 @@
 import Text from "./components/styles/Heading";
-
+import CardComponentProperty from './Components/CardComponentProperty/CardComponentProperty';
+import Text from "./Components/styles/Heading";
 import Button from "./components/UI/Button";
 import Tabs from "./components/UI/Tabs";
 
 function App() {
-  // clear this commit
   return (
     <div>
       <Tabs tabs={["actives", "closed"]}/>
       <Tabs tabs={["favorites", "contacted"]}/>
+      <CardComponentProperty />
       <Text type="SemiBold" size="H1">
         Heading1
       </Text>
