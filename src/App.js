@@ -1,10 +1,10 @@
 import React from 'react';
+import CardComponentProperty from './Components/CardComponentProperty/CardComponentProperty';
 
 function App() {
-  // clear this commit
   return (
     <div>
-      App
+      <CardComponentProperty />
     </div>
   )
 }
