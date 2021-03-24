@@ -1,5 +1,6 @@
 import React from "react";
 import Text from "./components/styles/Heading";
+import Prueba from "./components/UI/Prueba";
 
 function App() {
   // clear this commit
@@ -14,6 +15,7 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
+      <Prueba />
     </div>
   );
 }

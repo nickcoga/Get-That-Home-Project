@@ -21,7 +21,7 @@ const Caption = styled.span(
 
 const Container = styled.div(
   (props) => css`
-    width: 100%;
+    width: 356px;
     display: flex;
     align-items: center;
     padding: 4px 12px;
@@ -35,8 +35,8 @@ const Container = styled.div(
       border: ${`1px solid ${colors.ShallowPink}`};
     }
     &:focus-within {
-      border: ${`1px solid ${colors.Gray}`};
-      box-shadow: ${`0px 0px 4px ${colors.Gray}`};
+      border: ${`1px solid ${colors.ShallowPink}`};
+      box-shadow: ${`0px 0px 4px ${colors.ShallowPink}`};
     }
   `
 );
@@ -60,25 +60,26 @@ const StyledInput = styled.input`
 
 const StyledTextArea = styled.textarea`
   border: none;
-  color: ${colors.gray2};
+  color: ${colors.Gray};
   width: 100%;
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: ${colors.gray5};
+    color: ${colors.LightGray};
   }
 `;
 
 const StyledSelect = styled.select`
   border: none;
   width: 100%;
-  color: ${colors.gray2};
+  background-color: ${colors.White};
+  color: ${colors.Gray};
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: ${colors.gray5};
+    color: ${colors.LightGray};
   }
   option:first-of-type {
     color: red;
