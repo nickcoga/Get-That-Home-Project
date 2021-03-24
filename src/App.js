@@ -1,5 +1,6 @@
 import React from "react";
 import Text from "./components/styles/Heading";
+import FooterLanding from "./components/UI/FooterLanding";
 
 function App() {
   // clear this commit
@@ -14,6 +15,7 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
+      <FooterLanding></FooterLanding>
     </div>
   );
 }
