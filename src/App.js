@@ -1,15 +1,14 @@
+import React from "react";
 import Text from "./components/styles/Heading";
-import React from 'react';
-import CardComponentProperty from './Components/CardComponentProperty/CardComponentProperty';
-import Text from "./Components/styles/Heading";
-import Button from "./components/UI/Button";
+import FooterLanding from "./components/UI/FooterLanding";
 import Tabs from "./components/UI/Tabs";
+import CardComponentProperty from "./components/UI/CardComponentProperty";
 
 function App() {
   return (
     <div>
-      <Tabs tabs={["actives", "closed"]}/>
-      <Tabs tabs={["favorites", "contacted"]}/>
+      <Tabs tabs={["actives", "closed"]} />
+      <Tabs tabs={["favorites", "contacted"]} />
       <CardComponentProperty />
       <Text type="SemiBold" size="H1">
         Heading1
@@ -20,7 +19,7 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
-      <Button size="small">Button</Button>
+      <FooterLanding></FooterLanding>
     </div>
   );
 }
