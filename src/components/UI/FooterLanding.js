@@ -46,6 +46,7 @@ const Footer = styled.footer`
   background: ${colors.Background};
   width: 100%;
   padding: 10px 0;
+  border-top: 1px solid ${colors.DarkPink};
 `;
 
 const DivOne = styled.div`
