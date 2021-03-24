@@ -1,9 +1,29 @@
 import { css } from '@emotion/react';
 import React from 'react';
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { 
+    RiMoneyDollarCircleLine,
+    RiBuildingLine,
+    RiCoinsLine,
+ } from "react-icons/ri";
+
+ import { 
+     BiBed,
+     BiBath,
+     BiArea,
+} from "react-icons/bi";
+
+import {
+    MdPets,
+} from "react-icons/md";
 
 const iconSet = {
     dollar: RiMoneyDollarCircleLine,
+    department: RiBuildingLine,
+    bed: BiBed,
+    bath: BiBath,
+    area: BiArea,
+    pet: MdPets,
+    price: RiCoinsLine,
 }
 
 const Icons = ({
