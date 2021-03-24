@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import { InputText, InputTextArea, Select } from "./Inputs";
 import formReducer from "../../reducers/formReducer";
 
-const Prueba = () => {
+const Test = () => {
   const [state, dispatch] = useReducer(formReducer, {
     name: "",
     phone: "",
@@ -51,4 +51,4 @@ const Prueba = () => {
   );
 };
 
-export default Prueba;
+export default Test;

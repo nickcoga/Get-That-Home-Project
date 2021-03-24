@@ -1,9 +1,9 @@
 import React from "react";
 import Text from "./components/styles/Heading";
-import Prueba from "./components/UI/Test";
+import Test from "./components/UI/Test";
+import FooterLanding from "./components/UI/FooterLanding";
 
 function App() {
-  // clear this commit
   return (
     <div>
       <Text type="SemiBold" size="H1">
@@ -15,7 +15,8 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
-      <Prueba />
+      <Test />
+      <FooterLanding></FooterLanding>
     </div>
   );
 }
