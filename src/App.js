@@ -1,10 +1,11 @@
-import React from "react";
-import Text from "./components/styles/Heading";
+import React from 'react';
+import CardComponentProperty from './Components/CardComponentProperty/CardComponentProperty';
+import Text from "./Components/styles/Heading";
 
 function App() {
-  // clear this commit
   return (
     <div>
+      <CardComponentProperty />
       <Text type="SemiBold" size="H1">
         Heading1
       </Text>
