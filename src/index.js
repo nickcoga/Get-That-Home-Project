@@ -6,7 +6,7 @@ import Button from "./components/Button";
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Button size="large">Button</Button>
+    <Button size="small">Button</Button>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -22,7 +22,7 @@ const StyledButton = styled.button(
     line-height: 24px;
     cursor: pointer;
     &:hover {
-      background: gba(244, 143, 177, 0.15);
+      background: #f48fb1;
     }
   `
 );
