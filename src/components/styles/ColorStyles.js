@@ -9,5 +9,5 @@ export const colors = {
   BackgroundLight: "#E1E2E1",
   White: "#FFFFFF",
   ShallowPink: "rgba(244, 143, 177, 0.15)",
-  ShallowGray: "rgba(97, 97, 97, 0.15);",
+  ShallowGray: "rgba(97, 97, 97, 0.15)",
 };
