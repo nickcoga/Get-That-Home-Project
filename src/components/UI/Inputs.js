@@ -58,6 +58,33 @@ const StyledInput = styled.input`
   }
 `;
 
+const StyledTextArea = styled.textarea`
+  border: none;
+  color: ${colors.gray2};
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: ${colors.gray5};
+  }
+`;
+
+const StyledSelect = styled.select`
+  border: none;
+  width: 100%;
+  color: ${colors.gray2};
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: ${colors.gray5};
+  }
+  option:first-of-type {
+    color: red;
+  }
+`;
+
 function InputText({
   label = "",
   caption = "",
@@ -87,4 +114,75 @@ function InputText({
   );
 }
 
-export { InputText };
+function InputTextArea({
+  label = "",
+  caption = "",
+
+  error = false,
+  placeholder = "",
+  name = "",
+  value,
+  onChange,
+  footer = "",
+}) {
+  return (
+    <FieldContainer>
+      {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
+      <Container error={error}>
+        <StyledTextArea
+          rows="5"
+          cols="30"
+          maxlength="140"
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          id={name}
+          onChange={onChange}
+        />
+      </Container>
+      {footer}
+      {caption && <Caption error={error}>Caption test</Caption>}
+    </FieldContainer>
+  );
+}
+
+function Select({
+  label = "",
+  caption = "",
+  icon,
+  error = false,
+  placeholder = "",
+  name = "",
+  value,
+  options = [],
+  onChange,
+}) {
+  return (
+    <FieldContainer>
+      {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
+      <Container error={error}>
+        <StyledSelect
+          type="select"
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          id={name}
+          onChange={onChange}
+        >
+          <option disabled value="">
+            {placeholder}
+          </option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.text}
+            </option>
+          ))}
+        </StyledSelect>
+        {icon}
+      </Container>
+      {caption && <Caption error={error}>Caption test</Caption>}
+    </FieldContainer>
+  );
+}
+
+export { InputText, Select, InputTextArea };
