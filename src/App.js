@@ -1,4 +1,5 @@
 import Text from "./components/styles/Heading";
+import React from 'react';
 import CardComponentProperty from './Components/CardComponentProperty/CardComponentProperty';
 import Text from "./Components/styles/Heading";
 import Button from "./components/UI/Button";

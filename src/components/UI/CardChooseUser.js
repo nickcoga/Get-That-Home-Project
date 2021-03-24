@@ -27,6 +27,7 @@ function CardChooseUser({type}) {
 }
 
 const StyledContainer = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
   margin: 0;
   box-sizing: border-box;
   max-width: 300px;
