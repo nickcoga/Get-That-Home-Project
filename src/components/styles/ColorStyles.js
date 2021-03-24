@@ -10,4 +10,5 @@ export const colors = {
   White: "#FFFFFF",
   ShallowPink: "rgba(244, 143, 177, 0.15)",
   ShallowGray: "rgba(97, 97, 97, 0.15)",
+  gray4: "#BDBDBD",
 };
