@@ -1,5 +1,5 @@
 import React from 'react';
-import CardChooseUser from './components/UI/CardChooseUser';
+// import CardChooseUser from './components/UI/CardChooseUser';
 import CardComponentProperty from './Components/CardComponentProperty/CardComponentProperty';
 import Text from "./Components/styles/Heading";
 
