@@ -1,22 +1,25 @@
-import styled from '@emotion/styled';
-import { colors } from '../styles/ColorStyles';
+import styled from "@emotion/styled";
+import { colors } from "../styles/ColorStyles";
+import { useLocation } from "react-router-dom";
 
-function Tabs({tabs}) {
+function Tabs({ tabs }) {
 
+  //const location = useLocation();
+  //const path = location.pathname;
+  const path = `/${tabs[0]}`;
   return (
     <StyledContainer>
       {tabs.map((tab, index) => (
-        <li key={tab + index}>
-            {tab}
-        </li>
+        <li 
+          className={path === `/${tab}` ? "active-tab" : ""} 
+          key={tab + index}>{tab}</li>
       ))}
     </StyledContainer>
-  )
+  );
 }
 
-
 const StyledContainer = styled.ul`
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap");
   margin: 0;
   padding: 0;
   display: flex;
@@ -25,7 +28,7 @@ const StyledContainer = styled.ul`
   & > li {
     transition: all 300ms ease;
     letter-spacing: 1.25px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: ${colors.LightGray};
     list-style: none;
     padding-bottom: 4px;
@@ -39,10 +42,14 @@ const StyledContainer = styled.ul`
   & > li:hover {
     cursor: pointer;
     color: ${colors.DarkGray};
+    border-bottom: 2px solid ${colors.Pink};
+  }
+  .active-tab {
+    color: ${colors.DarkGray};
     list-style: none;
     border-bottom: 2px solid ${colors.Pink};
   }
 
-`
+`;
 
-export default Tabs
+export default Tabs;

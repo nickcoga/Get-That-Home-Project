@@ -8,6 +8,7 @@ function App() {
   return (
     <div>
       <Tabs tabs={["actives", "closed"]}/>
+      <Tabs tabs={["favorites", "contacted"]}/>
       <Text type="SemiBold" size="H1">
         Heading1
       </Text>
