@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import { colors } from "../styles/ColorStyles";
 
 const paddings = {
   large: "16px 24px",
@@ -15,14 +16,14 @@ const StyledButton = styled.button(
     align-items: center;
     box-sizing: border-box;
     border-radius: 16px;
-    border: 1px solid #f48fb1;
-    background-color: #ffffff;
-    color: #616161;
+    border: 1px solid ${colors.Pink};
+    background-color: ${colors.White};
+    color: ${colors.Gray};
     font-size: 14px;
     line-height: 24px;
     cursor: pointer;
     &:hover {
-      background: #f48fb1;
+      background: ${colors.ShallowPink};
     }
   `
 );

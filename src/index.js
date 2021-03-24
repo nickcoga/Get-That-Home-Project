@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Button from "./components/Button";
+import Button from "./components/UI/Button";
 
 ReactDOM.render(
   <React.StrictMode>
