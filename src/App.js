@@ -1,6 +1,8 @@
-import React from "react";
+
+import ChooseFile from "./components/UI/ChooseFile";
 import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ModalBedsAndBath from "./components/UI/ModalBedsAndBath";
+import CardTeam from "./components/UI/CardTeam";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
@@ -12,6 +14,7 @@ function App() {
   return (
     <div>
       <ModalBedsAndBath />
+      <CardTeam name="abel"/>
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
@@ -32,6 +35,8 @@ function App() {
       {/* <FooterLanding /> */}
 
       {/* <Test /> */}
+      <ChooseFile name="image" label="label"/>
+      <ChooseFile name="image" label="label" disabled  />
       <ModalSalary />
     </div>
   );
