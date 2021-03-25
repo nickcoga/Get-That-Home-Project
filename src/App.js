@@ -21,8 +21,9 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
-      <Test />
-      <FooterLanding></FooterLanding> */}
+      {/* <FooterLanding /> */}
+
+      {/* <Test /> */}
       <ModalSalary />
     </div>
   );
