@@ -3,27 +3,60 @@ import { useState } from "react";
 import { colors } from "../styles/ColorStyles";
 
 function ModalPropertyType({ disabled = false }) {
+  const [ houses, setHouses ] = useState(false);
+  const [ apartments, setApartments] = useState(false);;
+
+  const handleChange = ({target}) => {
+    const { name, checked } = target;
+    if(name === "houses") {
+      setHouses(checked)
+    } 
+    if(name === "apartments") {
+      setApartments(checked)
+    }
+  }
+
+  const showModal = ({target}) => {
+    target.style.background = "#f55188";
+    const container = document.querySelector(".container-property-types");
+    container.style.display="block";
+  }
+
+  // for update data en send
+  const sendDate = () => {
+    const btnOpen = document.getElementById("btn-property-types");
+    const container = document.querySelector(".container-property-types");
+    btnOpen.style.background = colors.Pink;
+    container.style.display="none";
+    const nums = {
+      houses,
+      apartments
+    }
+    // aqui enviamos los datos
+    setHouses(false);
+    setApartments(false);
+  }
   return (
     <StyledContainer disabled={disabled}>
-      <button id="btn-beds-and-baths" className="btn-modal">
+      <button id="btn-property-types" className="btn-modal" onClick={showModal}>
         PROPERTY TYPE
       </button>
-      <div className="container-main">
+      <div className="container-property-types">
         <h2>Property Type</h2>
         <div className="container-nums">
           <label>
-            <input type="checkbox" name="houses" />
-            <span class="checkmark"></span>
+            <input type="checkbox" name="houses" checked={houses} onChange={handleChange} />
+            <span className="checkmark"></span>
             <span>Houses</span>
           </label>
           <label>
-            <input type="checkbox" name="apartments" />
-            <span class="checkmark"></span>
+            <input type="checkbox" name="apartments" checked={apartments} onChange={handleChange}/>
+            <span className="checkmark"></span>
             <span>Apartments</span>
           </label>
         </div>
         <div className="container-button">
-          <button className="btn-modal">Done</button>
+          <button className="btn-modal" onClick={sendDate}>Done</button>
         </div>
       </div>
     </StyledContainer>
@@ -33,7 +66,8 @@ function ModalPropertyType({ disabled = false }) {
 const StyledContainer = styled.div`
   position: relative;
   font-family: sans-serif;
-  & > .container-main {
+  & > .container-property-types {
+    display: none;
     position: absolute;
     top: 40px;
     width: 250px;
@@ -73,10 +107,11 @@ const StyledContainer = styled.div`
       label {
         position: relative;
         display: flex;
+        align-items: center;
         gap: 5px;
         font-style: normal;
         font-weight: normal;
-        font-size: 12px;
+        font-size: 13px;
         line-height: 20px;
         text-transform: uppercase;
         color: ${colors.Gray};

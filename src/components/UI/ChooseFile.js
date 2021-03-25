@@ -19,7 +19,7 @@ function ChooseFile({ disabled = false, onChange, name='image', label='image' })
       onClick={!disabled ? handleClick : () => {}}
       disabled={disabled}
     >
-      <label for="file">{label}</label>
+      <label htmlFor="file">{label}</label>
       <div>
         <button name="file">
           <Icons type="choosefile" color="white" onClick={handleClick} />
@@ -39,7 +39,6 @@ function ChooseFile({ disabled = false, onChange, name='image', label='image' })
 }
 
 const StyledContainer = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap");
   display: flex;
   flex-direction: column;
   gap: 4px;
