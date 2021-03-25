@@ -52,7 +52,6 @@ const CardComponentPropertyStyles=styled.div`
         position: relative;
         
         .header-body {
-            background: cyan;
             display: flex;
             justify-content: space-between;
             margin: 0 10px;
@@ -78,6 +77,7 @@ const CardComponentPropertyStyles=styled.div`
             .property {
                 font-size: 16px;
                 font-family: 'Inter', sans serif;
+                color:${colors.Gray};
             }
 
             .dollar {
@@ -86,6 +86,7 @@ const CardComponentPropertyStyles=styled.div`
             
             .department {
                 font-size: 20px;
+                color:${colors.Gray};
             }
         }
 
@@ -105,11 +106,13 @@ const CardComponentPropertyStyles=styled.div`
         .footerCard {
             display: flex;
             padding: 0 0 8px 0;
+            margin: 0 0 0 10px;
 
             .footerCard-number {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                margin: 0 16px 0 0;
             }
 
             .footerCard-number {
@@ -118,7 +121,7 @@ const CardComponentPropertyStyles=styled.div`
                 }
 
                 p {
-                    margin: 0;
+                    margin: 0 0 0 8px;
                 }
             }
         }
