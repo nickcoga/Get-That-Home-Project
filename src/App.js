@@ -1,8 +1,7 @@
 
 import ChooseFile from "./components/UI/ChooseFile";
-import CardComponentProperty from "./components/UI/CardComponentProperty/";
-import React from "react";
 import CardComponentProperty from "./components/UI/CardComponentProperty";
+import React from "react";
 import CardTeam from "./components/UI/CardTeam";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
@@ -10,10 +9,12 @@ import CardTeam from "./components/UI/CardTeam";
 // import Tabs from "./components/UI/Tabs";
 // import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
+import ModalPropertyType from "./components/UI/ModalPropertyType";
 
 function App() {
   return (
     <div>
+      <ModalPropertyType />
       <CardTeam name="abel"/>
       <CardComponentProperty />
       <CardComponentProperty />
