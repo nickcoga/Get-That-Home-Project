@@ -1,4 +1,5 @@
 import React from "react";
+import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
@@ -9,6 +10,11 @@ import ModalSalary from "./components/UI/ModalSalary";
 function App() {
   return (
     <div>
+      <CardComponentProperty />
+      <CardComponentProperty />
+      <CardComponentProperty />
+      <CardComponentProperty />
+
       {/* <Tabs tabs={["actives", "closed"]} />
       <Tabs tabs={["favorites", "contacted"]} />
       <CardComponentProperty />
