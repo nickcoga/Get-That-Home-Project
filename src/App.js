@@ -1,6 +1,7 @@
 import ChooseFile from "./components/UI/ChooseFile";
 import React from "react";
 import CardComponentProperty from "./components/UI/CardComponentProperty";
+import ModalBedsAndBath from "./components/UI/ModalBedsAndBath";
 import CardTeam from "./components/UI/CardTeam";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
@@ -11,6 +12,7 @@ import ModalSalary from "./components/UI/ModalSalary";
 function App() {
   return (
     <div>
+      <ModalBedsAndBath />
       <CardTeam name="abel"/>
       <CardComponentProperty />
       <CardComponentProperty />
