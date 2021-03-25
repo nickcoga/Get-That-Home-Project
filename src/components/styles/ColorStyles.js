@@ -1,5 +1,6 @@
 export const colors = {
   Pink: "#F48FB1",
+  CardColor: "#393939",
   LightPink: "#FFC1E3",
   DarkPink: "#BF5F82",
   Gray: "#616161",
@@ -13,3 +14,4 @@ export const colors = {
   gray4: "#BDBDBD",
   red: "#CB3234",
 };
+
