@@ -1,7 +1,11 @@
 import React from "react";
 import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
-import Text from "./components/styles/Heading";
-import FooterLanding from "./components/UI/FooterLanding";
+// import Text from "./components/styles/Heading";
+// import Test from "./components/UI/Test";
+// import FooterLanding from "./components/UI/FooterLanding";
+// import Tabs from "./components/UI/Tabs";
+// import CardComponentProperty from "./components/UI/CardComponentProperty";
+import ModalSalary from "./components/UI/ModalSalary";
 
 function App() {
   return (
@@ -11,6 +15,9 @@ function App() {
       <CardComponentProperty />
       <CardComponentProperty />
 
+      {/* <Tabs tabs={["actives", "closed"]} />
+      <Tabs tabs={["favorites", "contacted"]} />
+      <CardComponentProperty />
       <Text type="SemiBold" size="H1">
         Heading1
       </Text>
@@ -20,7 +27,10 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
-      <FooterLanding></FooterLanding>
+      {/* <FooterLanding /> */}
+
+      {/* <Test /> */}
+      <ModalSalary />
     </div>
   );
 }
