@@ -71,6 +71,7 @@ const InputLabel = styled.label`
 const StyledInput = styled.input`
   width: 100%;
   border: none;
+  height: 25px;
   color: ${colors.DarkGray};
   &:focus {
     outline: none;
@@ -124,6 +125,36 @@ function InputText({
       {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
       <Container error={error}>
         <StyledInput
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          id={name}
+          onChange={onChange}
+        />
+        {icon}
+      </Container>
+      {caption && <Caption error={error}>Caption test</Caption>}
+    </FieldContainer>
+  );
+}
+
+function InputPassword({
+  label = "",
+  caption = "",
+  icon,
+  error = false,
+  placeholder = "",
+  name = "",
+  value = "",
+  onChange,
+  cssProp,
+}) {
+  return (
+    <FieldContainer cssProp={cssProp}>
+      {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
+      <Container error={error}>
+        <StyledInput
+          type="password"
           value={value}
           name={name}
           placeholder={placeholder}
@@ -238,4 +269,4 @@ function Select({
   );
 }
 
-export { InputText, Select, InputTextArea, InputNumber };
+export { InputText, Select, InputTextArea, InputNumber, InputPassword };
