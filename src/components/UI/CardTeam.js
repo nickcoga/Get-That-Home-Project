@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import Icons from "./Icons";
 import user1 from "../../assets/user1.svg";
+import { colors } from "../styles/ColorStyles";
+
 
 const team = {
   abel: {
@@ -33,7 +35,7 @@ function CardTeam({ name }) {
   return (
     <StyledContainer>
       <div className="image">
-        <img src={image} />
+        <img src={image} alt={name}/>
       </div>
       <h2>{nickname}</h2>
       <div className="buttons">
@@ -48,6 +50,55 @@ function CardTeam({ name }) {
   );
 }
 const StyledContainer = styled.div`
+
+box-sizing: border-box;
+  padding: 0px 24px 10px 24px;
+  min-width: 240px;
+  width: 270px;
+  height: 290px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  & > .image {
+    width: 185px;
+  }
+  & > .image > img {
+    height: 180px;
+    width: 180px;
+  }
+
+  & > h2 {
+    margin: 0;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #616161;
+  }
+
+  & > .buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  & > .buttons > a {
+    text-decoration: none;
+    display: block;
+    color: ${colors.Gray};
+    font-size: 24px;
+  }
+
+  & > .buttons > a:hover {
+    color: ${colors.DarkGray};
+  }
+
 `;
 
 export default CardTeam;

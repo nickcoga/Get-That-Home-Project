@@ -11,10 +11,7 @@ import ModalSalary from "./components/UI/ModalSalary";
 function App() {
   return (
     <div>
-      <CardTeam name="juanCarlos"/>
       <CardTeam name="abel"/>
-      <CardTeam name="nick"/>
-      <CardTeam name="christian"/>
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
