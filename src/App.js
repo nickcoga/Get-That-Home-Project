@@ -1,4 +1,3 @@
-
 import ChooseFile from "./components/UI/ChooseFile";
 import CardComponentProperty from "./components/UI/CardComponentProperty";
 import React from "react";
