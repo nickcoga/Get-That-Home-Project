@@ -1,3 +1,6 @@
+
+import ChooseFile from "./components/UI/ChooseFile";
+import CardComponentProperty from "./components/UI/CardComponentProperty/";
 import React from "react";
 import CardComponentProperty from "./components/UI/CardComponentProperty";
 import CardTeam from "./components/UI/CardTeam";
@@ -32,6 +35,8 @@ function App() {
       {/* <FooterLanding /> */}
 
       {/* <Test /> */}
+      <ChooseFile name="image" label="label"/>
+      <ChooseFile name="image" label="label" disabled  />
       <ModalSalary />
     </div>
   );
