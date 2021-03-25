@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { fetchLogin } from "./sessionSlice";
-import { InputText } from "../../UI/Inputs";
+import { InputText, InputPassword } from "../../UI/Inputs";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../../styles/ColorStyles";
@@ -76,7 +76,7 @@ export default function LoginForm({ id }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <InputText
+        <InputPassword
           label="PASSWORD"
           placeholder="********"
           type="password"

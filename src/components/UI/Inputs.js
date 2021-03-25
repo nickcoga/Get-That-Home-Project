@@ -138,6 +138,36 @@ function InputText({
   );
 }
 
+function InputPassword({
+  label = "",
+  caption = "",
+  icon,
+  error = false,
+  placeholder = "",
+  name = "",
+  value = "",
+  onChange,
+  cssProp,
+}) {
+  return (
+    <FieldContainer cssProp={cssProp}>
+      {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
+      <Container error={error}>
+        <StyledInput
+          type="password"
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          id={name}
+          onChange={onChange}
+        />
+        {icon}
+      </Container>
+      {caption && <Caption error={error}>Caption test</Caption>}
+    </FieldContainer>
+  );
+}
+
 function InputNumber({
   label = "",
   icon,
@@ -239,4 +269,4 @@ function Select({
   );
 }
 
-export { InputText, Select, InputTextArea, InputNumber };
+export { InputText, Select, InputTextArea, InputNumber, InputPassword };
