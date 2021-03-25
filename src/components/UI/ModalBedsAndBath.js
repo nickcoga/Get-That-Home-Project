@@ -16,37 +16,104 @@ function ModalBedsAndBath({ disabled = false }) {
   }
   return (
     <StyledContainer disabled={disabled}>
-      <button>BEDS & BATH</button>
-      <div className="beds">
-        <h2>Beds</h2>
-        {values.map((item, index) =>(
-          <label key={item + index}>
-            <span>{item === 'any'? 'Any' : `${item}+`}</span>
-            <input type="radio" name="beds" value={item} onChange={handleChange} />
-          </label>
-        ))}
-      </div>
-      <div className="baths">
-        <h2>Bath</h2>
-        {values.map((item, index) =>(
-          <label key={item + index}>
-            <span>{item === 'any'? 'Any' : `${item}+`}</span>
-            <input type="radio" name="baths" value={item} onChange={handleChange} />
-          </label>
-        ))}
+      <button className="btn-modal">BEDS & BATH</button>
+      <div className="container-main">
+        <div className="container-nums">
+          <h2>Beds</h2>
+          <div>
+          {values.map((item, index) =>(
+            <label key={item + index}>
+              <span>{item === 'any'? 'Any' : `${item}+`}</span>
+              <input type="radio" name="beds" value={item} onChange={handleChange} />
+            </label>
+          ))}
+          </div>
+        </div>
+        <div className="container-nums">
+          <h2>Bath</h2>
+          <div>
+          {values.map((item, index) =>(
+            <label key={item + index}>
+              <span>{item === 'any'? 'Any' : `${item}+`}</span>
+              <input type="radio" name="baths" value={item} onChange={handleChange} />
+            </label>
+          ))}
+          </div>
+        </div>
+        <div className="container-button">
+          <button className="btn-modal">Done</button>
+        </div>
       </div>
     </StyledContainer>
   );
 }
 
 const StyledContainer = styled.div`
-  & button {
+
+  & > .container-main {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+    width: 270px;
+    margin-top: 10px;
+  }
+  & > .container-main  > .container-nums {
+    font-family:sans-serif;
+   
+    h2 {
+      font-weight: normal;
+      font-size: 10px;
+      line-height: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: ${colors.gray4};
+    }
+    div {
+      width: 250px;
+      border: 1px solid ${colors.Gray};
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-content:space-between;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      color: ${colors.Gray};
+      width: 50px;
+      height: 50px;
+      border-right: 1px solid ${colors.Gray};
+      transition: all 250ms ease-in-out;
+    }
+
+    label:last-child {
+      border-right: none;
+    }
+
+    label:hover {
+      color: ${colors.White};
+      cursor: pointer;
+      background: ${colors.Pink}; 
+    }
+
+    label > input {
+      display: none;
+    }
+  }
+  & .btn-modal {
     background-color: ${({ disabled }) =>
       disabled ? "#61616147" : colors.Pink};
     display: flex;
     align-items: center;
     gap: 3px;
-    min-width: 105px;
     color: ${colors.White};
     padding: 8px;
     font-style: normal;
@@ -56,13 +123,20 @@ const StyledContainer = styled.div`
     border: none;
     border-radius: 8px;
     transition: background 300ms ease-in-out;
+    text-transform: uppercase;
   }
-  & button:focus {
+  & .btn-modal:focus {
     outline: none;
   }
-  & button:hover {
+  & .btn-modal:hover {
     cursor: pointer;
     background-color: ${({ disabled }) => !disabled && "#f55188"};
+  }
+
+  & .container-button {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
 
