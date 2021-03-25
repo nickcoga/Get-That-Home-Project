@@ -5,14 +5,10 @@ import formReducer from "../../reducers/formReducer";
 const Test = () => {
   const [state, dispatch] = useReducer(formReducer, {
     name: "",
-    phone: "",
-    gender: "",
-    birthday: "",
+    big: "",
     country: { code: "" },
-    profession: "",
-    experiences: [{ occupation: "", company: "", startDate: "", endDate: "" }],
-    avatarUrl: "",
   });
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +24,23 @@ const Test = () => {
         value={state.name}
         onChange={handleChange}
       />
+      {/* <ContainerSalary>
+        <InputNumber
+          label="min"
+          placeholder="min"
+          name="min"
+          value={state.min}
+          onChange={handleChange}
+        />
+        <p>-</p>
+        <InputNumber
+          label="max"
+          placeholder="max"
+          name="max"
+          value={state.max}
+          onChange={handleChange}
+        />
+      </ContainerSalary> */}
       <InputTextArea
         label="Label"
         placeholder="placeholder"
