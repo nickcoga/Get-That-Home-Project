@@ -10,19 +10,55 @@ function ModalBedsAndBath({ disabled = false }) {
   const handleChange = ({target}) => {
     const { name, checked, value } = target;
     if(checked){
-      if(name === "baths") setBaths(value);
-      if(name === "beds") setBeds(value);
+      if(name === "beds") {
+        setBeds(value);
+        cleanSelected(name);
+        target.parentElement.classList.add("active-check");
+      } 
+        
+      if(name === "baths") {
+        setBaths(value);
+        cleanSelected(name);
+        target.parentElement.classList.add("active-check");
+      }
     }
+  }
+
+  // remove style in previus item
+  const cleanSelected = (name) => {
+    const items = document.querySelectorAll(`.${name}`);
+    items.forEach(element => {
+      element.classList.remove("active-check");
+    });
+  }
+
+  const showModal = ({target}) => {
+    target.style.background = "#f55188";
+    const container = document.querySelector(".container-main-beds_and_baths");
+    container.style.display="block";
+  }
+
+  // for update data en send
+  const sendDate = () => {
+    const btnOpen = document.getElementById("btn-beds-and-baths");
+    const container = document.querySelector(".container-main-beds_and_baths");
+    btnOpen.style.background = colors.Pink;
+    const nums = {
+      beds,
+      baths
+    }
+    console.log(nums);
+    container.style.display="none";
   }
   return (
     <StyledContainer disabled={disabled}>
-      <button className="btn-modal">BEDS & BATH</button>
-      <div className="container-main">
+      <button id="btn-beds-and-baths" className="btn-modal" onClick={showModal}>BEDS & BATH</button>
+      <div className="container-main-beds_and_baths">
         <div className="container-nums">
           <h2>Beds</h2>
           <div>
           {values.map((item, index) =>(
-            <label key={item + index}>
+            <label key={item + index} className="beds">
               <span>{item === 'any'? 'Any' : `${item}+`}</span>
               <input type="radio" name="beds" value={item} onChange={handleChange} />
             </label>
@@ -33,7 +69,7 @@ function ModalBedsAndBath({ disabled = false }) {
           <h2>Bath</h2>
           <div>
           {values.map((item, index) =>(
-            <label key={item + index}>
+            <label key={item + index} className="baths">
               <span>{item === 'any'? 'Any' : `${item}+`}</span>
               <input type="radio" name="baths" value={item} onChange={handleChange} />
             </label>
@@ -41,7 +77,7 @@ function ModalBedsAndBath({ disabled = false }) {
           </div>
         </div>
         <div className="container-button">
-          <button className="btn-modal">Done</button>
+          <button className="btn-modal" onClick={sendDate}>Done</button>
         </div>
       </div>
     </StyledContainer>
@@ -49,16 +85,21 @@ function ModalBedsAndBath({ disabled = false }) {
 }
 
 const StyledContainer = styled.div`
+  position: relative;
 
-  & > .container-main {
+  & > .container-main-beds_and_baths {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     padding: 8px;
     box-sizing: border-box;
     width: 270px;
     margin-top: 10px;
+    position: absolute;
+    background: ${colors.White};
+    top:40px;
+    display: none;
   }
-  & > .container-main  > .container-nums {
+  & > .container-main-beds_and_baths > .container-nums {
     font-family:sans-serif;
    
     h2 {
@@ -104,6 +145,12 @@ const StyledContainer = styled.div`
       background: ${colors.Pink}; 
     }
 
+    .active-check {
+      color: ${colors.White};
+      cursor: pointer;
+      background: ${colors.Pink};
+    }
+
     label > input {
       display: none;
     }
@@ -137,6 +184,9 @@ const StyledContainer = styled.div`
     margin-top: 5px;
     display: flex;
     justify-content: flex-end;
+  }
+  & .show-modal {
+    display: block;
   }
 `;
 
