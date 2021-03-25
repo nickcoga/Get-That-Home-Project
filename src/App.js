@@ -1,5 +1,6 @@
 import React from "react";
-import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
+import CardComponentProperty from "./components/UI/CardComponentProperty";
+import CardTeam from "./components/UI/CardTeam";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
@@ -10,6 +11,7 @@ import ModalSalary from "./components/UI/ModalSalary";
 function App() {
   return (
     <div>
+      <CardTeam name="abel"/>
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
