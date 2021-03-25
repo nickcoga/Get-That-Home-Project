@@ -5,15 +5,30 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../../styles/ColorStyles";
 import Button from "../../UI/Button";
+import Icons from "../../UI/Icons";
 
 const ContainerForm = styled.div`
-  background-color: ${colors.White};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   padding: 15px 20px;
+  margin: 0;
   width: 388px;
   height: 256px;
-  border: 1px solid ${colors.black};
+  background-color: ${colors.White};
+  border-radius: 8px;
+  box-shadow: ${colors.boxShadow};
   color: ${colors.Gray};
-
+  label {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1.5px;
+    color: ${colors.DarkGray};
+  }
   h1 {
     margin: 0;
     padding: 0;
@@ -24,6 +39,15 @@ const ContainerForm = styled.div`
     color: ${colors.black};
     font-size: 24px;
     line-height: 32px;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  margin-top: 2%;
+  .login {
+    font-size: 26px;
+    padding-top: 4px;
+    padding-right: 4px;
   }
 `;
 
@@ -47,21 +71,24 @@ export default function LoginForm({ id }) {
           <h1>Login</h1>
         </Header>
         <InputText
-          label="Email"
+          label="EMAIL"
           placeholder="user@mail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <InputText
-          label="Password"
+          label="PASSWORD"
           placeholder="********"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button type="submit" form="login-form">
-          Login
-        </Button>
+        <ButtonContainer>
+          <Button type="submit" form="login-form">
+            <Icons type="login" className="login" />
+            LOGIN
+          </Button>
+        </ButtonContainer>
       </ContainerForm>
     </form>
   );

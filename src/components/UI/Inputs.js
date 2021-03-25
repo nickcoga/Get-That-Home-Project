@@ -71,6 +71,7 @@ const InputLabel = styled.label`
 const StyledInput = styled.input`
   width: 100%;
   border: none;
+  height: 25px;
   color: ${colors.DarkGray};
   &:focus {
     outline: none;
