@@ -1,15 +1,15 @@
 import React from "react";
-import Text from "./components/styles/Heading";
+// import Text from "./components/styles/Heading";
+// import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
-import FooterProperty from "./components/UI/FooterProperty";
-import Test from "./components/UI/Test";
-import Tabs from "./components/UI/Tabs";
-import CardComponentProperty from "./components/UI/CardComponentProperty";
+// import Tabs from "./components/UI/Tabs";
+// import CardComponentProperty from "./components/UI/CardComponentProperty";
+import ModalSalary from "./components/UI/ModalSalary";
 
 function App() {
   return (
     <div>
-      <Tabs tabs={["actives", "closed"]} />
+      {/* <Tabs tabs={["actives", "closed"]} />
       <Tabs tabs={["favorites", "contacted"]} />
       <CardComponentProperty />
       <Text type="SemiBold" size="H1">
@@ -23,8 +23,8 @@ function App() {
       </Text>
       {/* <FooterLanding /> */}
 
-      <Test />
-      <FooterProperty />
+      {/* <Test /> */}
+      <ModalSalary />
     </div>
   );
 }

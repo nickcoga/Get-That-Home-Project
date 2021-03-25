@@ -19,6 +19,28 @@ const Caption = styled.span(
   `
 );
 
+const ContainerNumber = styled.div(
+  (props) => css`
+    width: 90px;
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    background: ${colors.white};
+    border: ${`1px solid ${props.error ? colors.red : colors.Pink}`};
+    box-sizing: border-box;
+    border-radius: 8px;
+    gap: 4px;
+    height: fit-content;
+    &:hover {
+      border: ${`1px solid ${colors.ShallowPink}`};
+    }
+    &:focus-within {
+      border: ${`1px solid ${colors.ShallowPink}`};
+      box-shadow: ${`0px 0px 4px ${colors.ShallowPink}`};
+    }
+  `
+);
+
 const Container = styled.div(
   (props) => css`
     width: 356px;
@@ -54,7 +76,7 @@ const StyledInput = styled.input`
     outline: none;
   }
   &::placeholder {
-    color: ${colors.DarkGray};
+    color: ${colors.LightGray};
   }
 `;
 
@@ -110,6 +132,36 @@ function InputText({
         />
         {icon}
       </Container>
+      {caption && <Caption error={error}>Caption test</Caption>}
+    </FieldContainer>
+  );
+}
+
+function InputNumber({
+  label = "",
+  icon,
+  error = false,
+  placeholder = "",
+  caption = "",
+  name = "",
+  value = "",
+  onChange,
+  cssProp,
+}) {
+  return (
+    <FieldContainer cssProp={cssProp}>
+      {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
+      <ContainerNumber error={error}>
+        <StyledInput
+          type="number"
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          id={name}
+          onChange={onChange}
+        />
+        {icon}
+      </ContainerNumber>
       {caption && <Caption error={error}>Caption test</Caption>}
     </FieldContainer>
   );
@@ -186,4 +238,4 @@ function Select({
   );
 }
 
-export { InputText, Select, InputTextArea };
+export { InputText, Select, InputTextArea, InputNumber };
