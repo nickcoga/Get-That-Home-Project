@@ -2,8 +2,11 @@ import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import Icons from "./Icons";
 
-function ChooseFile({ disabled = false, onChange }) {
+function ChooseFile({ disabled = false, onChange, name='image' }) {
   const handleClick = () => {
+    let chooseInput = document.getElementById("choose-file-input");
+    chooseInput.click();
+    chooseInput.style.color = colors.DarkGray;
   };
 
   // const handleChange = ({target}) => {
@@ -22,7 +25,7 @@ function ChooseFile({ disabled = false, onChange }) {
       </button>
       <input
         id="choose-file-input"
-        name="image"
+        name={name}
         type="file"
         onChange={onChange}
       />
