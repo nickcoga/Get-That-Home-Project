@@ -1,7 +1,8 @@
 import React from "react";
 import Text from "./components/styles/Heading";
+// import FooterLanding from "./components/UI/FooterLanding";
+import FooterProperty from "./components/UI/FooterProperty";
 import Test from "./components/UI/Test";
-import FooterLanding from "./components/UI/FooterLanding";
 import Tabs from "./components/UI/Tabs";
 import CardComponentProperty from "./components/UI/CardComponentProperty";
 
@@ -20,8 +21,10 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
+      {/* <FooterLanding /> */}
+
       <Test />
-      <FooterLanding></FooterLanding>
+      <FooterProperty />
     </div>
   );
 }
