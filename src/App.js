@@ -25,8 +25,8 @@ function App() {
       {/* <FooterLanding /> */}
 
       {/* <Test /> */}
-      <ChooseFile  />
-      <ChooseFile disabled  />
+      <ChooseFile name="image" label="label"/>
+      <ChooseFile name="image" label="label" disabled  />
       <ModalSalary />
     </div>
   );

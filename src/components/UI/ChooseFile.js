@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import Icons from "./Icons";
 
-function ChooseFile({ disabled = false, onChange, name='image' }) {
+function ChooseFile({ disabled = false, onChange, name='image', label='image' }) {
   const handleClick = () => {
     let chooseInput = document.getElementById("choose-file-input");
     chooseInput.click();
@@ -19,16 +19,21 @@ function ChooseFile({ disabled = false, onChange, name='image' }) {
       onClick={!disabled ? handleClick : () => {}}
       disabled={disabled}
     >
-      <button>
-        <Icons type="choosefile" color="white" onClick={handleClick} />
-        <span>Choose file</span>
-      </button>
-      <input
-        id="choose-file-input"
-        name={name}
-        type="file"
-        onChange={onChange}
-      />
+      <label for="file">{label}</label>
+      <div>
+        <button name="file">
+          <Icons type="choosefile" color="white" onClick={handleClick} />
+          <span>Choose file</span>
+        </button>
+        <input
+          id="choose-file-input"
+          name={name}
+          type="file"
+          onChange={onChange}
+        />
+      
+      </div>
+      
     </StyledContainer>
   );
 }
@@ -36,14 +41,28 @@ function ChooseFile({ disabled = false, onChange, name='image' }) {
 const StyledContainer = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap");
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 4px;
   font-family: "Montserrat", sans-serif;
   margin-bottom: 5px;
   #choose-file-input::-webkit-file-upload-button {
     display: none;
   }
 
-  & > input {
+  & > label {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1.5px;
+    color: ${colors.DarkGray}
+  }
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+
+  &  input {
     color: #616161;
     margin-left: 10px;
     font-style: normal;
@@ -52,7 +71,7 @@ const StyledContainer = styled.div`
     line-height: 20px;
   }
 
-  & > button {
+  &  button {
     background-color: ${({ disabled }) =>
       disabled ? '#61616147' : colors.Pink};
     display: flex;
@@ -70,11 +89,11 @@ const StyledContainer = styled.div`
     transition: background 300ms ease-in-out;
   }
 
-  & > button:focus {
+  &  button:focus {
     outline: none;
   }
 
-  & > button:hover {
+  &  button:hover {
     cursor: pointer;
     background-color: ${({ disabled }) => !disabled && "#f55188"};
   }
