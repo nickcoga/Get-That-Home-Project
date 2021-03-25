@@ -62,7 +62,7 @@ const iconSet = {
   down: AiOutlineDown,
   up: IoIosArrowUp,
   copyright: BiCopyright,
-  linkeding: AiOutlineLinkedin,
+  linkedin: AiOutlineLinkedin,
 };
 
 const Icons = ({ 
