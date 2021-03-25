@@ -1,11 +1,14 @@
 import React from "react";
-import LoginForm from "./components/features/session/LoginForm";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Login from "./pages/Login";
 
 function App() {
   return (
-    <div>
-      <LoginForm />
-    </div>
+    <Router>
+      <div>
+        <Route path="/login" component={Login} />
+      </div>
+    </Router>
   );
 }
 

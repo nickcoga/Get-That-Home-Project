@@ -13,5 +13,5 @@ export const colors = {
   ShallowGray: "rgba(97, 97, 97, 0.15)",
   gray4: "#BDBDBD",
   red: "#CB3234",
+  black: "#000000",
 };
-

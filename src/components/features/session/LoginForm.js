@@ -1,15 +1,17 @@
 import { useDispatch } from "react-redux";
-import FormField from "../../UI/FormField";
 import { fetchLogin } from "./sessionSlice";
+import { InputText } from "../../UI/Inputs";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../../styles/ColorStyles";
+import Button from "../../UI/Button";
 
 const ContainerForm = styled.div`
   background-color: ${colors.White};
-  padding: 32px 58px;
-  width: 376px;
-  min-height: 812px;
+  padding: 15px 20px;
+  width: 388px;
+  height: 256px;
+  border: 1px solid ${colors.black};
   color: ${colors.Gray};
 
   h1 {
@@ -17,21 +19,11 @@ const ContainerForm = styled.div`
     padding: 0;
     text-align: center;
     font-family: "Roboto", sans serif;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
-    font-size: 35px;
-    line-height: 40px;
-  }
-
-  p {
-    margin: 32px 0;
-    padding: 0;
-    text-align: center;
-    font-family: "Roboto", sans serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 24px;
+    color: ${colors.black};
+    font-size: 24px;
+    line-height: 32px;
   }
 `;
 
@@ -52,25 +44,24 @@ export default function LoginForm({ id }) {
     <form onSubmit={handleSubmit} id={id}>
       <ContainerForm>
         <Header>
-          <h1>Welcome to Expensable</h1>
-          <p>Please login to start using the app</p>
+          <h1>Login</h1>
         </Header>
-        <FormField>
-          <label>Email Address</label>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-          />
-        </FormField>
-        <FormField>
-          <label>Password</label>
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-          />
-        </FormField>
+        <InputText
+          label="Email"
+          placeholder="user@mail.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <InputText
+          label="Password"
+          placeholder="********"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button type="submit" form="login-form">
+          Login
+        </Button>
       </ContainerForm>
     </form>
   );
