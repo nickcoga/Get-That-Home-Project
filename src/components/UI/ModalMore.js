@@ -1,25 +1,75 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 import { useState } from "react";
 import { colors } from "../styles/ColorStyles";
-import { InputNumber } from "./Inputs";
+import { AiOutlineDown } from "react-icons/ai";
 
-function ModalMore({disabled = false}) {
-  const [pets, setPets] = useState(false);
+function ModalMore() {
+  const [pets, setPets] = useState(true);
   const [area, setArea] = useState({
-    min: 0, 
-    max: 0
-  })
+    min: 0,
+    max: 0,
+  });
+
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    if (name === "pets") {
+      setPets(target.checked);
+    }
+    if (name === "min") {
+      setArea({
+        ...area,
+        min: value,
+      });
+    }
+    if (name === "max") {
+      setArea({
+        ...area,
+        max: value,
+      });
+    }
+  };
+
+  const showModal = () => {
+    const container = document.querySelector(".container-more");
+    container.style.display = "block";
+  };
+
+  // for update data en send
+  const sendDate = () => {
+    const btnOpen = document.getElementById("btn-more");
+    const container = document.querySelector(".container-more");
+    btnOpen.style.background = colors.Pink;
+    container.style.display = "none";
+    const values = {
+      pets,
+      area,
+    };
+    console.log(values);
+    // aqui enviamos los datos
+    setPets(false);
+    setArea({
+      min: 0,
+      max: 0,
+    });
+  };
 
   return (
     <StyleContainer>
-      <button id="btn-more" className="btn-modal" >
+      <button id="btn-more" className="btn-modal" onClick={showModal}>
         More
+        <AiOutlineDown />
       </button>
       <div className="container-more">
         <h2>Pets</h2>
         <div className="container-pets">
           <label>
-            <input className="pets-check" type="checkbox" name="pets"  />
+            <input
+              className="pets-check"
+              type="checkbox"
+              name="pets"
+              checked={pets}
+              onChange={handleChange}
+            />
             <span className="checkmark"></span>
             <span>Pets Allowed</span>
           </label>
@@ -27,24 +77,38 @@ function ModalMore({disabled = false}) {
         <div className="container-area">
           <h2>AREA IN m2</h2>
           <div>
-            <InputNumber placeholder="min" name="min" value={area.min} />
+            <input
+              type="text"
+              placeholder="min"
+              name="min"
+              value={area.min}
+              onChange={handleChange}
+            />
             <span> - </span>
-            <InputNumber placeholder="max" name="max" value={area.max} />
+            <input
+              type="text"
+              placeholder="max"
+              name="max"
+              value={area.max}
+              onChange={handleChange}
+            />
           </div>
         </div>
         <div className="container-button">
-          <button className="btn-modal">Done</button>
+          <button className="btn-modal" onClick={sendDate}>
+            Done
+          </button>
         </div>
       </div>
     </StyleContainer>
-  )
+  );
 }
 
-
 const StyleContainer = styled.div`
- position: relative;
+  position: relative;
   font-family: sans-serif;
   & > .container-more {
+    display: none;
     position: absolute;
     top: 45px;
     width: 250px;
@@ -97,7 +161,7 @@ const StyleContainer = styled.div`
         cursor: pointer;
       }
       label:hover .checkmark {
-        border-color:  #eee;
+        border-color: #eee;
       }
 
       .pets-check {
@@ -112,13 +176,21 @@ const StyleContainer = styled.div`
         display: block;
       }
     }
-    
+
     .container-area {
       margin-bottom: 10px;
       div {
         display: flex;
         justify-content: center;
         gap: 10px;
+      }
+
+      & input {
+        border: 1px solid ${colors.Pink};
+        width: 50px;
+        padding: 8px;
+        outline: none;
+        border-radius: 8px;
       }
     }
     h2 {
@@ -148,6 +220,10 @@ const StyleContainer = styled.div`
     border-radius: 8px;
     transition: background 300ms ease-in-out;
     text-transform: uppercase;
+
+    & > svg {
+      background: transparent;
+    }
   }
   & .btn-modal:focus {
     outline: none;
@@ -163,6 +239,5 @@ const StyleContainer = styled.div`
     display: flex;
     justify-content: flex-end;
   }
-
 `;
-export default ModalMore
+export default ModalMore;
