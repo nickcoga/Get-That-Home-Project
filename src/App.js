@@ -1,6 +1,7 @@
 import React from "react";
 import Text from "./components/styles/Heading";
-import FooterLanding from "./components/UI/FooterLanding";
+// import FooterLanding from "./components/UI/FooterLanding";
+import FooterProperty from "./components/UI/FooterProperty";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Text type="Calabria" size="H3">
         Heading3
       </Text>
-      <FooterLanding></FooterLanding>
+      {/* <FooterLanding /> */}
+      <FooterProperty />
     </div>
   );
 }
