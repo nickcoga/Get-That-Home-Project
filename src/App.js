@@ -1,4 +1,5 @@
 import React from "react";
+import ChooseFile from "./components/UI/ChooseFile";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
@@ -24,6 +25,8 @@ function App() {
       {/* <FooterLanding /> */}
 
       {/* <Test /> */}
+      <ChooseFile  />
+      <ChooseFile disabled  />
       <ModalSalary />
     </div>
   );
