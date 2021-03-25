@@ -19,7 +19,7 @@ export default function FooterProperty() {
 
         <ContentMid>
           <Text type="SemiBold" size="Caption">
-            Build with <Icons type="heart" /> by:
+            Build with <Icons type="heart" className="heart" /> by:
           </Text>
           <ContentMembers>
             <Content>
@@ -109,6 +109,9 @@ const ContentSource = styled.div`
 
 const ContentMid = styled.div`
   width: 364px;
+  .heart {
+    color: ${colors.red};
+  }
 `;
 
 const Content = styled.div`
