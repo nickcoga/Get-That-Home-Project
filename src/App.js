@@ -1,20 +1,19 @@
-
 import ChooseFile from "./components/UI/ChooseFile";
-import CardComponentProperty from "./components/UI/CardComponentProperty/";
-import React from "react";
 import CardComponentProperty from "./components/UI/CardComponentProperty";
+import React from "react";
 import CardTeam from "./components/UI/CardTeam";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
-// import FooterLanding from "./components/UI/FooterLanding";
+import FooterLanding from "./components/UI/FooterLanding";
 // import Tabs from "./components/UI/Tabs";
 // import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
+import NavbarLanding from "./components/UI/NavbarLanding";
 
 function App() {
   return (
     <div>
-      <CardTeam name="abel"/>
+      <CardTeam name="abel" />
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
@@ -35,9 +34,12 @@ function App() {
       {/* <FooterLanding /> */}
 
       {/* <Test /> */}
-      <ChooseFile name="image" label="label"/>
-      <ChooseFile name="image" label="label" disabled  />
+      <NavbarLanding />
+      <ChooseFile name="image" label="label" />
+      <ChooseFile name="image" label="label" disabled />
       <ModalSalary />
+
+      <FooterLanding />
     </div>
   );
 }
