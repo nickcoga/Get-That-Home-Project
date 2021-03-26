@@ -1,18 +1,33 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 
 function ToggleOperation() {
+  const [operation, setOperation] = useState('');
+  const handleChange = ({target}) => {
+    const { value, checked } = target;
+    const tags = document.querySelectorAll(".operation-checks");
+    tags.forEach(tag => tag.parentElement.classList.remove("active-check"));
+    
+    if(checked) {
+      setOperation(value);
+      target.parentElement.classList.add("active-check");
+    }
+    // Enviar los datos
+    console.log(operation);
+  }
+  
   return (
     <StyledContainer>
       <h2>Operation type</h2>
       <div className="operations">
         <label>
+          <input className="operation-checks" type="radio" name="operation" value="rent" onChange={handleChange}/>
           <span>Rent</span>
-          <input type="radio" name="operation" value="rent" />
         </label>
         <label>
+          <input className="operation-checks" type="radio" name="operation" value="sale" onChange={handleChange}/>
           <span>Sale</span>
-          <input type="radio" name="operation" value="sale" />
         </label>
       </div>
     </StyledContainer>
@@ -56,25 +71,26 @@ const StyledContainer = styled.div`
       transition: all 250ms ease-in-out;
     }
 
-    label:last-child {
-      border-right: none;
-    }
+      label:last-child {
+        border-right: none;
+      }
 
-    label:hover {
-      color: ${colors.White};
-      cursor: pointer;
-      background: ${colors.Pink};
-    }
+      label:hover {
+        color: ${colors.White};
+        cursor: pointer;
+        background: ${colors.Pink};
+      }
 
-    .active-check {
-      color: ${colors.White};
-      cursor: pointer;
-      background: ${colors.Pink};
-    }
+      .active-check {
+        color: ${colors.White};
+        cursor: pointer;
+        background: ${colors.Pink};
+      }
 
-    label > input {
-      display: none;
-    }
+      label > input {
+        display: none;
+      }
+
   }
 `;
 
