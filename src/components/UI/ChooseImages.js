@@ -36,6 +36,13 @@ function ChooseImages({ onChange, name='image', label='image' }) {
         return [value, ...prev]
       }
     })
+
+    // para enviar data
+    console.log(photos);
+  }
+
+  const removePhoto = (photo) => {
+    setPhotos64(photos64.filter(item => item !== photo))
   }
   
   return (
@@ -62,7 +69,7 @@ function ChooseImages({ onChange, name='image', label='image' }) {
             {photos64.map((photo, index )=> (
               <div key={index} className="photo-container">
                 <div className="button-close">
-                  <Icons type="close" color={colors.DarkGray} />
+                  <Icons onClick={() => removePhoto(photo)} type="close" color={colors.DarkGray} />
                 </div>
                 <img className="photo-property" src={photo} alt={"Photo" + index}/>
               </div>
@@ -72,7 +79,6 @@ function ChooseImages({ onChange, name='image', label='image' }) {
             <p>No photos yet.</p>
           </div>
         }
-        
       </StyleContainerPhotos>
     </StyledContainer>
   );
