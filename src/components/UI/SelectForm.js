@@ -1,19 +1,43 @@
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
+import { useState } from "react";
 import Icons from "./Icons";
 
 function SelectForm({ label = "Label" }) {
+  const [value, setValue] = useState("");
   const items = ["any", 1, 2, 3, 4];
+
+  const showModal = () => {
+    const modalItems = document.querySelector(".modal-items");
+    modalItems.style.display= "flex";
+  }
+
+  const sendData = (value) =>{
+    const modalItems = document.querySelector(".modal-items");
+    const label = document.querySelector(".label-value");
+    modalItems.style.display= "none";
+    label.innerHTML = typeof value === "number" ? value : "Any";
+    setValue(value);
+
+    // para enviar los datos
+    console.log(value);
+  } 
+
   return (
     <StyledContainer>
       <span>{label}</span>
       <StyledInput>
-        <span>Select...</span>
-        <Icons className="btn-down-modal" type="down" color={colors.DarkGray} />
+        <span className="label-value">Select...</span>
+        <Icons 
+          className="btn-down-modal" 
+          type="down" 
+          color={colors.DarkGray} 
+          onClick={showModal}
+        />
       </StyledInput>
-      <StyledSelects className="modal-categories">
+      <StyledSelects className="modal-items">
         {items.map((item, index) => (
-          <label key={item + index}>
+          <label key={item + index} onClick={() => sendData(item)}>
             <span>{item}</span>
           </label>
         ))}
@@ -64,22 +88,22 @@ const StyledInput = styled.div`
 `;
 
 const StyledSelects = styled.div`
-  box-sizing:border-box;
+  display: none;
+  box-sizing: border-box;
   position: absolute;
   top: 48px;
   width: 100%;
   z-index: 3;
-  display: flex;
   justify-content: space-around;
   flex-direction: column;
-  padding: 4px 0px;
   margin-top: 12px;
   margin-bottom: 20px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   color: ${colors.DarkGray};
   text-transform: capitalize;
+  overflow: hidden;
   & > label {
     padding: 2px 8px;
   }
