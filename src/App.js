@@ -9,9 +9,9 @@ import CardTeam from "./components/UI/CardTeam";
 // import FooterLanding from "./components/UI/FooterLanding";
 // import Tabs from "./components/UI/Tabs";
 // import CardComponentProperty from "./components/UI/CardComponentProperty";
+import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
-import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 
 function App() {
   return (

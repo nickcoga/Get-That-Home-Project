@@ -71,6 +71,7 @@ const ModalSalary = () => {
           onChange={handleChange}
           maxLength="10"
         />
+        
       </ContainerSalary>
       {cannotBeLetters && <ValidationsMinMaxStyles>This field can not read letter or words</ValidationsMinMaxStyles>}
       {testNumbers && <ValidationsMinMaxStyles>Maximum number: 9 999 999 999, please enter a number within the allowed range</ValidationsMinMaxStyles>}
