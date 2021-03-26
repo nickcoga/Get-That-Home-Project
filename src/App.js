@@ -13,7 +13,7 @@ import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
 import ToggleOperation from "./components/UI/ToggleOperation";
-
+import SelectCategory from "./components/UI/SelectCategory";
 function App() {
   return (
     <div>
@@ -24,6 +24,8 @@ function App() {
           <Route path="/login" component={Login} />
         </div>
       </Router>
+
+      <SelectCategory categories={["education", "legal", "goverment", "manufacturing", "sales"]} />
       <ModalPropertyType />
       <CardTeam name="abel"/>
       <CardComponentProperty />
