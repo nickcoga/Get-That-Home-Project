@@ -12,6 +12,7 @@ import CardTeam from "./components/UI/CardTeam";
 import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
+import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       </Router>
       <ModalPropertyType />
       <CardTeam name="abel"/>
+      <NavbarWelcome />
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
