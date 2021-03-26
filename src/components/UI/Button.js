@@ -11,14 +11,12 @@ const paddings = {
 const StyledButton = styled.button(
   (props) => css`
     padding: ${paddings[props.size]};
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     box-sizing: border-box;
+    text-align: center;
     border-radius: 16px;
     border: 1px solid ${colors.Pink};
-    background-color: ${colors.White};
-    color: ${colors.Gray};
+    background-color: ${colors.Pink};
+    color: ${colors.White};
     font-size: 14px;
     line-height: 24px;
     cursor: pointer;

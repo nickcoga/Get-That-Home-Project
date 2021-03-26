@@ -14,8 +14,9 @@ export default function NavbarLanding() {
 
         <Div>
           <Find>
-            <Button>
-              <Icons type="search" className="search" /> FIND A HOME
+            <Button size="medium">
+              <Icons type="search" className="search" />
+              FIND A HOME
             </Button>
           </Find>
           <Join>
@@ -63,6 +64,8 @@ const Div = styled.div`
 
 const Login = styled.li`
   button {
+    display: flex;
+    align-items: center;
     background: ${colors.Pink};
     color: ${colors.White};
     font-family: Inter;
@@ -77,10 +80,11 @@ const Login = styled.li`
 
 const Join = styled.li`
   button {
+    display: flex;
+    align-items: center;
     background: ${colors.White};
     color: ${colors.Gray};
     font-family: Inter;
-    font-weight: 500;
     font-size: 14px;
     gap: 9px;
   }
@@ -96,7 +100,6 @@ const Find = styled.li`
     background: ${colors.White};
     color: ${colors.Gray};
     font-family: Inter;
-    font-weight: 500;
     font-size: 14px;
     gap: 9px;
     border: none;
@@ -108,10 +111,11 @@ const Find = styled.li`
 
 const Logo = styled.li`
   button {
+    display: flex;
+    align-items: center;
     background: ${colors.Pink};
     color: ${colors.White};
     font-family: Inter;
-    font-weight: 500;
     font-size: 14px;
     gap: 9px;
   }
