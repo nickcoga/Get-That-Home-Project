@@ -15,14 +15,14 @@ const FieldContainer=styled.div`
 const StyledSelect=styled.select`
     border: none;
     width: 100%;
-    color: ${colors.LightGray};
+    color: ${colors.DarkGray};
 
     &:focus {
         outline:none;
     }
 
     &::placeholder{
-        color: ${colors.Pink};
+        color: ${colors.LightGray};
     }
 
     option:first-of-type {

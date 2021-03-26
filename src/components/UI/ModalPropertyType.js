@@ -23,7 +23,7 @@ function ModalPropertyType({ disabled = false }) {
   }
 
   // for update data en send
-  const sendDate = () => {
+  const sendData = () => {
     const btnOpen = document.getElementById("btn-property-types");
     const container = document.querySelector(".container-property-types");
     btnOpen.style.background = colors.Pink;
@@ -33,6 +33,7 @@ function ModalPropertyType({ disabled = false }) {
       apartments
     }
     // aqui enviamos los datos
+    console.log(nums);
     setHouses(false);
     setApartments(false);
   }
@@ -56,7 +57,7 @@ function ModalPropertyType({ disabled = false }) {
           </label>
         </div>
         <div className="container-button">
-          <button className="btn-modal" onClick={sendDate}>Done</button>
+          <button className="btn-modal" onClick={sendData}>Done</button>
         </div>
       </div>
     </StyledContainer>

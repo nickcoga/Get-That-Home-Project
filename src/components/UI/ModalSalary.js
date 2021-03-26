@@ -2,7 +2,7 @@ import { InputNumber } from "./Inputs";
 import { useReducer, useState } from "react";
 import styled from "@emotion/styled";
 import formReducer from "../../reducers/formReducer";
-import '../CardComponentProperty/CardComponentProperty.css';
+//import '../CardComponentProperty/CardComponentProperty.css';
 
 const ContainerSalary = styled.div`
   display: flex;
