@@ -19,6 +19,19 @@ function SelectCategory({ categories }) {
       return setCategoriesTags(prev => prev.filter(category => category !== value));
     }
   }
+  
+  const removeCategory = (category) => {
+    const oneTag = document.querySelector(".one-tag");
+    setCategoriesTags(prev => prev.filter(item => item !== category));
+    let categories = categoriesTags.filter(item => item !== category);
+    if(categories.length === 0) {
+      oneTag.innerHTML = "Select a category";
+      oneTag.style.display = "block";
+    }
+    if(categories.length === 1) {
+      oneTag.innerHTML = categoriesTags[0];
+    }
+  }
 
   const showModal = () => {
     const modalSelects = document.querySelector(".modal-categories");
@@ -31,11 +44,7 @@ function SelectCategory({ categories }) {
     const modalSelects = document.querySelector(".modal-categories");
     const tags = document.querySelector(".multiple-tags");
     const oneTag = document.querySelector(".one-tag");
-    console.log("se llamo");
-    console.log(categoriesTags.length);
     if(categoriesTags.length === 0) {
-      console.log("ingreso");
-      console.log(oneTag);
       oneTag.innerHTML = "Select a category";
       oneTag.style.display = "block";
     }
@@ -48,8 +57,9 @@ function SelectCategory({ categories }) {
       oneTag.style.display = "none";
       tags.style.display = "flex";
     }
-
     modalSelects.style.display="none";
+
+    // para enviar datos
     console.log(categoriesTags);
   }
   return (
@@ -62,7 +72,7 @@ function SelectCategory({ categories }) {
             {categoriesTags.map((tag, index) => (
               <span key={tag + index}>
                 {tag}
-                <Icons type="close" color={colors.DarkGray}/>
+                <Icons type="close" color={colors.DarkGray} onClick={() => removeCategory(tag)}/>
               </span>
             ))}
           </div>
@@ -72,7 +82,7 @@ function SelectCategory({ categories }) {
       <StyledSelects className="modal-categories">
         {categories.map((category) => (
           <label key={category}>
-            <input type="checkbox" name="houses" value={category} onChange={handleChange}/>
+            <input type="checkbox" name="categories" checked={categoriesTags.includes(category)} value={category} onChange={handleChange}/>
             <span className="checkmark"></span>
             <span>{category}</span>
           </label>
@@ -263,6 +273,10 @@ const StyledTags = styled.div`
       padding: 4px 8px;
       background: rgba(244, 143, 177, 0.15);
       border-radius: 8px;
+    }
+
+    svg {
+      cursor: pointer;
     }
   }
 
