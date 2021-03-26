@@ -107,6 +107,7 @@ const StyledSelect = styled.select`
   option:first-of-type {
     color: red;
   }
+
 `;
 
 function InputText({
@@ -178,17 +179,19 @@ function InputNumber({
   value = "",
   onChange,
   cssProp,
+  maxLength,
 }) {
   return (
     <FieldContainer cssProp={cssProp}>
       {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
       <ContainerNumber error={error}>
         <StyledInput
-          type="number"
+          type="text"
           value={value}
           name={name}
           placeholder={placeholder}
           id={name}
+          maxLength={maxLength}
           onChange={onChange}
         />
         {icon}
