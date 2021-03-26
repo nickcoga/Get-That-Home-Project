@@ -14,7 +14,7 @@ function ToggleOperation() {
       target.parentElement.classList.add("active-check");
     }
     // Enviar los datos
-    console.log(operation);
+    console.log(value);
   }
   
   return (
