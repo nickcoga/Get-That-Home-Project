@@ -2,6 +2,7 @@ import { InputNumber } from "./Inputs";
 import { useReducer, useState } from "react";
 import styled from "@emotion/styled";
 import formReducer from "../../reducers/formReducer";
+import '../CardComponentProperty/CardComponentProperty.css';
 
 const ContainerSalary = styled.div`
   display: flex;
@@ -9,6 +10,18 @@ const ContainerSalary = styled.div`
   p {
     margin-top: 22px;
   }
+`;
+
+const ValidationsMinMaxStyles=styled.p`
+  margin: 0;
+  padding: 8px 0 0 8px;
+  max-width: 180px;
+  text-align: justify;
+  font-family: 'Montserrat';
+  font-size: 10px;
+  font-weight: 600;
+  font-styles: normal;
+  color: red;
 `;
 
 const ModalSalary = () => {
@@ -40,8 +53,6 @@ const ModalSalary = () => {
 
   return (
     <>
-      {cannotBeLetters && <p>This field can not read letter or words</p>}
-      {testNumbers && <p>You cannot exceed the maximum number, please enter a number within the allowed range</p>}
       <ContainerSalary>
         <InputNumber
           label="min"
@@ -61,6 +72,8 @@ const ModalSalary = () => {
           maxLength="10"
         />
       </ContainerSalary>
+      {cannotBeLetters && <ValidationsMinMaxStyles>This field can not read letter or words</ValidationsMinMaxStyles>}
+      {testNumbers && <ValidationsMinMaxStyles>Maximum number: 9 999 999 999, please enter a number within the allowed range</ValidationsMinMaxStyles>}
     </>
   );
 };

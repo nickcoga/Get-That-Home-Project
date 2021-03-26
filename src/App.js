@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Random from "./pages/Random";
 import Login from "./pages/Login";
 import ChooseFile from "./components/UI/ChooseFile";
-import CardComponentProperty from "./components/UI/CardComponentProperty";
 import React from "react";
 import CardTeam from "./components/UI/CardTeam";
 // import Text from "./components/styles/Heading";
@@ -12,6 +11,7 @@ import CardTeam from "./components/UI/CardTeam";
 // import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
+import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 
 function App() {
   return (
