@@ -13,6 +13,7 @@ import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
 import SelectCategory from "./components/UI/SelectCategory";
+import SelectForm from "./components/UI/SelectForm";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       </Router>
 
       <SelectCategory categories={["education", "legal", "goverment", "manufacturing", "sales"]} />
+      <SelectForm label="Beds"/>
       <ModalPropertyType />
       <CardTeam name="abel"/>
       <CardComponentProperty />
