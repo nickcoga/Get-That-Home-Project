@@ -37,7 +37,7 @@ function SelectForm({ label = "Label" }) {
       </StyledInput>
       <StyledSelects className="modal-items">
         {items.map((item, index) => (
-          <label key={item + index} onClick={() => sendData(item)}>
+          <label key={item + index} onClick={() => sendData(item)} className={value === item? "active-label" : ""}>
             <span>{item}</span>
           </label>
         ))}
@@ -106,6 +106,11 @@ const StyledSelects = styled.div`
   overflow: hidden;
   & > label {
     padding: 2px 8px;
+  }
+
+  .active-label {
+    color: ${colors.White};
+    background: ${colors.Pink};
   }
   & > label:hover {
     cursor: pointer;
