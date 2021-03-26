@@ -8,14 +8,16 @@ import CardTeam from "./components/UI/CardTeam";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
 // import Tabs from "./components/UI/Tabs";
-// import CardComponentProperty from "./components/UI/CardComponentProperty";
-import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
+import CardComponentProperty from "./components/UI/CardComponentProperty";
+// import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
+import ToggleOperation from "./components/UI/ToggleOperation";
 
 function App() {
   return (
     <div>
+      <ToggleOperation />
       <Router>
         <div>
           <Route exact path="/" component={Random} />
