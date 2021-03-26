@@ -12,7 +12,6 @@ const StyledButton = styled.button(
   (props) => css`
     padding: ${paddings[props.size]};
     box-sizing: border-box;
-    width: 112px;
     text-align: center;
     border-radius: 16px;
     border: 1px solid ${colors.Pink};
