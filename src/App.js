@@ -12,11 +12,12 @@ import CardComponentProperty from "./components/UI/CardComponentProperty";
 // import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
+import ToggleOperation from "./components/UI/ToggleOperation";
 import SelectCategory from "./components/UI/SelectCategory";
-
 function App() {
   return (
     <div>
+      <ToggleOperation />
       <Router>
         <div>
           <Route exact path="/" component={Random} />
