@@ -14,10 +14,13 @@ import ModalPropertyType from "./components/UI/ModalPropertyType";
 import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
 import SelectCategory from "./components/UI/SelectCategory";
 import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
-
+import ToggleOperation from "./components/UI/ToggleOperation";
+import SelectCategory from "./components/UI/SelectCategory";
+import SelectForm from "./components/UI/SelectForm";
 function App() {
   return (
     <div>
+      <ToggleOperation />
       <Router>
         <div>
           <Route exact path="/" component={Random} />
@@ -26,6 +29,7 @@ function App() {
       </Router>
 
       <SelectCategory categories={["education", "legal", "goverment", "manufacturing", "sales"]} />
+      <SelectForm label="Beds"/>
       <ModalPropertyType />
       <CardTeam name="abel"/>
       <NavbarWelcome />
