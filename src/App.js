@@ -8,11 +8,13 @@ import CardTeam from "./components/UI/CardTeam";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
 // import Tabs from "./components/UI/Tabs";
-// import CardComponentProperty from "./components/UI/CardComponentProperty";
-import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
+import CardComponentProperty from "./components/UI/CardComponentProperty";
+// import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
 import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
+import SelectCategory from "./components/UI/SelectCategory";
+
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/login" component={Login} />
         </div>
       </Router>
+
+      <SelectCategory categories={["education", "legal", "goverment", "manufacturing", "sales"]} />
       <ModalPropertyType />
       <CardTeam name="abel"/>
       <NavbarWelcome />
