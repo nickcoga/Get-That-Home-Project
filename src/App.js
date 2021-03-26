@@ -8,10 +8,12 @@ import CardTeam from "./components/UI/CardTeam";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
 // import Tabs from "./components/UI/Tabs";
-import CardComponentProperty from "./components/UI/CardComponentProperty";
 // import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
+import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
+import SelectCategory from "./components/UI/SelectCategory";
+import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ToggleOperation from "./components/UI/ToggleOperation";
 import SelectCategory from "./components/UI/SelectCategory";
 import SelectForm from "./components/UI/SelectForm";
@@ -30,6 +32,7 @@ function App() {
       <SelectForm label="Beds"/>
       <ModalPropertyType />
       <CardTeam name="abel"/>
+      <NavbarWelcome />
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
