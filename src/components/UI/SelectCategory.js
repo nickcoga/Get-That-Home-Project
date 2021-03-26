@@ -1,46 +1,84 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import Icons from "./Icons";
 
 function SelectCategory({ categories }) {
+  const [categoriesTags, setCategoriesTags] = useState([]);
+  const handleChange = ({target}) => {
+    const { value, checked } = target;
+    if (checked) {
+      setCategoriesTags(prev => {
+        if(prev.includes(value)) {
+          return prev.filter(category => category !== value);
+        } else {
+          return [value, ...prev];
+        }
+      })
+    } else {
+      return setCategoriesTags(prev => prev.filter(category => category !== value));
+    }
+  }
+
+  const showModal = () => {
+    const modalSelects = document.querySelector(".modal-categories");
+    const tags = document.querySelector(".multiple-tags");
+    modalSelects.style.display="flex";
+    tags.style.display="none";
+  }
+
+  const sendData = () => {
+    const modalSelects = document.querySelector(".modal-categories");
+    const tags = document.querySelector(".multiple-tags");
+    const oneTag = document.querySelector(".one-tag");
+    console.log("se llamo");
+    console.log(categoriesTags.length);
+    if(categoriesTags.length === 0) {
+      console.log("ingreso");
+      console.log(oneTag);
+      oneTag.innerHTML = "Select a category";
+      oneTag.style.display = "block";
+    }
+
+    if(categoriesTags.length === 1) {
+      oneTag.innerHTML = categoriesTags[0];
+    }
+
+    if(categoriesTags.length > 1) {
+      oneTag.style.display = "none";
+      tags.style.display = "flex";
+    }
+
+    modalSelects.style.display="none";
+    console.log(categoriesTags);
+  }
   return (
     <StyledContainer>
       <span>Category</span>
-      <StyledInput>
+      <StyledInput >
         <StyledTags>
-          <span>Select a category</span>
+          <span className="one-tag">Select a category</span>
           <div className="multiple-tags">
-            <span>
-              Education
-              <Icons type="close" color={colors.DarkGray}/>
-            </span>
-            <span>
-              Education
-              <Icons type="close" color={colors.DarkGray}/>
-            </span>
-
-            <span>
-              Education
-              <Icons type="close" color={colors.DarkGray}/>
-            </span>
-            <span>
-              Education
-              <Icons type="close" color={colors.DarkGray}/>
-            </span>
+            {categoriesTags.map((tag, index) => (
+              <span key={tag + index}>
+                {tag}
+                <Icons type="close" color={colors.DarkGray}/>
+              </span>
+            ))}
           </div>
         </StyledTags>
-        <Icons type="down" color={colors.DarkGray} />
+        <Icons className="btn-down-modal" onClick={showModal} type="down" color={colors.DarkGray} />
       </StyledInput>
-      <StyledSelects>
+      <StyledSelects className="modal-categories">
         {categories.map((category) => (
           <label key={category}>
-            <input type="checkbox" name="houses" />
+            <input type="checkbox" name="houses" value={category} onChange={handleChange}/>
             <span className="checkmark"></span>
             <span>{category}</span>
           </label>
         ))}
         <div className="button-modal">
-          <button >Done</button>
+          <button onClick={sendData} >Done</button>
         </div>
       </StyledSelects>
     </StyledContainer>
@@ -78,17 +116,18 @@ const StyledInput = styled.div`
   border: 1px solid ${colors.Pink};
   border-radius: 8px;
   color: ${colors.Gray};
-  
   & > div {
     flex:1;
   }
 
-  &:hover {
+  & > .btn-down-modal:hover {
     cursor: pointer;
+  }
+
+  &:hover {
     color: ${colors.DarkGray};
     background-color: #f5518810;
   }
- 
 `;
 
 const StyledSelects = styled.div`
@@ -107,6 +146,7 @@ const StyledSelects = styled.div`
   background: #FFFFFF;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+  display: none;
   .checkmark {
     display: block;
     width: 20px;
@@ -194,16 +234,17 @@ const StyledSelects = styled.div`
 `;
 
 const StyledTags = styled.div`
-  & > span:first-child {
+  & > .one-tag {
     font-size: 14px;
     border: none;
     width: 100%;
     display: block;
-    margin-bottom: 8px;
+    text-transform: capitalize;
   }
+
   & > .multiple-tags {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 5px;
