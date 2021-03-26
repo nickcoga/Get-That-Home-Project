@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Random from "./pages/Random";
 import Login from "./pages/Login";
-import ChooseFile from "./components/UI/ChooseFile";
-import React from "react";
 import CardTeam from "./components/UI/CardTeam";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
@@ -15,6 +13,7 @@ import ModalPropertyType from "./components/UI/ModalPropertyType";
 import ToggleOperation from "./components/UI/ToggleOperation";
 import SelectCategory from "./components/UI/SelectCategory";
 import SelectForm from "./components/UI/SelectForm";
+import ChooseImages from "./components/UI/ChooseImages";
 function App() {
   return (
     <div>
@@ -25,7 +24,7 @@ function App() {
           <Route path="/login" component={Login} />
         </div>
       </Router>
-
+      <ChooseImages />
       <SelectCategory categories={["education", "legal", "goverment", "manufacturing", "sales"]} />
       <SelectForm label="Beds"/>
       <ModalPropertyType />
@@ -50,8 +49,6 @@ function App() {
       {/* <FooterLanding /> */}
 
       {/* <Test /> */}
-      <ChooseFile name="image" label="label"/>
-      <ChooseFile name="image" label="label" disabled  />
       <ModalSalary />
     </div>
   );

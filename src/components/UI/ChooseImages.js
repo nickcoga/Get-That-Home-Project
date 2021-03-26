@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import Icons from "./Icons";
 
-function ChooseFile({ disabled = false, onChange, name='image', label='image' }) {
+function ChooseImages({  onChange, name='image', label='image' }) {
   const handleClick = () => {
     let chooseInput = document.getElementById("choose-file-input");
     chooseInput.click();
@@ -13,12 +13,9 @@ function ChooseFile({ disabled = false, onChange, name='image', label='image' })
   //   const { name, value } = target;
   //   console.log(name, value);
   // }
-
+  
   return (
-    <StyledContainer
-      onClick={!disabled ? handleClick : () => {}}
-      disabled={disabled}
-    >
+    <StyledContainer>
       <label htmlFor="file">{label}</label>
       <div>
         <button name="file">
@@ -98,4 +95,4 @@ const StyledContainer = styled.div`
   }
 `;
 
-export default ChooseFile;
+export default ChooseImages;
