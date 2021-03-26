@@ -65,7 +65,7 @@ const iconSet = {
   linkedin: AiOutlineLinkedin,
 };
 
-const Icons = ({ type, color, className }) => {
+const Icons = ({ type, color, className, onClick }) => {
   const ComponentToRender = iconSet[type];
   return (
     <ComponentToRender
@@ -73,6 +73,7 @@ const Icons = ({ type, color, className }) => {
       css={css`
         color: ${color};
       `}
+      onClick={onClick}
     />
   );
 };
