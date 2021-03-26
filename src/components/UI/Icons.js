@@ -50,7 +50,7 @@ const iconSet = {
   ruby: DiRuby,
   react: FaReact,
   search: BiSearch,
-  join: RiUserAddLine,
+  userplus: RiUserAddLine,
   login: RiUserReceived2Line,
   home: RiHome8Line,
   user: BiUser,
@@ -65,11 +65,7 @@ const iconSet = {
   linkedin: AiOutlineLinkedin,
 };
 
-const Icons = ({ 
-    type, 
-    color, 
-    className,
-}) => {
+const Icons = ({ type, color, className }) => {
   const ComponentToRender = iconSet[type];
   return (
     <ComponentToRender
