@@ -9,6 +9,7 @@ export const colors = {
   Background: "#F5F5F6",
   BackgroundLight: "#E1E2E1",
   White: "#FFFFFF",
+  HeaderNavbar: "#616161",
   ShallowPink: "rgba(244, 143, 177, 0.15)",
   ShallowGray: "rgba(97, 97, 97, 0.15)",
   ShadowBox: "rgba(0, 0, 0, 0.16)",
