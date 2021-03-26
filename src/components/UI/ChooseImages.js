@@ -2,8 +2,9 @@ import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import Icons from "./Icons";
 
-function ChooseImages({  onChange, name='image', label='image' }) {
+function ChooseImages({ onChange, name='image', label='image' }) {
   const handleClick = () => {
+    console.log("click");
     let chooseInput = document.getElementById("choose-file-input");
     chooseInput.click();
     chooseInput.style.color = colors.DarkGray;
@@ -18,8 +19,8 @@ function ChooseImages({  onChange, name='image', label='image' }) {
     <StyledContainer>
       <label htmlFor="file">{label}</label>
       <div>
-        <button name="file">
-          <Icons type="choosefile" color="white" onClick={handleClick} />
+        <button name="file" onClick={handleClick} >
+          <Icons type="choosefile" color="white" />
           <span>Choose file</span>
         </button>
         <input
@@ -27,10 +28,18 @@ function ChooseImages({  onChange, name='image', label='image' }) {
           name={name}
           type="file"
           onChange={onChange}
+          accept="j"
         />
-      
       </div>
-      
+      <p>Only images, max 5MB</p>
+      <StyleContainerPhotos>
+        <div className="no-photos">
+          <p>No photos yet.</p>
+        </div>
+        <div className="photo-container">
+
+        </div>
+      </StyleContainerPhotos>
     </StyledContainer>
   );
 }
@@ -92,6 +101,34 @@ const StyledContainer = styled.div`
   &  button:hover {
     cursor: pointer;
     background-color: ${({ disabled }) => !disabled && "#f55188"};
+  }
+
+  & > p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: ${colors.LightGray};
+    margin: 0;
+  }
+`;
+
+const StyleContainerPhotos = styled.div`
+  height: 140px;
+  background: #F5F5F6;
+  & > .no-photos {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    display: flex;
+    background: ${colors.BackgroundLight};
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: ${colors.DarkGray};
   }
 `;
 
