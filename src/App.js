@@ -17,9 +17,16 @@ import SelectForm from "./components/UI/SelectForm";
 import ChooseImages from "./components/UI/ChooseImages";
 import Carrusel from "./components/UI/Carrusel";
 function App() {
+
+
+    const images = [
+      "https://picsum.photos/205/200",
+      "https://picsum.photos/206/200",
+      "https://picsum.photos/207/200"
+    ];
   return (
     <div>
-      <Carrusel />
+      <Carrusel photos={images}/>
       <ToggleOperation />
       <Router>
         <div>

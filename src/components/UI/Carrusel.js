@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import Icons from "./Icons";
@@ -8,28 +9,34 @@ const images = [
   "https://picsum.photos/200/200",
   "https://picsum.photos/201/200",
   "https://picsum.photos/202/200",
-  "https://picsum.photos/201/200",
-  "https://picsum.photos/202/200",
+  "https://picsum.photos/203/200",
+  "https://picsum.photos/204/200",
 ];
 
-const nexPhoto = () => {
 
-}
+function Carrusel({photos = images}) {
+  const [photosList, setPhotosList] = useState(photos);
+  const previousPhoto = () => {
+    console.log("prev");
+    setPhotosList([ photosList[photosList.length - 1], ...photosList.splice(0, photosList.length - 1),])
+    //setPhotosList([photosList[0], ...photosList.splice(1)])
+  }
 
-const previousPhoto = () => {
-
-}
-function Carrusel() {
+  const nexPhoto = () => {
+    console.log("next");
+    setPhotosList([...photosList.splice(1), photosList[0]])
+  }
+  
   return (
     <StyledContainer>
       <StyledContainerIcon>
-        <Icons className="prev" onClick={nexPhoto}  type="previous" />
+        <Icons className="prev" onClick={previousPhoto}  type="previous" />
       </StyledContainerIcon>
-        {images.map((image, index) => (
-          <img className={index === 1? 'active' : ''} key={index} src={image} alt={`Image ${index}`}/>
-        ))}
+      {photosList.map((image, index) => (
+        <img className={index === 1? 'active' : ''} key={index} src={image} alt={`Image ${index}`}/>
+      ))}
       <StyledContainerIcon>
-        <Icons className="next" onClick={previousPhoto} type="next" />
+        <Icons className="next" onClick={nexPhoto} type="next" />
       </StyledContainerIcon>
     </StyledContainer>
   )
@@ -42,7 +49,8 @@ const StyledContainer = styled.div`
   justify-content: space-between;
   box-sizing: border-box;
   align-content: center;
-  & img {
+  margin: 0 auto;
+  & > img {
     display: none;
     flex: 1;
     height: 384px;
@@ -54,6 +62,10 @@ const StyledContainer = styled.div`
   & > svg {
     cursor: pointer;
   }
+
+  img {
+    transition: all 800ms ease-in;
+  }
 `;
 
 const StyledContainerIcon = styled.div`
@@ -64,7 +76,7 @@ const StyledContainerIcon = styled.div`
   & > .prev,
   & > .next {
     transform: translateX(0px);
-    transition: transform 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
     padding: 4px;
     border-radius: 50%;
   }
@@ -73,13 +85,13 @@ const StyledContainerIcon = styled.div`
     cursor: pointer;
     transform: translateX(-3px);
     background: ${colors.gray4};
-    opacity: 0.5;
+    opacity: 0.2;
   }
   & > .next:hover {
     cursor: pointer;
     transform: translateX(3px);
     background: ${colors.gray4};
-    opacity: 0.5;
+    opacity: 0.2;
   }
 `;
 
