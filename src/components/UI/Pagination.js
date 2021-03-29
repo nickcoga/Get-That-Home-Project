@@ -1,19 +1,31 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import Icons from "./Icons";
 
-const numbers = [1, 2, 3, 4, 5, 6, 7];
-function Pagination({pages = numbers}) {
+function Pagination({pages = 10}) {
+  const numbersPages = [];
+  for (let i = 1; i <= pages; i++) {
+    numbersPages.push(i);
+  };
+  const [numbersList, setnumbersList] = useState(numbersPages);
 
+  const previousPhoto = () => {
+    setnumbersList([ numbersList[numbersList.length - 1], ...numbersList.splice(0, numbersList.length - 1),])
+  }
+
+  const nexPhoto = () => {
+    setnumbersList([...numbersList.splice(1), numbersList[0]])
+  }
   return (
     <StyledContainer>
-      <Icons type="previous" />
+      <Icons type="previous" onClick={previousPhoto} />
       <StyleContainerNumbers>
-        {numbers.map((number, index) =>  (
+        {numbersList.map((number, index) =>  (
           <span key={index}>{number}</span>
         ))}
       </StyleContainerNumbers>
-      <Icons type="next" />
+      <Icons type="next" onClick={nexPhoto} />
     </StyledContainer>
   )
 }
@@ -23,6 +35,9 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
+  & > svg {
+    cursor: pointer;
+  }
 `;
 
 const StyleContainerNumbers = styled.div`
@@ -44,6 +59,9 @@ const StyleContainerNumbers = styled.div`
     border: 1px solid rgba(97, 97, 97, 0.15);
     border-radius: 4px;
     transition: all 300ms ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   & > span:hover {
