@@ -17,12 +17,23 @@ function Pagination({pages = 10}) {
   const nexPhoto = () => {
     setnumbersList([...numbersList.splice(1), numbersList[0]])
   }
+
+  const handleClick = ({target}) => {
+    const pages = document.querySelectorAll(".pages");
+    pages.forEach(page => {
+      page.classList.remove("active-page");
+    })
+    target.classList.add("active-page");
+    
+    //Current Page
+    console.log(target.innerHTML);
+  }
   return (
     <StyledContainer>
       <Icons type="previous" onClick={previousPhoto} />
       <StyleContainerNumbers>
         {numbersList.map((number, index) =>  (
-          <span key={index}>{number}</span>
+          <span key={index} onClick={handleClick} className="pages">{number}</span>
         ))}
       </StyleContainerNumbers>
       <Icons type="next" onClick={nexPhoto} />
@@ -70,7 +81,7 @@ const StyleContainerNumbers = styled.div`
     border: 1px solid ${colors.DarkPink};
   }
 
-  .active {
+  .active-page {
     cursor: pointer;
     background: rgba(244, 143, 177, 0.15);
     border: 1px solid ${colors.DarkPink};
