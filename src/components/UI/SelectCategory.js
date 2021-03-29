@@ -60,7 +60,7 @@ function SelectCategory({ categories }) {
     modalSelects.style.display="none";
 
     // para enviar datos
-    console.log(categoriesTags);
+    //console.log(categoriesTags);
   }
   return (
     <StyledContainer>
