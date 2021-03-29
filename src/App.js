@@ -9,16 +9,17 @@ import CardTeam from "./components/UI/CardTeam";
 // import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
-import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
+import NavbarWelcome from "./components/UI/NavbarLanding";
 import SelectCategory from "./components/UI/SelectCategory";
-import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
+import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ToggleOperation from "./components/UI/ToggleOperation";
-import SelectCategory from "./components/UI/SelectCategory";
 import SelectForm from "./components/UI/SelectForm";
 import ChooseImages from "./components/UI/ChooseImages";
+import Pagination from "./components/UI/Pagination";
 function App() {
   return (
     <div>
+      <Pagination />
       <ToggleOperation />
       <Router>
         <div>
@@ -31,7 +32,7 @@ function App() {
       <SelectForm label="Beds"/>
       <ModalPropertyType />
       <CardTeam name="abel"/>
-      <NavbarWelcome />
+      {/*<NavbarWelcome />*/}
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
