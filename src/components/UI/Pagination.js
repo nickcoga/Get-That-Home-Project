@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import Icons from "./Icons";
@@ -9,13 +9,29 @@ function Pagination({pages = 10}) {
     numbersPages.push(i);
   };
   const [numbersList, setnumbersList] = useState(numbersPages);
-
   const previousPhoto = () => {
-    setnumbersList([ numbersList[numbersList.length - 1], ...numbersList.splice(0, numbersList.length - 1),])
+    const btnPrev = document.querySelector(".prev");
+    const btnNext = document.querySelector(".next");
+    btnNext.style.visibility = "visible";
+    if(!(numbersList[0] === 1)){
+      setnumbersList([ numbersList[numbersList.length - 1], ...numbersList.splice(0, numbersList.length - 1)]);
+    }  
+    if((numbersList[0] === 1)) {
+      btnPrev.style.visibility = "hidden";
+    }
   }
-
+  
   const nexPhoto = () => {
-    setnumbersList([...numbersList.splice(1), numbersList[0]])
+    const btnPrev = document.querySelector(".prev");
+    const btnNext = document.querySelector(".next");
+    btnPrev.style.visibility = "visible";
+    if(!(numbersList[0] === (pages - 4))) {
+      setnumbersList([...numbersList.splice(1), numbersList[0]]);
+    }
+
+    if((numbersList[0] === (pages - 5))) {
+      btnNext.style.visibility = "hidden";
+    }
   }
 
   const handleClick = ({target}) => {
@@ -30,13 +46,13 @@ function Pagination({pages = 10}) {
   }
   return (
     <StyledContainer>
-      <Icons type="previous" onClick={previousPhoto} />
+      <Icons className="prev" type="previous" onClick={previousPhoto} />
       <StyleContainerNumbers>
         {numbersList.map((number, index) =>  (
           <span key={index} onClick={handleClick} className="pages">{number}</span>
         ))}
       </StyleContainerNumbers>
-      <Icons type="next" onClick={nexPhoto} />
+      <Icons className="next" type="next" onClick={nexPhoto} />
     </StyledContainer>
   )
 }
@@ -48,6 +64,10 @@ const StyledContainer = styled.div`
   gap: 10px;
   & > svg {
     cursor: pointer;
+  }
+
+  .prev{
+    visibility: hidden;
   }
 `;
 
