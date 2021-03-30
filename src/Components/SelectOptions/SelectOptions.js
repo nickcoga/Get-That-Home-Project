@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { colors } from '../styles/ColorStyles';
-import Icons from '../UI/Icons';
 
 const FieldContainer=styled.div`
     display: flex;

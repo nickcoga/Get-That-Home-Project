@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { colors } from "./ColorStyles";
 
-export default function Text({ type, size, color, caption, children }) {
+export default function Text({ type, size, color, caption, children, }) {
   return (
     <StyledText type={type} size={size} color={color} caption={caption}>
       {children}
@@ -93,5 +93,5 @@ const StyledText = styled.p`
   font-weight: ${(props) => (props.type === "SemiBold" ? 500 : "normal")};
   ${(props) => calcSize(props.size)}
   color: ${(props) => colors[props.color]};
-  margin: 0;
+  margin: 0 0 8px 0;
 `;

@@ -12,6 +12,7 @@ const NavbarWelcomeStyles=styled.div`
     box-shadow: 0 8px 8px ${colors.ShadowBox};
     border-radius: 8px;
     padding: 8px 16px;
+    margin: 56px 0 0 0;
     display: flex;
     align-items: center;
 `;
@@ -58,7 +59,6 @@ const NavbarWelcome = () => {
 
     return (
         <div>
-            <h1>Navbar Welcome</h1>
             <NavbarWelcomeStyles>
                 <LeftOptionsStyles>
                     <HeaderNavbarStyles>i'm looking for</HeaderNavbarStyles>

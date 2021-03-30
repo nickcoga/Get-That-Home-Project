@@ -1,26 +1,27 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Random from "./pages/Random";
-import Login from "./pages/Login";
-import ChooseFile from "./components/UI/ChooseFile";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import React from "react";
-import CardTeam from "./components/UI/CardTeam";
+import LandPage from "./components/LandPage/LandPage";
+// import Random from "./pages/Random";
+// import Login from "./pages/Login";
+// import ChooseFile from "./components/UI/ChooseFile";
+// import CardTeam from "./components/UI/CardTeam";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
 // import Tabs from "./components/UI/Tabs";
 // import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
-import ModalSalary from "./components/UI/ModalSalary";
-import ModalPropertyType from "./components/UI/ModalPropertyType";
-import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
-import SelectCategory from "./components/UI/SelectCategory";
-import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
-import ToggleOperation from "./components/UI/ToggleOperation";
-import SelectCategory from "./components/UI/SelectCategory";
-import SelectForm from "./components/UI/SelectForm";
+// import ModalSalary from "./components/UI/ModalSalary";
+// import ModalPropertyType from "./components/UI/ModalPropertyType";
+// import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
+// import SelectCategory from "./components/UI/SelectCategory";
+// import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
+// import ToggleOperation from "./components/UI/ToggleOperation";
+// import SelectForm from "./components/UI/SelectForm";
 function App() {
   return (
     <div>
-      <ToggleOperation />
+      <LandPage />
+      {/* <ToggleOperation />
       <Router>
         <div>
           <Route exact path="/" component={Random} />
@@ -36,7 +37,7 @@ function App() {
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
-      <CardComponentProperty />
+      <CardComponentProperty /> */}
 
       {/* <Tabs tabs={["actives", "closed"]} />
       <Tabs tabs={["favorites", "contacted"]} />
@@ -53,9 +54,9 @@ function App() {
       {/* <FooterLanding /> */}
 
       {/* <Test /> */}
-      <ChooseFile name="image" label="label"/>
+      {/* <ChooseFile name="image" label="label"/>
       <ChooseFile name="image" label="label" disabled  />
-      <ModalSalary />
+      <ModalSalary /> */}
     </div>
   );
 }
