@@ -5,6 +5,7 @@ import LandPage from "./components/LandPage/LandPage";
 // import Login from "./pages/Login";
 // import ChooseFile from "./components/UI/ChooseFile";
 // import CardTeam from "./components/UI/CardTeam";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
@@ -17,27 +18,37 @@ import LandPage from "./components/LandPage/LandPage";
 // import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 // import ToggleOperation from "./components/UI/ToggleOperation";
 // import SelectForm from "./components/UI/SelectForm";
+// import ChooseImages from "./components/UI/ChooseImages";
+// import Pagination from "./components/UI/Pagination";
+// import Carrusel from "./components/UI/Carrusel";
+// import SelectCategory from "./components/UI/SelectCategory";
 function App() {
+
+
+    const images = [
+      "https://picsum.photos/205/200",
+      "https://picsum.photos/206/200",
+      "https://picsum.photos/207/200"
+    ];
   return (
     <div>
       <LandPage />
       {/* <ToggleOperation />
+      <Pagination />
+      <Carrusel photos={images}/>
+      <ToggleOperation />
       <Router>
         <div>
           <Route exact path="/" component={Random} />
           <Route path="/login" component={Login} />
         </div>
       </Router>
-
+      <ChooseImages />
       <SelectCategory categories={["education", "legal", "goverment", "manufacturing", "sales"]} />
       <SelectForm label="Beds"/>
       <ModalPropertyType />
       <CardTeam name="abel"/>
-      <NavbarWelcome />
-      <CardComponentProperty />
-      <CardComponentProperty />
-      <CardComponentProperty />
-      <CardComponentProperty /> */}
+      {/*<NavbarWelcome />*/}
 
       {/* <Tabs tabs={["actives", "closed"]} />
       <Tabs tabs={["favorites", "contacted"]} />
@@ -57,6 +68,7 @@ function App() {
       {/* <ChooseFile name="image" label="label"/>
       <ChooseFile name="image" label="label" disabled  />
       <ModalSalary /> */}
+      {/* <ModalSalary /> */}
     </div>
   );
 }
