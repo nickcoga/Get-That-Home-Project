@@ -7,7 +7,6 @@ function ChooseImages({ onChange, name='image', label='image' }) {
   const [photos, setPhotos] = useState([]);
   const [photos64, setPhotos64] =  useState([]);
   const handleClick = () => {
-    console.log("click");
     let chooseInput = document.getElementById("choose-file-input");
     chooseInput.click();
     chooseInput.style.color = colors.DarkGray;
@@ -38,7 +37,7 @@ function ChooseImages({ onChange, name='image', label='image' }) {
     })
 
     // para enviar data
-    console.log(photos);
+    //console.log(photos);
   }
 
   const removePhoto = (photo) => {

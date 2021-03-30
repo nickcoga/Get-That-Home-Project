@@ -33,7 +33,7 @@ function ModalPropertyType({ disabled = false }) {
       apartments
     }
     // aqui enviamos los datos
-    console.log(nums);
+    //console.log(nums);
     setHouses(false);
     setApartments(false);
   }

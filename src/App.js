@@ -9,16 +9,24 @@ import CardTeam from "./components/UI/CardTeam";
 // import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
-import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
+import NavbarWelcome from "./components/UI/NavbarLanding";
 import SelectCategory from "./components/UI/SelectCategory";
-import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
+import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ToggleOperation from "./components/UI/ToggleOperation";
-import SelectCategory from "./components/UI/SelectCategory";
 import SelectForm from "./components/UI/SelectForm";
 import ChooseImages from "./components/UI/ChooseImages";
+import Carrusel from "./components/UI/Carrusel";
 function App() {
+
+
+    const images = [
+      "https://picsum.photos/205/200",
+      "https://picsum.photos/206/200",
+      "https://picsum.photos/207/200"
+    ];
   return (
     <div>
+      <Carrusel photos={images}/>
       <ToggleOperation />
       <Router>
         <div>
@@ -31,7 +39,7 @@ function App() {
       <SelectForm label="Beds"/>
       <ModalPropertyType />
       <CardTeam name="abel"/>
-      <NavbarWelcome />
+      {/*<NavbarWelcome />*/}
       <CardComponentProperty />
       <CardComponentProperty />
       <CardComponentProperty />
