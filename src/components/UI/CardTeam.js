@@ -3,6 +3,7 @@ import Icons from "./Icons";
 import user1 from "../../assets/user1.svg";
 import { colors } from "../styles/ColorStyles";
 import { useState } from "react";
+import Text from "../styles/Heading";
 
 
 const team = [
@@ -38,13 +39,14 @@ function CardTeam() {
 
   return (
     <StyledContainer>
+      <div className="container">
         {
           partners.map((partner) => (
             <div key={partner.nickname} className="cardTeam">
               <div className="image">
                 <img src={partner.image} alt={partner.nickname}/>
               </div>
-              <h2>{partner.nickname}</h2>
+              <Text type='Montserrat' size='H6'>{partner.nickname}</Text>
               <div className="buttons">
                 <a href={partner.github} target="blank">
                   <Icons type="github" className="github" />
@@ -56,6 +58,7 @@ function CardTeam() {
             </div>
           ))
         }
+      </div>
     </StyledContainer>
   );
 }
@@ -112,8 +115,18 @@ box-sizing: border-box;
     color: ${colors.Gray};
   }
 
+  .container {
+    display: flex;
+  }
 
   .cardTeam {
+    max-height: 262px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 8px 12px 8px;
+    margin: 0 60px 0 0;
     .github {
       color=${colors.Gray}
     }
