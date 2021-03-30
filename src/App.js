@@ -10,13 +10,13 @@ import CardTeam from "./components/UI/CardTeam";
 import ModalSalary from "./components/UI/ModalSalary";
 import ModalPropertyType from "./components/UI/ModalPropertyType";
 import NavbarWelcome from "./components/UI/NavbarLanding";
-import SelectCategory from "./components/UI/SelectCategory";
 import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ToggleOperation from "./components/UI/ToggleOperation";
 import SelectForm from "./components/UI/SelectForm";
 import ChooseImages from "./components/UI/ChooseImages";
 import Pagination from "./components/UI/Pagination";
 import Carrusel from "./components/UI/Carrusel";
+import SelectCategory from "./components/UI/SelectCategory";
 function App() {
 
 
