@@ -36,6 +36,7 @@ const LandPageStyles=styled.div`
 const LandPage = () => {
     return (
         <LandPageStyles>
+            <NavbarLanding />
             <div className="landPage">
                 <div className="secondHeader">
                     <div className="secondHeader--styles">
