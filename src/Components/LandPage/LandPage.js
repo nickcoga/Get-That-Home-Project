@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { useState } from 'react';
 import LandPageImage from '../../assets/illustration_1.png';
 import Text from '../styles/Heading';
 import '../CardComponentProperty/CardComponentProperty.css'
@@ -10,10 +10,17 @@ import { colors } from '../styles/ColorStyles';
 import ButtonNavbarWelcome from '../NavbarWelcome/ButtonNavbarWelcome';
 import CardTeam from '../UI/CardTeam';
 import FooterLanding from '../UI/FooterLanding';
+import LoginForm from '../features/session/LoginForm';
 
 const LandPageStyles=styled.div`
     width: 100%;
     
+    .login-form {
+        position: absolute;
+        left: 36%;
+        top: 16%;
+    }
+
     .landPage {
         width: 100%;
         display: flex;
@@ -30,9 +37,19 @@ const LandPageStyles=styled.div`
                 align-items: center;
             }
         }
-    
-        img {
+
+        .secondHeader--login {
             width: 100%;
+            background-image: url('../../assets/illustration_1.png');
+            background: red;
+        }
+    
+        .landingImage {
+            width: 100%;
+        }
+
+        .landingLogin {
+            display: none;
         }
 
         .box-cards {
@@ -76,18 +93,22 @@ const LandPageStyles=styled.div`
 `;
 
 const LandPage = () => {
+    const [login, setLogin] = useState(false);
     return (
         <LandPageStyles>
-            <NavbarLanding />
+            <NavbarLanding login={login} setLogin={setLogin}/>
+            {
+                login && <div className="login-form"><LoginForm /></div>
+            }
             <div className="landPage">
-                <div className="secondHeader">
+                <div className={login ? "secondHeader--login" : "secondHeader"}>
                     <div className="secondHeader--styles">
                         <Text type='Montserrat' size='H2'>Meet your new home</Text>
                         <Text type='Montserrat' size='H5'>The easiest way to find where you belong</Text>
                         <NavbarWelcome />
                     </div>
                 </div>
-                <img src={LandPageImage} alt="Buildings" />
+                <img src={LandPageImage} alt="Buildings" className={login ? "landingLogin" : "landingImage"}/>
                 <div className="box-cards">
                     <Text type='Montserrat' size='Subtitle2'>Find an Apartment you Love</Text>
                     <Text type='Montserrat' size='H4' color='DarkPink'>Homes for rent at the best prices</Text>

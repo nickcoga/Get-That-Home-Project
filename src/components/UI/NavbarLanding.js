@@ -4,7 +4,13 @@ import GetThatHome from "../../assets/GetThatHome.svg";
 import Button from "./Button";
 import Icons from "./Icons";
 
-export default function NavbarLanding() {
+export default function NavbarLanding({ login, setLogin}) {
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setLogin(!login);
+  }
+
   return (
     <Navbar>
       <Container>
@@ -25,7 +31,7 @@ export default function NavbarLanding() {
             </Button>
           </Join>
           <Login>
-            <Button size="medium">
+            <Button size="medium" onClick={(e) => handleClick(e)}>
               <Icons type="userplus" className="userplus" /> LOGIN
             </Button>
           </Login>
