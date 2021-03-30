@@ -1,22 +1,27 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Random from "./pages/Random";
-import Login from "./pages/Login";
-import CardTeam from "./components/UI/CardTeam";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from "react";
+import LandPage from "./components/LandPage/LandPage";
+// import Random from "./pages/Random";
+// import Login from "./pages/Login";
+// import ChooseFile from "./components/UI/ChooseFile";
+// import CardTeam from "./components/UI/CardTeam";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Text from "./components/styles/Heading";
 // import Test from "./components/UI/Test";
 // import FooterLanding from "./components/UI/FooterLanding";
 // import Tabs from "./components/UI/Tabs";
 // import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
-import ModalSalary from "./components/UI/ModalSalary";
-import ModalPropertyType from "./components/UI/ModalPropertyType";
-import NavbarWelcome from "./components/UI/NavbarLanding";
-import SelectCategory from "./components/UI/SelectCategory";
-import CardComponentProperty from "./components/UI/CardComponentProperty";
-import ToggleOperation from "./components/UI/ToggleOperation";
-import SelectForm from "./components/UI/SelectForm";
-import ChooseImages from "./components/UI/ChooseImages";
-import Pagination from "./components/UI/Pagination";
-import Carrusel from "./components/UI/Carrusel";
+// import ModalSalary from "./components/UI/ModalSalary";
+// import ModalPropertyType from "./components/UI/ModalPropertyType";
+// import NavbarWelcome from "./components/NavbarWelcome/NavbarWelcome";
+// import SelectCategory from "./components/UI/SelectCategory";
+// import CardComponentProperty from "./components/CardComponentProperty/CardComponentProperty";
+// import ToggleOperation from "./components/UI/ToggleOperation";
+// import SelectForm from "./components/UI/SelectForm";
+// import ChooseImages from "./components/UI/ChooseImages";
+// import Pagination from "./components/UI/Pagination";
+// import Carrusel from "./components/UI/Carrusel";
+// import SelectCategory from "./components/UI/SelectCategory";
 function App() {
 
 
@@ -27,6 +32,8 @@ function App() {
     ];
   return (
     <div>
+      <LandPage />
+      {/* <ToggleOperation />
       <Pagination />
       <Carrusel photos={images}/>
       <ToggleOperation />
@@ -42,10 +49,6 @@ function App() {
       <ModalPropertyType />
       <CardTeam name="abel"/>
       {/*<NavbarWelcome />*/}
-      <CardComponentProperty />
-      <CardComponentProperty />
-      <CardComponentProperty />
-      <CardComponentProperty />
 
       {/* <Tabs tabs={["actives", "closed"]} />
       <Tabs tabs={["favorites", "contacted"]} />
@@ -62,7 +65,10 @@ function App() {
       {/* <FooterLanding /> */}
 
       {/* <Test /> */}
-      <ModalSalary />
+      {/* <ChooseFile name="image" label="label"/>
+      <ChooseFile name="image" label="label" disabled  />
+      <ModalSalary /> */}
+      {/* <ModalSalary /> */}
     </div>
   );
 }

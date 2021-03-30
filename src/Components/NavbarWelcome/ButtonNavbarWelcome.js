@@ -12,8 +12,10 @@ const ButtonNavbarWelcomeStyles=styled.button(({
     size,
     family,
     letter,
+    margin,
 }) => css`
     padding: ${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft};
+    margin: ${margin};
     box-sizing: border-box;
     text-align: center;
     border-radius: 16px;
@@ -25,6 +27,7 @@ const ButtonNavbarWelcomeStyles=styled.button(({
     cursor: pointer;
     font-family: ${family};
     letter-spacing: ${letter};
+    outline: none;
     
     &:hover {
     background: ${colors.White};
@@ -44,6 +47,7 @@ const ButtonNavbarWelcome = ({
     family,
     onClick,
     letter,
+    margin,
 }) => {
     return (
         <ButtonNavbarWelcomeStyles
@@ -55,6 +59,7 @@ const ButtonNavbarWelcome = ({
             size={size}
             family={family}
             letter={letter}
+            margin={margin}
         >
             {nameButton}
         </ButtonNavbarWelcomeStyles>

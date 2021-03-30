@@ -10,6 +10,7 @@ const paddings = {
 
 const StyledButton = styled.button(
   (props) => css`
+    outline: none;
     padding: ${paddings[props.size]};
     box-sizing: border-box;
     text-align: center;

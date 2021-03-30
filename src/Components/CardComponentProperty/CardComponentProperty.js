@@ -11,7 +11,7 @@ const CardComponentPropertyStyles=styled.div`
     height: 360px;
     border-radius: 8px;
     background: ${colors.DarkPink};
-    margin: 16px 43px 16px 32px;
+    margin: 16px 32px 16px 32px;
     
     img {
         width: 100%;
