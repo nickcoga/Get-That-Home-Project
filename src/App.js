@@ -15,6 +15,7 @@ import CardComponentProperty from "./components/UI/CardComponentProperty";
 import ToggleOperation from "./components/UI/ToggleOperation";
 import SelectForm from "./components/UI/SelectForm";
 import ChooseImages from "./components/UI/ChooseImages";
+import Pagination from "./components/UI/Pagination";
 import Carrusel from "./components/UI/Carrusel";
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
     ];
   return (
     <div>
+      <Pagination />
       <Carrusel photos={images}/>
       <ToggleOperation />
       <Router>
