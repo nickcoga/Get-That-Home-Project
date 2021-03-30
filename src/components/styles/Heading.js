@@ -94,4 +94,5 @@ const StyledText = styled.p`
   ${(props) => calcSize(props.size)}
   color: ${(props) => colors[props.color]};
   margin: 0 0 8px 0;
+  text-align: center;
 `;

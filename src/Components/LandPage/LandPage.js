@@ -6,6 +6,8 @@ import '../CardComponentProperty/CardComponentProperty.css'
 import NavbarWelcome from '../NavbarWelcome/NavbarWelcome';
 import NavbarLanding from '../UI/NavbarLanding';
 import CardComponentProperty from '../CardComponentProperty/CardComponentProperty';
+import { colors } from '../styles/ColorStyles';
+import ButtonNavbarWelcome from '../NavbarWelcome/ButtonNavbarWelcome';
 
 const LandPageStyles=styled.div`
     width: 100%;
@@ -44,7 +46,17 @@ const LandPageStyles=styled.div`
                 display: flex;
                 padding: 8px 0 0 0;
             }
+        }
 
+        .createAccount {
+            width: 100%;
+            padding: 64px 308px;
+            box-sizing: border-box;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: ${colors.ShallowPink};
         }
     }
     
@@ -73,6 +85,20 @@ const LandPage = () => {
                         <CardComponentProperty />
                         <CardComponentProperty />
                     </div>
+                </div>
+                <div className="createAccount">
+                    <Text type='Montserrat' size='H4' color='DarkGray'>Getting someone to rent your apartment has never been this easy</Text>
+                    <ButtonNavbarWelcome 
+                        paddingTop='16px'
+                        paddingRight='24px'
+                        paddingBottom='16px'
+                        paddingLeft='24px'
+                        family='Inter'
+                        size='14px'
+                        letter='1.25px'
+                        nameButton='Create an account now'
+                        margin='32px 0 0 0'
+                    />
                 </div>
             </div>
         </LandPageStyles>
