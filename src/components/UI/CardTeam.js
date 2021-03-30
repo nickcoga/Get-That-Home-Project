@@ -33,9 +33,7 @@ const team = [
   },
 ];
 function CardTeam() {
-  console.log(team)
   const [partners, setpartners] = useState(team)
-  console.log(partners)
 
   return (
     <StyledContainer>
@@ -64,11 +62,7 @@ function CardTeam() {
 }
 const StyledContainer = styled.div`
 
-box-sizing: border-box;
-  padding: 0px 24px 10px 24px;
-  min-width: 240px;
-  width: 270px;
-  height: 290px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -117,6 +111,8 @@ box-sizing: border-box;
 
   .container {
     display: flex;
+    margin: 26px 0 0 0;
+    
   }
 
   .cardTeam {

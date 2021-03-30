@@ -40,7 +40,6 @@ const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
   bottom: 0;
   left: 0;
   background: ${colors.Background};

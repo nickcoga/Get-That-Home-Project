@@ -9,6 +9,7 @@ import CardComponentProperty from '../CardComponentProperty/CardComponentPropert
 import { colors } from '../styles/ColorStyles';
 import ButtonNavbarWelcome from '../NavbarWelcome/ButtonNavbarWelcome';
 import CardTeam from '../UI/CardTeam';
+import FooterLanding from '../UI/FooterLanding';
 
 const LandPageStyles=styled.div`
     width: 100%;
@@ -59,6 +60,17 @@ const LandPageStyles=styled.div`
             align-items: center;
             background: ${colors.ShallowPink};
         }
+
+        .team {
+            width: 100%;
+            margin: 64px 0;
+            box-sizing: border-box;
+        }
+
+        .footer {
+            width: 100%;
+            box-sizing: border-box;
+        }
     }
     
 `;
@@ -102,11 +114,12 @@ const LandPage = () => {
                     />
                 </div>
 
-                <div>
+                <div className="team">
                     <Text type='Montserrat' size='H3' color='DarkPink'>Meet the team</Text>
-                    <div>
-                        <CardTeam name="abel"/>
-                    </div>
+                    <CardTeam/>
+                </div>
+                <div className="footer">
+                    <FooterLanding />
                 </div>
             </div>
         </LandPageStyles>
