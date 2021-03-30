@@ -1,11 +1,9 @@
-import { useDispatch } from "react-redux";
-import { fetchLogin } from "./sessionSlice";
-import { InputText, InputPassword } from "../../UI/Inputs";
+import { fetchSignup } from "./UsersSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { InputText, InputPassword, InputNumber } from "../../UI/Inputs";
 import styled from "@emotion/styled";
 import { colors } from "../../styles/ColorStyles";
-import Button from "../../UI/Button";
-import Icons from "../../UI/Icons";
 
 const ContainerForm = styled.div`
   display: flex;
@@ -42,24 +40,18 @@ const ContainerForm = styled.div`
   }
 `;
 
-const ButtonContainer = styled.div`
-  margin-top: 2%;
-  .login {
-    font-size: 26px;
-    padding-top: 4px;
-    padding-right: 4px;
-  }
-`;
-
-export default function LoginForm({ id }) {
+export default function UsersForm({ id }) {
+  const status = useSelector((state) => state.users.status);
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchLogin({ email, password }));
+    dispatch(fetchSignup({ email, password, phone, name }));
   };
 
   return (
@@ -67,10 +59,22 @@ export default function LoginForm({ id }) {
       <ContainerForm>
         <h1>Login</h1>
         <InputText
+          label="NAME"
+          placeholder="Jhon Doe"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <InputText
           label="EMAIL"
           placeholder="user@mail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <InputNumber
+          label="PHONE"
+          placeholder="999-999-999"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
         />
         <InputPassword
           label="PASSWORD"
@@ -78,13 +82,15 @@ export default function LoginForm({ id }) {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          footer="At least 6 characteres"
         />
-        <ButtonContainer>
-          <Button type="submit" form="login-form">
-            <Icons type="login" className="login" />
-            LOGIN
-          </Button>
-        </ButtonContainer>
+        <InputPassword
+          label="PASSWORD CONFIRMATION"
+          placeholder="********"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </ContainerForm>
     </form>
   );
