@@ -16,10 +16,19 @@ import ToggleOperation from "./components/UI/ToggleOperation";
 import SelectForm from "./components/UI/SelectForm";
 import ChooseImages from "./components/UI/ChooseImages";
 import Pagination from "./components/UI/Pagination";
+import Carrusel from "./components/UI/Carrusel";
 function App() {
+
+
+    const images = [
+      "https://picsum.photos/205/200",
+      "https://picsum.photos/206/200",
+      "https://picsum.photos/207/200"
+    ];
   return (
     <div>
       <Pagination />
+      <Carrusel photos={images}/>
       <ToggleOperation />
       <Router>
         <div>

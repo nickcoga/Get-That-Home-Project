@@ -20,7 +20,7 @@ function SelectForm({ label = "Label" }) {
     setValue(value);
 
     // para enviar los datos
-    console.log(value);
+   // console.log(value);
   } 
 
   return (
