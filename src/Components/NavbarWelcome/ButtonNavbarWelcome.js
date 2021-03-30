@@ -27,6 +27,7 @@ const ButtonNavbarWelcomeStyles=styled.button(({
     cursor: pointer;
     font-family: ${family};
     letter-spacing: ${letter};
+    outline: none;
     
     &:hover {
     background: ${colors.White};

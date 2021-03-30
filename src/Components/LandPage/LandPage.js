@@ -8,6 +8,7 @@ import NavbarLanding from '../UI/NavbarLanding';
 import CardComponentProperty from '../CardComponentProperty/CardComponentProperty';
 import { colors } from '../styles/ColorStyles';
 import ButtonNavbarWelcome from '../NavbarWelcome/ButtonNavbarWelcome';
+import CardTeam from '../UI/CardTeam';
 
 const LandPageStyles=styled.div`
     width: 100%;
@@ -99,6 +100,13 @@ const LandPage = () => {
                         nameButton='Create an account now'
                         margin='32px 0 0 0'
                     />
+                </div>
+
+                <div>
+                    <Text type='Montserrat' size='H3' color='DarkPink'>Meet the team</Text>
+                    <div>
+                        <CardTeam name="abel"/>
+                    </div>
                 </div>
             </div>
         </LandPageStyles>
