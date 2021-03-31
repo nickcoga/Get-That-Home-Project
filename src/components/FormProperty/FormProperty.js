@@ -2,6 +2,7 @@ import React from 'react'
 import Text from '../UI/Heading'
 import '../CardProperty/CardProperty.css'
 import ButtonNavbarWelcome from '../UI/ButtonNavbarWelcome'
+import { colors } from '../UI/ColorStyles'
 
 const FormProperty = () => {
     return (
@@ -26,30 +27,46 @@ const FormProperty = () => {
                 <div>
                     <ButtonNavbarWelcome
                         padding="8px 10px"
-                        paddingH="7px 9px"
-                        nameButton="Rent"
+                        margin="0"
                         size="14px"
                         family="Inter"
                         letter="0.25px"
-                        margin="0"
+                        nameButton="rent"
+                        backgroundH={colors.Pink}
+                        background={colors.White}
+                        colorH={colors.White}
+                        color={colors.Gray}
+                        borderColorH={colors.Gray}
+                        borderColor={colors.Gray}
+                        borderSizeH="1px"
+                        borderSize="1px"
                         BTLR="8px"
                         BTRR="0"
                         BBLR="8px"
                         BBRR="0"
+                        transform="capitalize"
                         // onClick
                     />
                     <ButtonNavbarWelcome
                         padding="8px 10px"
-                        paddingH="7px 9px"
-                        nameButton="Sale"
+                        margin="0"
                         size="14px"
                         family="Inter"
                         letter="0.25px"
-                        margin="0"
+                        nameButton="sale"
+                        backgroundH={colors.Pink}
+                        background={colors.White}
+                        colorH={colors.White}
+                        color={colors.Gray}
+                        borderColorH={colors.Gray}
+                        borderColor={colors.Gray}
+                        borderSizeH="1px"
+                        borderSize="1px"
                         BTLR="0"
                         BTRR="8px"
                         BBLR="0"
                         BBRR="8px"
+                        transform="capitalize"
                         // onClick
                     />
                 </div>

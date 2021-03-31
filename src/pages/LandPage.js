@@ -135,13 +135,20 @@ const LandPage = () => {
           </Text>
           <ButtonNavbarWelcome
             padding="16px 24px"
-            paddingH="15px 23px"
-            family="Inter"
+            margin="32px 0 0 0"
             size="14px"
+            family="Inter"
             letter="1.25px"
             nameButton="Create an account now"
-            margin="32px 0 0 0"
+            backgroundH={colors.White}
+            background={colors.Pink}
+            colorH={colors.Pink}
+            color={colors.White}
+            borderColorH={colors.Pink}
+            borderColor={colors.Pink}
             borderRadius="16px"
+            borderSizeH="1px"
+            borderSize="1px"
           />
         </div>
 

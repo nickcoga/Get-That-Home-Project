@@ -7,29 +7,31 @@ import "../../components/CardProperty/CardProperty";
 const ButtonNavbarWelcomeStyles = styled.button(
   ({
     padding,
+    margin,
     size,
     family,
     letter,
-    margin,
-    backgroundH=colors.White,
-    background=colors.Pink,
-    colorH=colors.Pink,
-    color=colors.White,
-    borderColorH=colors.Pink,
+    backgroundH,
+    background,
+    colorH,
+    color,
+    borderColorH,
+    borderColor,
+    borderSizeH,
+    borderSize,
     borderRadius,
     BTLR,
     BTRR,
     BBLR,
     BBRR,
-    paddingH=padding,
-    borderSize="1px"
+    transform,
   }) => css`
     padding: ${padding};
     margin: ${margin};
     box-sizing: border-box;
     text-align: center;
     border-radius: ${borderRadius};
-    border: none;
+    border: ${borderColor} solid ${borderSize};
     background: ${background};
     color: ${color};
     font-size: ${size};
@@ -38,6 +40,7 @@ const ButtonNavbarWelcomeStyles = styled.button(
     font-family: ${family};
     letter-spacing: ${letter};
     outline: none;
+    text-transform: ${transform};
     
     border-top-left-radius: ${BTLR};
     border-top-right-radius: ${BTRR};
@@ -45,10 +48,9 @@ const ButtonNavbarWelcomeStyles = styled.button(
     border-bottom-right-radius: ${BBRR};
 
     &:hover {
-      padding: ${paddingH};
       background: ${backgroundH};
       color: ${colorH};
-      border: ${borderColorH} solid ${borderSize};
+      border: ${borderColorH} solid ${borderSizeH};
       letter-spacing: ${letter};
     }
   `
@@ -59,7 +61,6 @@ const ButtonNavbarWelcome = ({
   nameButton,
   size,
   family,
-  onClick,
   letter,
   margin,
   backgroundH,
@@ -67,35 +68,42 @@ const ButtonNavbarWelcome = ({
   colorH,
   color,
   borderColorH,
+  borderColor,
+  borderSizeH,
+  borderSize,
   borderRadius,
   BTLR,
   BTRR,
   BBLR,
   BBRR,
-  paddingH,
-  borderSize
+  transform,
+  onClick,
+  className,
 }) => {
   return (
     <ButtonNavbarWelcomeStyles
       padding={padding}
-      paddingH={paddingH}
-      onClick={onClick}
+      margin={margin}
       size={size}
       family={family}
       letter={letter}
-      margin={margin}
       backgroundH={backgroundH}
-      backgroundH={background}
+      background={background}
       colorH={colorH}
-      colorH={color}
+      color={color}
       borderColorH={borderColorH}
+      borderColor={borderColor}
       borderRadius={borderRadius}
+      borderSizeH={borderSizeH}
+      borderSize={borderSize}
       BTLR={BTLR}
       BTRR={BTRR}
       BBLR={BBLR}
       BBRR={BBRR}
-      borderSize={borderSize}
-    >
+      transform={transform}
+      onClick={onClick}
+      className={className}
+      >
       {nameButton}
     </ButtonNavbarWelcomeStyles>
   );
