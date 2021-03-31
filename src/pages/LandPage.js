@@ -87,20 +87,19 @@ const LandPageStyles = styled.div`
 `;
 
 const LandPage = () => {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(false);
   return (
     <LandPageStyles>
       <div className="navbar-landing">
-        <NavbarLanding login={login} setLogin={setLogin}/>
+        <NavbarLanding login={login} setLogin={setLogin} />
       </div>
-      {
-        login && 
-          <div className="login-form">
-            <div className="login-form--position">
-              <LoginForm />
-            </div>
+      {login && (
+        <div className="login-form">
+          <div className="login-form--position">
+            <LoginForm />
           </div>
-      }
+        </div>
+      )}
       <div className="landPage">
         <div className={login ? "secondHeader--login" : "secondHeader"}>
           <div className="secondHeader--styles">
@@ -113,7 +112,11 @@ const LandPage = () => {
             <NavbarWelcome />
           </div>
         </div>
-        <img src={LandPageImage} alt="Buildings" className={login ? "image-background" : "image-absolute"}/>
+        <img
+          src={LandPageImage}
+          alt="Buildings"
+          className={login ? "image-background" : "image-absolute"}
+        />
         <div className="box-cards">
           <Text type="Montserrat" size="Subtitle2">
             Find an Apartment you Love
