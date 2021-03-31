@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import styled from "@emotion/styled";
 import { colors } from "../components/UI/ColorStyles";
-import LoginForm from "../components/features/session/LoginForm";
+import LoginForm from "../components/Features/session/LoginForm";
 
 const ContainerForm = styled.div`
   display: flex;
