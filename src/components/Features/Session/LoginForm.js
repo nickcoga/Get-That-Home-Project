@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { fetchLogin } from "../Session/SessionSlice";
+import { fetchLogin } from "./SessionSlice";
 import { InputText, InputPassword } from "../../Inputs";
 import { useState } from "react";
 import styled from "@emotion/styled";
