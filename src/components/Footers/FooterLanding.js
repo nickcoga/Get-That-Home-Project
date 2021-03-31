@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { colors } from "./ColorStyles";
-import Text from "./Heading";
-import Icons from "./Icons";
+import { colors } from "../UI/ColorStyles";
+import Text from "../UI/Heading";
+import Icons from "../UI/Icons";
 
 export default function FooterLanding() {
   return (

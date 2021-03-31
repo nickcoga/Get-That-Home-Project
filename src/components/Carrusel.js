@@ -1,9 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "./UI/ColorStyles";
 import Icons from "./UI/Icons";
-
-
 
 const images = [
   "https://picsum.photos/200/200",
@@ -13,33 +11,40 @@ const images = [
   "https://picsum.photos/204/200",
 ];
 
-
-function Carrusel({photos = images}) {
+function Carrusel({ photos = images }) {
   const [photosList, setPhotosList] = useState(photos);
   const previousPhoto = () => {
     console.log("prev");
-    setPhotosList([ photosList[photosList.length - 1], ...photosList.splice(0, photosList.length - 1),])
+    setPhotosList([
+      photosList[photosList.length - 1],
+      ...photosList.splice(0, photosList.length - 1),
+    ]);
     //setPhotosList([photosList[0], ...photosList.splice(1)])
-  }
+  };
 
   const nexPhoto = () => {
     console.log("next");
-    setPhotosList([...photosList.splice(1), photosList[0]])
-  }
-  
+    setPhotosList([...photosList.splice(1), photosList[0]]);
+  };
+
   return (
     <StyledContainer>
       <StyledContainerIcon>
-        <Icons className="prev" onClick={previousPhoto}  type="previous" />
+        <Icons className="prev" onClick={previousPhoto} type="previous" />
       </StyledContainerIcon>
       {photosList.map((image, index) => (
-        <img className={index === 1? 'active' : ''} key={index} src={image} alt={`Image ${index}`}/>
+        <img
+          className={index === 1 ? "active" : ""}
+          key={index}
+          src={image}
+          alt={`Image ${index}`}
+        />
       ))}
       <StyledContainerIcon>
         <Icons className="next" onClick={nexPhoto} type="next" />
       </StyledContainerIcon>
     </StyledContainer>
-  )
+  );
 }
 
 const StyledContainer = styled.div`
@@ -95,4 +100,4 @@ const StyledContainerIcon = styled.div`
   }
 `;
 
-export default Carrusel
+export default Carrusel;

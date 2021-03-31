@@ -19,7 +19,7 @@ export const fetchLogin = createAsyncThunk(
   }
 );
 
-const sessionSlice = createSlice({
+const SessionSlice = createSlice({
   name: "session",
   initialState: {
     token: sessionStorage.getItem("token"),
@@ -42,5 +42,5 @@ const sessionSlice = createSlice({
   },
 });
 
-export const { killToken } = sessionSlice.actions;
-export default sessionSlice.reducer;
+export const { killToken } = SessionSlice.actions;
+export default SessionSlice.reducer;

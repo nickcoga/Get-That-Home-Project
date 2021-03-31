@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
-import Text from "../styles/Heading";
+import { colors } from "../UI/ColorStyles";
+import Text from "../UI/Heading";
 import Icons from "../UI/Icons";
 import GetThatHome from "../../assets/GetThatHome.svg";
 export default function FooterProperty() {

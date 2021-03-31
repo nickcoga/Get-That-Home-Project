@@ -1,60 +1,65 @@
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "./UI/ColorStyles";
 import Icons from "./UI/Icons";
 
-function Pagination({pages = 10}) {
+function Pagination({ pages = 10 }) {
   const numbersPages = [];
   for (let i = 1; i <= pages; i++) {
     numbersPages.push(i);
-  };
+  }
   const [numbersList, setnumbersList] = useState(numbersPages);
   const previousPhoto = () => {
     const btnPrev = document.querySelector(".prev");
     const btnNext = document.querySelector(".next");
     btnNext.style.visibility = "visible";
-    if(!(numbersList[0] === 1)){
-      setnumbersList([ numbersList[numbersList.length - 1], ...numbersList.splice(0, numbersList.length - 1)]);
-    }  
-    if((numbersList[0] === 1)) {
+    if (!(numbersList[0] === 1)) {
+      setnumbersList([
+        numbersList[numbersList.length - 1],
+        ...numbersList.splice(0, numbersList.length - 1),
+      ]);
+    }
+    if (numbersList[0] === 1) {
       btnPrev.style.visibility = "hidden";
     }
-  }
-  
+  };
+
   const nexPhoto = () => {
     const btnPrev = document.querySelector(".prev");
     const btnNext = document.querySelector(".next");
     btnPrev.style.visibility = "visible";
-    if(!(numbersList[0] === (pages - 4))) {
+    if (!(numbersList[0] === pages - 4)) {
       setnumbersList([...numbersList.splice(1), numbersList[0]]);
     }
 
-    if((numbersList[0] === (pages - 5))) {
+    if (numbersList[0] === pages - 5) {
       btnNext.style.visibility = "hidden";
     }
-  }
+  };
 
-  const handleClick = ({target}) => {
+  const handleClick = ({ target }) => {
     const pages = document.querySelectorAll(".pages");
-    pages.forEach(page => {
+    pages.forEach((page) => {
       page.classList.remove("active-page");
-    })
+    });
     target.classList.add("active-page");
-    
+
     //Current Page
     console.log(target.innerHTML);
-  }
+  };
   return (
     <StyledContainer>
       <Icons className="prev" type="previous" onClick={previousPhoto} />
       <StyleContainerNumbers>
-        {numbersList.map((number, index) =>  (
-          <span key={index} onClick={handleClick} className="pages">{number}</span>
+        {numbersList.map((number, index) => (
+          <span key={index} onClick={handleClick} className="pages">
+            {number}
+          </span>
         ))}
       </StyleContainerNumbers>
       <Icons className="next" type="next" onClick={nexPhoto} />
     </StyledContainer>
-  )
+  );
 }
 
 const StyledContainer = styled.div`
@@ -66,7 +71,7 @@ const StyledContainer = styled.div`
     cursor: pointer;
   }
 
-  .prev{
+  .prev {
     visibility: hidden;
   }
 `;
@@ -108,4 +113,4 @@ const StyleContainerNumbers = styled.div`
   }
 `;
 
-export default Pagination
+export default Pagination;

@@ -1,123 +1,95 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { colors } from "../styles/ColorStyles";
-import { AiOutlineDown } from "react-icons/ai";
+import { colors } from "../UI/ColorStyles";
 
-function ModalMore() {
-  const [pets, setPets] = useState(true);
-  const [area, setArea] = useState({
-    min: 0,
-    max: 0,
-  });
+function ModalPropertyType({ disabled = false }) {
+  const [houses, setHouses] = useState(false);
+  const [apartments, setApartments] = useState(false);
 
   const handleChange = ({ target }) => {
-    const { name, value } = target;
-    if (name === "pets") {
-      setPets(target.checked);
+    const { name, checked } = target;
+    if (name === "houses") {
+      setHouses(checked);
     }
-    if (name === "min") {
-      setArea({
-        ...area,
-        min: value,
-      });
-    }
-    if (name === "max") {
-      setArea({
-        ...area,
-        max: value,
-      });
+    if (name === "apartments") {
+      setApartments(checked);
     }
   };
 
-  const showModal = () => {
-    const container = document.querySelector(".container-more");
+  const showModal = ({ target }) => {
+    target.style.background = "#f55188";
+    const container = document.querySelector(".container-property-types");
     container.style.display = "block";
   };
 
   // for update data en send
-  const sendDate = () => {
-    const btnOpen = document.getElementById("btn-more");
-    const container = document.querySelector(".container-more");
+  const sendData = () => {
+    const btnOpen = document.getElementById("btn-property-types");
+    const container = document.querySelector(".container-property-types");
     btnOpen.style.background = colors.Pink;
     container.style.display = "none";
-    const values = {
-      pets,
-      area,
+    const nums = {
+      houses,
+      apartments,
     };
-    console.log(values);
     // aqui enviamos los datos
-    setPets(false);
-    setArea({
-      min: 0,
-      max: 0,
-    });
+    //console.log(nums);
+    setHouses(false);
+    setApartments(false);
   };
-
   return (
-    <StyleContainer>
-      <button id="btn-more" className="btn-modal" onClick={showModal}>
-        More
-        <AiOutlineDown />
+    <StyledContainer disabled={disabled}>
+      <button id="btn-property-types" className="btn-modal" onClick={showModal}>
+        PROPERTY TYPE
       </button>
-      <div className="container-more">
-        <h2>Pets</h2>
-        <div className="container-pets">
+      <div className="container-property-types">
+        <h2>Property Type</h2>
+        <div className="container-nums">
           <label>
             <input
-              className="pets-check"
               type="checkbox"
-              name="pets"
-              checked={pets}
+              name="houses"
+              checked={houses}
               onChange={handleChange}
             />
             <span className="checkmark"></span>
-            <span>Pets Allowed</span>
+            <span>Houses</span>
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="apartments"
+              checked={apartments}
+              onChange={handleChange}
+            />
+            <span className="checkmark"></span>
+            <span>Apartments</span>
           </label>
         </div>
-        <div className="container-area">
-          <h2>AREA IN m2</h2>
-          <div>
-            <input
-              type="text"
-              placeholder="min"
-              name="min"
-              value={area.min}
-              onChange={handleChange}
-            />
-            <span> - </span>
-            <input
-              type="text"
-              placeholder="max"
-              name="max"
-              value={area.max}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
         <div className="container-button">
-          <button className="btn-modal" onClick={sendDate}>
+          <button className="btn-modal" onClick={sendData}>
             Done
           </button>
         </div>
       </div>
-    </StyleContainer>
+    </StyledContainer>
   );
 }
 
-const StyleContainer = styled.div`
+const StyledContainer = styled.div`
   position: relative;
   font-family: sans-serif;
-  & > .container-more {
+  & > .container-property-types {
     display: none;
     position: absolute;
-    top: 45px;
+    top: 40px;
     width: 250px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     background: ${colors.White};
     padding: 8px;
-    .container-pets {
+    .container-nums {
       display: flex;
       justify-content: space-around;
       margin-top: 12px;
@@ -164,35 +136,19 @@ const StyleContainer = styled.div`
         border-color: #eee;
       }
 
-      .pets-check {
+      input {
         display: none;
       }
 
-      .pets-check:checked ~ .checkmark {
+      input:checked ~ .checkmark {
         background: ${colors.Pink};
       }
 
-      .pets-check:checked ~ .checkmark::after {
+      input:checked ~ .checkmark::after {
         display: block;
       }
     }
 
-    .container-area {
-      margin-bottom: 10px;
-      div {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      & input {
-        border: 1px solid ${colors.Pink};
-        width: 50px;
-        padding: 8px;
-        outline: none;
-        border-radius: 8px;
-      }
-    }
     h2 {
       font-family: sans-serif;
       font-weight: normal;
@@ -220,10 +176,6 @@ const StyleContainer = styled.div`
     border-radius: 8px;
     transition: background 300ms ease-in-out;
     text-transform: uppercase;
-
-    & > svg {
-      background: transparent;
-    }
   }
   & .btn-modal:focus {
     outline: none;
@@ -240,4 +192,5 @@ const StyleContainer = styled.div`
     justify-content: flex-end;
   }
 `;
-export default ModalMore;
+
+export default ModalPropertyType;

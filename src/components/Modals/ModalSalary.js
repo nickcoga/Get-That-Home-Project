@@ -1,8 +1,7 @@
-import { InputNumber } from "../UI/Inputs";
+import { InputNumber } from "../Inputs";
 import { useReducer, useState } from "react";
 import styled from "@emotion/styled";
 import formReducer from "../../reducers/formReducer";
-//import '../CardComponentProperty/CardComponentProperty.css';
 
 const ContainerSalary = styled.div`
   display: flex;
@@ -12,12 +11,12 @@ const ContainerSalary = styled.div`
   }
 `;
 
-const ValidationsMinMaxStyles=styled.p`
+const ValidationsMinMaxStyles = styled.p`
   margin: 0;
   padding: 8px 0 0 8px;
   max-width: 180px;
   text-align: justify;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-size: 10px;
   font-weight: 600;
   font-styles: normal;
@@ -36,13 +35,13 @@ const ModalSalary = () => {
     const { name, value } = e.target;
 
     const onlyNumbers = /^[0-9]*$/;
-    if(!(onlyNumbers.test(e.target.value))) {
+    if (!onlyNumbers.test(e.target.value)) {
       return setCannotBeLetters(true);
     } else {
-     setCannotBeLetters(false);
+      setCannotBeLetters(false);
     }
 
-    if(e.target.value.length===10) {
+    if (e.target.value.length === 10) {
       return setTestNumbers(true);
     } else {
       setTestNumbers(false);
@@ -71,10 +70,18 @@ const ModalSalary = () => {
           onChange={handleChange}
           maxLength="10"
         />
-        
       </ContainerSalary>
-      {cannotBeLetters && <ValidationsMinMaxStyles>This field can not read letter or words</ValidationsMinMaxStyles>}
-      {testNumbers && <ValidationsMinMaxStyles>Maximum number: 9 999 999 999, please enter a number within the allowed range</ValidationsMinMaxStyles>}
+      {cannotBeLetters && (
+        <ValidationsMinMaxStyles>
+          This field can not read letter or words
+        </ValidationsMinMaxStyles>
+      )}
+      {testNumbers && (
+        <ValidationsMinMaxStyles>
+          Maximum number: 9 999 999 999, please enter a number within the
+          allowed range
+        </ValidationsMinMaxStyles>
+      )}
     </>
   );
 };

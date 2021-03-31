@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "../UI/ColorStyles";
 import { useState } from "react";
 import Icons from "../UI/Icons";
 
@@ -9,35 +9,39 @@ function SelectForm({ label = "Label" }) {
 
   const showModal = () => {
     const modalItems = document.querySelector(".modal-items");
-    modalItems.style.display= "flex";
-  }
+    modalItems.style.display = "flex";
+  };
 
-  const sendData = (value) =>{
+  const sendData = (value) => {
     const modalItems = document.querySelector(".modal-items");
     const label = document.querySelector(".label-value");
-    modalItems.style.display= "none";
+    modalItems.style.display = "none";
     label.innerHTML = typeof value === "number" ? value : "Any";
     setValue(value);
 
     // para enviar los datos
-   // console.log(value);
-  } 
+    // console.log(value);
+  };
 
   return (
     <StyledContainer>
       <span>{label}</span>
       <StyledInput>
         <span className="label-value">Select...</span>
-        <Icons 
-          className="btn-down-modal" 
-          type="down" 
-          color={colors.DarkGray} 
+        <Icons
+          className="btn-down-modal"
+          type="down"
+          color={colors.DarkGray}
           onClick={showModal}
         />
       </StyledInput>
       <StyledSelects className="modal-items">
         {items.map((item, index) => (
-          <label key={item + index} onClick={() => sendData(item)} className={value === item? "active-label" : ""}>
+          <label
+            key={item + index}
+            onClick={() => sendData(item)}
+            className={value === item ? "active-label" : ""}
+          >
             <span>{item}</span>
           </label>
         ))}

@@ -1,29 +1,28 @@
-import styled from '@emotion/styled';
-import landlordImage from '../../assets/user-landlord.svg';
-import homeSeekerImage from '../../assets/user-home-seeker.svg';
+import styled from "@emotion/styled";
+import landlordImage from "../../assets/user-landlord.svg";
+import homeSeekerImage from "../../assets/user-home-seeker.svg";
 
-function CardChooseUser({type}) {
-  
-  const typeUsers ={
+function Payment({ type }) {
+  const typeUsers = {
     landlord: {
       image: landlordImage,
-      name: 'Landord',
-      description: 'You want to rent or sell a home.'
+      name: "Landord",
+      description: "You want to rent or sell a home.",
     },
     homeSeeker: {
       image: homeSeekerImage,
-      name: 'Home Seeker',
-      description: 'You want to find a home.'
-    }
-  }
-  const {image, name, description} = typeUsers[type];
+      name: "Home Seeker",
+      description: "You want to find a home.",
+    },
+  };
+  const { image, name, description } = typeUsers[type];
   return (
     <StyledContainer>
-      <img src={image} alt={name}/>
+      <img src={image} alt={name} />
       <h2>{name}</h2>
       <p>{description}</p>
     </StyledContainer>
-  )
+  );
 }
 
 const StyledContainer = styled.div`
@@ -34,8 +33,8 @@ const StyledContainer = styled.div`
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   text-align: center;
-  padding: 16px 0px; 
-  font-family: 'Montserrat', sans-serif;
+  padding: 16px 0px;
+  font-family: "Montserrat", sans-serif;
   color: #373737;
   height: 274px;
   & > h2 {
@@ -46,7 +45,7 @@ const StyledContainer = styled.div`
     margin-bottom: 6px;
   }
 
-  & >  p {
+  & > p {
     margin: 0;
     font-style: normal;
     font-weight: 500;
@@ -55,4 +54,4 @@ const StyledContainer = styled.div`
   }
 `;
 
-export default CardChooseUser
+export default Payment;

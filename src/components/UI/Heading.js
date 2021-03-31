@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { colors } from "./ColorStyles";
+import { colors } from "../UI/ColorStyles";
 
-export default function Text({ type, size, color, caption, children, }) {
+export default function Text({ type, size, color, caption, children }) {
   return (
     <StyledText type={type} size={size} color={color} caption={caption}>
       {children}

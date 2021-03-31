@@ -1,42 +1,42 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "../UI/ColorStyles";
 
 function ModalBedsAndBath({ disabled = false }) {
-  const [ beds, setBeds ] = useState('');
-  const [ baths, setBaths ] = useState('');
-  const values = ['any', 1, 2, 3, 4];
+  const [beds, setBeds] = useState("");
+  const [baths, setBaths] = useState("");
+  const values = ["any", 1, 2, 3, 4];
 
-  const handleChange = ({target}) => {
+  const handleChange = ({ target }) => {
     const { name, checked, value } = target;
-    if(checked){
-      if(name === "beds") {
+    if (checked) {
+      if (name === "beds") {
         setBeds(value);
         cleanSelected(name);
         target.parentElement.classList.add("active-check");
-      } 
-        
-      if(name === "baths") {
+      }
+
+      if (name === "baths") {
         setBaths(value);
         cleanSelected(name);
         target.parentElement.classList.add("active-check");
       }
     }
-  }
+  };
 
   // remove style in previus item
   const cleanSelected = (name) => {
     const items = document.querySelectorAll(`.${name}`);
-    items.forEach(element => {
+    items.forEach((element) => {
       element.classList.remove("active-check");
     });
-  }
+  };
 
-  const showModal = ({target}) => {
+  const showModal = ({ target }) => {
     target.style.background = "#f55188";
     const container = document.querySelector(".container-main-beds_and_baths");
-    container.style.display="block";
-  }
+    container.style.display = "block";
+  };
 
   // for update data en send
   const sendData = () => {
@@ -45,39 +45,53 @@ function ModalBedsAndBath({ disabled = false }) {
     btnOpen.style.background = colors.Pink;
     const nums = {
       beds,
-      baths
-    }
+      baths,
+    };
     console.log(nums);
-    container.style.display="none";
-  }
+    container.style.display = "none";
+  };
   return (
     <StyledContainer disabled={disabled}>
-      <button id="btn-beds-and-baths" className="btn-modal" onClick={showModal}>BEDS & BATH</button>
+      <button id="btn-beds-and-baths" className="btn-modal" onClick={showModal}>
+        BEDS & BATH
+      </button>
       <div className="container-main-beds_and_baths">
         <div className="container-nums">
           <h2>Beds</h2>
           <div>
-          {values.map((item, index) =>(
-            <label key={item + index} className="beds">
-              <span>{item === 'any'? 'Any' : `${item}+`}</span>
-              <input type="radio" name="beds" value={item} onChange={handleChange} />
-            </label>
-          ))}
+            {values.map((item, index) => (
+              <label key={item + index} className="beds">
+                <span>{item === "any" ? "Any" : `${item}+`}</span>
+                <input
+                  type="radio"
+                  name="beds"
+                  value={item}
+                  onChange={handleChange}
+                />
+              </label>
+            ))}
           </div>
         </div>
         <div className="container-nums">
           <h2>Bath</h2>
           <div>
-          {values.map((item, index) =>(
-            <label key={item + index} className="baths">
-              <span>{item === 'any'? 'Any' : `${item}+`}</span>
-              <input type="radio" name="baths" value={item} onChange={handleChange} />
-            </label>
-          ))}
+            {values.map((item, index) => (
+              <label key={item + index} className="baths">
+                <span>{item === "any" ? "Any" : `${item}+`}</span>
+                <input
+                  type="radio"
+                  name="baths"
+                  value={item}
+                  onChange={handleChange}
+                />
+              </label>
+            ))}
           </div>
         </div>
         <div className="container-button">
-          <button className="btn-modal" onClick={sendData}>Done</button>
+          <button className="btn-modal" onClick={sendData}>
+            Done
+          </button>
         </div>
       </div>
     </StyledContainer>
@@ -96,12 +110,12 @@ const StyledContainer = styled.div`
     margin-top: 10px;
     position: absolute;
     background: ${colors.White};
-    top:40px;
+    top: 40px;
     display: none;
   }
   & > .container-main-beds_and_baths > .container-nums {
-    font-family:sans-serif;
-   
+    font-family: sans-serif;
+
     h2 {
       font-weight: normal;
       font-size: 10px;
@@ -116,7 +130,7 @@ const StyledContainer = styled.div`
       display: flex;
       align-items: center;
       align-content: center;
-      justify-content:space-between;
+      justify-content: space-between;
       border-radius: 8px;
       overflow: hidden;
     }
@@ -142,7 +156,7 @@ const StyledContainer = styled.div`
     label:hover {
       color: ${colors.White};
       cursor: pointer;
-      background: ${colors.Pink}; 
+      background: ${colors.Pink};
     }
 
     .active-check {

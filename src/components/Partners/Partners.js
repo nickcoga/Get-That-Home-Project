@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
-import Icons from "./Icons";
+import Icons from "../UI/Icons";
 import user1 from "../../assets/user1.svg";
-import { colors } from "./ColorStyles";
+import { colors } from "../UI/ColorStyles";
 import { useState } from "react";
-import Text from "./Heading";
-
+import Text from "../UI/Heading";
 
 const team = [
   {
@@ -32,30 +31,30 @@ const team = [
     github: "https://github.com/CarlosEnrique103",
   },
 ];
-function CardTeam() {
-  const [partners, setpartners] = useState(team)
+function Partners() {
+  const [partners, setpartners] = useState(team);
 
   return (
     <StyledContainer>
       <div className="container">
-        {
-          partners.map((partner) => (
-            <div key={partner.nickname} className="cardTeam">
-              <div className="image">
-                <img src={partner.image} alt={partner.nickname}/>
-              </div>
-              <Text type='Montserrat' size='H6'>{partner.nickname}</Text>
-              <div className="buttons">
-                <a href={partner.github} target="blank">
-                  <Icons type="github" className="github" />
-                </a>
-                <a href={partner.linkedin} target="blank">
-                  <Icons type="linkedin" className="linkedin" />
-                </a>
-              </div>
+        {partners.map((partner) => (
+          <div key={partner.nickname} className="cardTeam">
+            <div className="image">
+              <img src={partner.image} alt={partner.nickname} />
             </div>
-          ))
-        }
+            <Text type="Montserrat" size="H6">
+              {partner.nickname}
+            </Text>
+            <div className="buttons">
+              <a href={partner.github} target="blank">
+                <Icons type="github" className="github" />
+              </a>
+              <a href={partner.linkedin} target="blank">
+                <Icons type="linkedin" className="linkedin" />
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </StyledContainer>
   );
@@ -133,4 +132,4 @@ const StyledContainer = styled.div`
   }
 `;
 
-export default CardTeam;
+export default Partners;

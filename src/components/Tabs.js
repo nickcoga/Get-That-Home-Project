@@ -1,18 +1,20 @@
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "./UI/ColorStyles";
 import { useLocation } from "react-router-dom";
 
 function Tabs({ tabs }) {
-
   //const location = useLocation();
   //const path = location.pathname;
   const path = `/${tabs[0]}`;
   return (
     <StyledContainer>
       {tabs.map((tab, index) => (
-        <li 
-          className={path === `/${tab}` ? "active-tab" : ""} 
-          key={tab + index}>{tab}</li>
+        <li
+          className={path === `/${tab}` ? "active-tab" : ""}
+          key={tab + index}
+        >
+          {tab}
+        </li>
       ))}
     </StyledContainer>
   );
@@ -48,7 +50,6 @@ const StyledContainer = styled.ul`
     list-style: none;
     border-bottom: 2px solid ${colors.Pink};
   }
-
 `;
 
 export default Tabs;

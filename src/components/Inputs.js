@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { colors } from "./ColorStyles";
+import { colors } from "./UI/ColorStyles";
 
 const FieldContainer = styled.div(
   ({ cssProp }) => css`
@@ -107,7 +107,6 @@ const StyledSelect = styled.select`
   option:first-of-type {
     color: red;
   }
-
 `;
 
 function InputText({

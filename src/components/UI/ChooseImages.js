@@ -1,11 +1,11 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
-import Icons from "./Icons";
+import { colors } from "../UI/ColorStyles";
+import Icons from "../UI/Icons";
 
-function ChooseImages({ onChange, name='image', label='image' }) {
+function ChooseImages({ onChange, name = "image", label = "image" }) {
   const [photos, setPhotos] = useState([]);
-  const [photos64, setPhotos64] =  useState([]);
+  const [photos64, setPhotos64] = useState([]);
   const handleClick = () => {
     let chooseInput = document.getElementById("choose-file-input");
     chooseInput.click();
@@ -13,42 +13,42 @@ function ChooseImages({ onChange, name='image', label='image' }) {
   };
 
   const sendData = (e) => {
-    const { value }= e.target;
-    let image64 = '';
+    const { value } = e.target;
+    let image64 = "";
     let file = e.target.files[0];
     let reader = new FileReader();
     reader.onloadend = () => {
       image64 = reader.result;
-      setPhotos64(prev => {
-        if(!prev.includes(image64)) {
-          return [image64, ...prev]
-        } 
+      setPhotos64((prev) => {
+        if (!prev.includes(image64)) {
+          return [image64, ...prev];
+        }
         return prev;
-      })
-    }
+      });
+    };
     reader.readAsDataURL(file);
 
-    setPhotos(prev => {
-      if(prev.includes(value)) {
-        return prev.filter(photo => photo !== value);
+    setPhotos((prev) => {
+      if (prev.includes(value)) {
+        return prev.filter((photo) => photo !== value);
       } else {
-        return [value, ...prev]
+        return [value, ...prev];
       }
-    })
+    });
 
     // para enviar data
     //console.log(photos);
-  }
+  };
 
   const removePhoto = (photo) => {
-    setPhotos64(photos64.filter(item => item !== photo))
-  }
-  
+    setPhotos64(photos64.filter((item) => item !== photo));
+  };
+
   return (
     <StyledContainer>
       <label htmlFor="file">{label}</label>
       <div>
-        <button name="file" onClick={handleClick} >
+        <button name="file" onClick={handleClick}>
           <Icons type="choosefile" color="white" />
           <span>Choose file</span>
         </button>
@@ -63,21 +63,30 @@ function ChooseImages({ onChange, name='image', label='image' }) {
       </div>
       <p>Only images, max 5MB</p>
       <StyleContainerPhotos>
-        {photos64.length > 0 ?
+        {photos64.length > 0 ? (
           <div className="photos-container">
-            {photos64.map((photo, index )=> (
+            {photos64.map((photo, index) => (
               <div key={index} className="photo-container">
                 <div className="button-close">
-                  <Icons onClick={() => removePhoto(photo)} type="close" color={colors.DarkGray} />
+                  <Icons
+                    onClick={() => removePhoto(photo)}
+                    type="close"
+                    color={colors.DarkGray}
+                  />
                 </div>
-                <img className="photo-property" src={photo} alt={"Photo" + index}/>
+                <img
+                  className="photo-property"
+                  src={photo}
+                  alt={"Photo" + index}
+                />
               </div>
             ))}
-          </div>:
+          </div>
+        ) : (
           <div className="no-photos">
             <p>No photos yet.</p>
           </div>
-        }
+        )}
       </StyleContainerPhotos>
     </StyledContainer>
   );
@@ -99,14 +108,14 @@ const StyledContainer = styled.div`
     font-size: 10px;
     line-height: 12px;
     letter-spacing: 1.5px;
-    color: ${colors.DarkGray}
+    color: ${colors.DarkGray};
   }
   & > div {
     display: flex;
     align-items: center;
   }
 
-  &  input {
+  & input {
     color: #616161;
     margin-left: 10px;
     font-style: normal;
@@ -115,9 +124,9 @@ const StyledContainer = styled.div`
     line-height: 20px;
   }
 
-  &  button {
+  & button {
     background-color: ${({ disabled }) =>
-    disabled ? '#61616147' : colors.Pink};
+      disabled ? "#61616147" : colors.Pink};
     display: flex;
     align-items: center;
     gap: 3px;
@@ -133,11 +142,11 @@ const StyledContainer = styled.div`
     transition: background 300ms ease-in-out;
   }
 
-  &  button:focus {
+  & button:focus {
     outline: none;
   }
 
-  &  button:hover {
+  & button:hover {
     cursor: pointer;
     background-color: ${({ disabled }) => !disabled && "#f55188"};
   }
@@ -153,7 +162,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyleContainerPhotos = styled.div`
-  background: #F5F5F6;
+  background: #f5f5f6;
   padding: 8px;
   box-sizing: border-box;
   & > .no-photos {
@@ -206,14 +215,13 @@ const StyleContainerPhotos = styled.div`
     color: ${colors.Gray};
     & > svg:hover {
       cursor: pointer;
-      color: #000; 
+      color: #000;
     }
   }
   .photo-property {
     width: 100%;
     height: 80%;
   }
-
 `;
 
 export default ChooseImages;

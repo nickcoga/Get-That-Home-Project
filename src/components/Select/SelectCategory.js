@@ -1,94 +1,111 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "../UI/ColorStyles";
 import Icons from "../UI/Icons";
 
 function SelectCategory({ categories }) {
   const [categoriesTags, setCategoriesTags] = useState([]);
-  const handleChange = ({target}) => {
+  const handleChange = ({ target }) => {
     const { value, checked } = target;
     if (checked) {
-      setCategoriesTags(prev => {
-        if(prev.includes(value)) {
-          return prev.filter(category => category !== value);
+      setCategoriesTags((prev) => {
+        if (prev.includes(value)) {
+          return prev.filter((category) => category !== value);
         } else {
           return [value, ...prev];
         }
-      })
+      });
     } else {
-      return setCategoriesTags(prev => prev.filter(category => category !== value));
+      return setCategoriesTags((prev) =>
+        prev.filter((category) => category !== value)
+      );
     }
-  }
-  
+  };
+
   const removeCategory = (category) => {
     const oneTag = document.querySelector(".one-tag");
-    setCategoriesTags(prev => prev.filter(item => item !== category));
-    let categories = categoriesTags.filter(item => item !== category);
-    if(categories.length === 0) {
+    setCategoriesTags((prev) => prev.filter((item) => item !== category));
+    let categories = categoriesTags.filter((item) => item !== category);
+    if (categories.length === 0) {
       oneTag.innerHTML = "Select a category";
       oneTag.style.display = "block";
     }
-    if(categories.length === 1) {
+    if (categories.length === 1) {
       oneTag.innerHTML = categoriesTags[0];
     }
-  }
+  };
 
   const showModal = () => {
     const modalSelects = document.querySelector(".modal-categories");
     const tags = document.querySelector(".multiple-tags");
-    modalSelects.style.display="flex";
-    tags.style.display="none";
-  }
+    modalSelects.style.display = "flex";
+    tags.style.display = "none";
+  };
 
   const sendData = () => {
     const modalSelects = document.querySelector(".modal-categories");
     const tags = document.querySelector(".multiple-tags");
     const oneTag = document.querySelector(".one-tag");
-    if(categoriesTags.length === 0) {
+    if (categoriesTags.length === 0) {
       oneTag.innerHTML = "Select a category";
       oneTag.style.display = "block";
     }
 
-    if(categoriesTags.length === 1) {
+    if (categoriesTags.length === 1) {
       oneTag.innerHTML = categoriesTags[0];
     }
 
-    if(categoriesTags.length > 1) {
+    if (categoriesTags.length > 1) {
       oneTag.style.display = "none";
       tags.style.display = "flex";
     }
-    modalSelects.style.display="none";
+    modalSelects.style.display = "none";
 
     // para enviar datos
     //console.log(categoriesTags);
-  }
+  };
   return (
     <StyledContainer>
       <span>Category</span>
-      <StyledInput >
+      <StyledInput>
         <StyledTags>
           <span className="one-tag">Select a category</span>
           <div className="multiple-tags">
             {categoriesTags.map((tag, index) => (
               <span key={tag + index}>
                 {tag}
-                <Icons type="close" color={colors.DarkGray} onClick={() => removeCategory(tag)}/>
+                <Icons
+                  type="close"
+                  color={colors.DarkGray}
+                  onClick={() => removeCategory(tag)}
+                />
               </span>
             ))}
           </div>
         </StyledTags>
-        <Icons className="btn-down-modal" onClick={showModal} type="down" color={colors.DarkGray} />
+        <Icons
+          className="btn-down-modal"
+          onClick={showModal}
+          type="down"
+          color={colors.DarkGray}
+        />
       </StyledInput>
       <StyledSelects className="modal-categories">
         {categories.map((category) => (
           <label key={category}>
-            <input type="checkbox" name="categories" checked={categoriesTags.includes(category)} value={category} onChange={handleChange}/>
+            <input
+              type="checkbox"
+              name="categories"
+              checked={categoriesTags.includes(category)}
+              value={category}
+              onChange={handleChange}
+            />
             <span className="checkmark"></span>
             <span>{category}</span>
           </label>
         ))}
         <div className="button-modal">
-          <button onClick={sendData} >Done</button>
+          <button onClick={sendData}>Done</button>
         </div>
       </StyledSelects>
     </StyledContainer>
@@ -127,7 +144,7 @@ const StyledInput = styled.div`
   border-radius: 8px;
   color: ${colors.Gray};
   & > div {
-    flex:1;
+    flex: 1;
   }
 
   & > .btn-down-modal:hover {
@@ -141,7 +158,7 @@ const StyledInput = styled.div`
 `;
 
 const StyledSelects = styled.div`
-  box-sizing:border-box;
+  box-sizing: border-box;
   position: absolute;
   top: 48px;
   width: 100%;
@@ -153,7 +170,7 @@ const StyledSelects = styled.div`
   padding: 16px 8px;
   margin-top: 12px;
   margin-bottom: 20px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   display: none;
@@ -212,7 +229,7 @@ const StyledSelects = styled.div`
     display: block;
   }
 
-  & > .button-modal{
+  & > .button-modal {
     display: flex;
     justify-content: flex-end;
     button {
@@ -279,7 +296,5 @@ const StyledTags = styled.div`
       cursor: pointer;
     }
   }
-
-
 `;
 export default SelectCategory;

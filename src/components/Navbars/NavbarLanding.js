@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import { colors } from "./UI/ColorStyles";
+import { colors } from "../UI/ColorStyles";
 import GetThatHome from "../../assets/GetThatHome.svg";
-import Button from "./UI/Button";
-import Icons from "./UI/Icons";
+import Button from "../UI/Button";
+import Icons from "../UI/Icons";
 
 export default function NavbarLanding() {
   return (
@@ -84,17 +84,7 @@ const Join = styled.li`
     align-items: center;
     background: ${colors.White};
     color: ${colors.Gray};
-    font-family: Inter;
-    font-size: 14px;
-    gap: 9px;
-  }
-  .userplus {
-    font-size: 19px;
-  }
-`;
-
-const Find = styled.li`
-  button {
+    font-family: Inter;no such file or directory
     display: flex;
     align-items: center;
     background: ${colors.White};

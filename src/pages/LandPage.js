@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 import React from "react";
-import LandPageImage from "../../assets/illustration_1.png";
+import LandPageImage from "../assets/illustration_1.png";
 import Text from "../components/UI/Heading";
-import "../CardComponentProperty/CardComponentProperty.css";
-import NavbarWelcome from "../components/navbar/NavbarWelcome";
-import NavbarLanding from "../components/NavbarLanding";
-import CardComponentProperty from "";
+import "../components/CardProperty/CardProperty";
+import NavbarWelcome from "../components/Navbars/NavbarWelcome";
+import NavbarLanding from "../components/Navbars/NavbarLanding";
+import CardProperty from "../components/CardProperty/CardProperty";
 import { colors } from "../components/UI/ColorStyles";
 import ButtonNavbarWelcome from "../components/UI/ButtonNavbarWelcome";
-import CardTeam from "../components/UI/CardTeam";
-import FooterLanding from "../components/UI/FooterLanding";
+import Partners from "../components/Partners/Partners";
+import FooterLanding from "../components/Footers/FooterLanding";
 
 const LandPageStyles = styled.div`
   width: 100%;
@@ -101,9 +101,9 @@ const LandPage = () => {
 
           {/* ¡IMPORTANTE!: por el momento esto ira asi, despues le pondre el map */}
           <div className="box-cards--properties">
-            <CardComponentProperty />
-            <CardComponentProperty />
-            <CardComponentProperty />
+            <CardProperty />
+            <CardProperty />
+            <CardProperty />
           </div>
         </div>
         <div className="createAccount">
@@ -127,7 +127,7 @@ const LandPage = () => {
           <Text type="Montserrat" size="H3" color="DarkPink">
             Meet the team
           </Text>
-          <CardTeam />
+          <Partners />
         </div>
         <div className="footer">
           <FooterLanding />
