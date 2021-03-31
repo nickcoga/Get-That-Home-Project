@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import DefaultImage from "../../Images/DefaultImage.svg";
+import DefaultImage from "../../assets/DefaultImage.svg";
 import { colors } from "../UI/ColorStyles";
 import Icons from "../UI/Icons";
 import "./CardProperty.css";

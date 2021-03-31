@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { BASE_URI } from "../../../app/config";
+import { BASE_URI } from "../../../app/Config";
 
 export const fetchLogin = createAsyncThunk(
   "session/fetchLogin",

@@ -13,12 +13,11 @@ export default function NavbarLanding() {
         </Logo>
 
         <Div>
-          <Find>
-            <Button size="medium">
-              <Icons type="search" className="search" />
-              FIND A HOME
-            </Button>
-          </Find>
+          <Button size="medium">
+            <Icons type="search" className="search" />
+            FIND A HOME
+          </Button>
+
           <Join>
             <Button size="medium">
               <Icons type="userplus" className="userplus" /> JOIN

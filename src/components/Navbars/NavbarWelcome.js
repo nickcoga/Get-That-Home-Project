@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React, { useReducer } from "react";
 import { colors } from "../UI/ColorStyles";
 import ButtonNavbarWelcome from "../UI/ButtonNavbarWelcome";
-import "../CardProperty/CardComponentProperty.css";
+import "../CardProperty/CardProperty.css";
 import SelectOptions from "../Select/SelectOptions";
 import formReducer from "../../reducers/formReducer";
 
