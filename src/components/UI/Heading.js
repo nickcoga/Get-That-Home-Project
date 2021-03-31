@@ -1,9 +1,24 @@
 import styled from "@emotion/styled";
 import { colors } from "../UI/ColorStyles";
 
-export default function Text({ type, size, color, caption, children }) {
+export default function Text({ 
+  type, 
+  size, 
+  color, 
+  caption, 
+  children, 
+  letter, 
+  transform,
+}) {
   return (
-    <StyledText type={type} size={size} color={color} caption={caption}>
+    <StyledText 
+      type={type} 
+      size={size} 
+      color={color} 
+      caption={caption} 
+      letter={letter} 
+      transform={transform}
+    >
       {children}
     </StyledText>
   );
@@ -95,4 +110,6 @@ const StyledText = styled.p`
   color: ${(props) => colors[props.color]};
   margin: 0 0 8px 0;
   text-align: center;
+  letter-spacing: ${(props) => props.letter};
+  text-transform: ${(props) => props.transform};
 `;

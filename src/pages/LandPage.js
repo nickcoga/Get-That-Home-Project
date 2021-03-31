@@ -134,15 +134,14 @@ const LandPage = () => {
             Getting someone to rent your apartment has never been this easy
           </Text>
           <ButtonNavbarWelcome
-            paddingTop="16px"
-            paddingRight="24px"
-            paddingBottom="16px"
-            paddingLeft="24px"
+            padding="16px 24px"
+            paddingH="15px 23px"
             family="Inter"
             size="14px"
             letter="1.25px"
             nameButton="Create an account now"
             margin="32px 0 0 0"
+            borderRadius="16px"
           />
         </div>
 
