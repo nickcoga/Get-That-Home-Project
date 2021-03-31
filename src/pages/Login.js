@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import styled from "@emotion/styled";
 import { colors } from "../components/UI/ColorStyles";
-import LoginForm from "../components/Features/session/LoginForm";
+import LoginForm from "../components/Features/Session/LoginForm";
 
 const ContainerForm = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ const ContainerForm = styled.div`
   align-items: center;
   padding: 0;
   margin: 0;
-  background-color: ${colors.ShallowGray};
+  background-color: ${colors.ShallowGray};c
 `;
 
 export default function Login() {
