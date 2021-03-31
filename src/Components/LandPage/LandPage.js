@@ -37,19 +37,14 @@ const LandPageStyles=styled.div`
                 align-items: center;
             }
         }
-
-        .secondHeader--login {
-            width: 100%;
-            background-image: url('../../assets/illustration_1.png');
-            background: red;
-        }
     
         .landingImage {
             width: 100%;
         }
 
         .landingLogin {
-            display: none;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .box-cards {
