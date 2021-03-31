@@ -11,6 +11,7 @@ const FormProperty = () => {
                 type="Montserrat" 
                 size="H4" 
                 color="balck"
+                textAlign="justify"
             >
                 Create a property listing
             </Text>
@@ -21,6 +22,7 @@ const FormProperty = () => {
                     color="Gray" 
                     letter="1.5px"
                     transform="uppercase"
+                    textAlign="justify"
                     >
                     Operation Type
                 </Text>

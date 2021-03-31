@@ -9,6 +9,7 @@ export default function Text({
   children, 
   letter, 
   transform,
+  textAlign,
 }) {
   return (
     <StyledText 
@@ -18,6 +19,7 @@ export default function Text({
       caption={caption} 
       letter={letter} 
       transform={transform}
+      textAlign={textAlign}
     >
       {children}
     </StyledText>
@@ -109,7 +111,7 @@ const StyledText = styled.p`
   ${(props) => calcSize(props.size)}
   color: ${(props) => colors[props.color]};
   margin: 0 0 8px 0;
-  text-align: center;
+  text-align: ${(props) => (props.textAlign ? "jutify" : "center")};
   letter-spacing: ${(props) => props.letter};
   text-transform: ${(props) => props.transform};
 `;
