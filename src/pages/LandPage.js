@@ -11,7 +11,7 @@ import ButtonNavbarWelcome from "../components/UI/ButtonNavbarWelcome";
 import Partners from "../components/Partners/Partners";
 import FooterLanding from "../components/Footers/FooterLanding";
 import { useState } from "react";
-import LoginForm from "../components/Features/session/LoginForm";
+import LoginForm from "../components/Features/Session/LoginForm";
 
 const LandPageStyles = styled.div`
   width: 100%;
@@ -87,20 +87,19 @@ const LandPageStyles = styled.div`
 `;
 
 const LandPage = () => {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(false);
   return (
     <LandPageStyles>
       <div className="navbar-landing">
-        <NavbarLanding login={login} setLogin={setLogin}/>
+        <NavbarLanding login={login} setLogin={setLogin} />
       </div>
-      {
-        login && 
-          <div className="login-form">
-            <div className="login-form--position">
-              <LoginForm />
-            </div>
+      {login && (
+        <div className="login-form">
+          <div className="login-form--position">
+            <LoginForm />
           </div>
-      }
+        </div>
+      )}
       <div className="landPage">
         <div className={login ? "secondHeader--login" : "secondHeader"}>
           <div className="secondHeader--styles">
@@ -113,7 +112,11 @@ const LandPage = () => {
             <NavbarWelcome />
           </div>
         </div>
-        <img src={LandPageImage} alt="Buildings" className={login ? "image-background" : "image-absolute"}/>
+        <img
+          src={LandPageImage}
+          alt="Buildings"
+          className={login ? "image-background" : "image-absolute"}
+        />
         <div className="box-cards">
           <Text type="Montserrat" size="Subtitle2">
             Find an Apartment you Love

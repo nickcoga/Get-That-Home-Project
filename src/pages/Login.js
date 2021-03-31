@@ -11,7 +11,7 @@ const ContainerForm = styled.div`
   align-items: center;
   padding: 0;
   margin: 0;
-  background-color: ${colors.ShallowGray};
+  background-color: ${colors.ShallowGray};c
 `;
 
 export default function Login() {
