@@ -51,8 +51,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const Header = styled.div`
-`;
+const Header = styled.div``;
 
 export default function LoginForm({ id }) {
   // const dispatch = useDispatch();
@@ -66,8 +65,8 @@ export default function LoginForm({ id }) {
   // };
 
   return (
-    <form 
-      // onSubmit={handleSubmit} 
+    <form
+      // onSubmit={handleSubmit}
       id={id}
     >
       <ContainerForm>
