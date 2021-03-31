@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import store from "./app/store";
+import store from "./app/Store";
 import { Provider } from "react-redux";
 // import { css, Global } from "@emotion/react";
 // import { colors } from "./components/styles/ColorStyles";
