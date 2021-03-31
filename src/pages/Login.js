@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import styled from "@emotion/styled";
-import { colors } from "../components/styles/ColorStyles";
-import LoginForm from "../components/features/session/LoginForm";
+import { colors } from "../components/UI/ColorStyles";
+import LoginForm from "../components/Features/Session/LoginForm";
 
 const ContainerForm = styled.div`
   display: flex;

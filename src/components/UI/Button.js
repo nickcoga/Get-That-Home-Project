@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "./ColorStyles";
 
 const paddings = {
   large: "16px 24px",
@@ -10,6 +10,7 @@ const paddings = {
 
 const StyledButton = styled.button(
   (props) => css`
+    outline: none;
     padding: ${paddings[props.size]};
     box-sizing: border-box;
     text-align: center;
