@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
-import { fetchLogin } from "../Session/SessionSlice";
+// import { useDispatch } from "react-redux";
+// import { fetchLogin } from "./SessionSlice";
 import { InputText, InputPassword } from "../../Inputs";
 import { useState } from "react";
 import styled from "@emotion/styled";
@@ -51,21 +51,25 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const Header = styled.div``;
+const Header = styled.div`
+`;
 
 export default function LoginForm({ id }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(fetchLogin({ email, password }));
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(fetchLogin({ email, password }));
+  // };
 
   return (
-    <form onSubmit={handleSubmit} id={id}>
+    <form 
+      // onSubmit={handleSubmit} 
+      id={id}
+    >
       <ContainerForm>
         <Header>
           <h1>Login</h1>

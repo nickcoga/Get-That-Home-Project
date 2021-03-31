@@ -17,4 +17,5 @@ export const colors = {
   red: "#CB3234",
   black: "#000000",
   boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
+  BackgroundLogin: "rgba(0, 0, 0, 0.24)",
 };

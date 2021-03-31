@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import LandPageImage from "../assets/illustration_1.png";
 import Text from "../components/UI/Heading";
-import "../components/CardProperty/CardProperty";
+import "../components/CardProperty/CardProperty.css";
 import NavbarWelcome from "../components/Navbars/NavbarWelcome";
 import NavbarLanding from "../components/Navbars/NavbarLanding";
 import CardProperty from "../components/CardProperty/CardProperty";
@@ -10,9 +10,16 @@ import { colors } from "../components/UI/ColorStyles";
 import ButtonNavbarWelcome from "../components/UI/ButtonNavbarWelcome";
 import Partners from "../components/Partners/Partners";
 import FooterLanding from "../components/Footers/FooterLanding";
+import { useState } from "react";
+import LoginForm from "../components/Features/session/LoginForm";
 
 const LandPageStyles = styled.div`
   width: 100%;
+
+  .navbar-landing {
+    width: 100%;
+    box-sizing: border-box;
+  }
 
   .landPage {
     width: 100%;
@@ -20,6 +27,7 @@ const LandPageStyles = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 60px 0 0 0;
+    padding: 0;
     .secondHeader {
       position: absolute;
       &--styles {
@@ -31,8 +39,12 @@ const LandPageStyles = styled.div`
       }
     }
 
-    img {
+    .image-absolute {
       width: 100%;
+    }
+
+    .image-background {
+      display: none;
     }
 
     .box-cards {
@@ -75,11 +87,22 @@ const LandPageStyles = styled.div`
 `;
 
 const LandPage = () => {
+  const [login, setLogin] = useState(false)
   return (
     <LandPageStyles>
-      <NavbarLanding />
+      <div className="navbar-landing">
+        <NavbarLanding login={login} setLogin={setLogin}/>
+      </div>
+      {
+        login && 
+          <div className="login-form">
+            <div className="login-form--position">
+              <LoginForm />
+            </div>
+          </div>
+      }
       <div className="landPage">
-        <div className="secondHeader">
+        <div className={login ? "secondHeader--login" : "secondHeader"}>
           <div className="secondHeader--styles">
             <Text type="Montserrat" size="H2">
               Meet your new home
@@ -90,7 +113,7 @@ const LandPage = () => {
             <NavbarWelcome />
           </div>
         </div>
-        <img src={LandPageImage} alt="Buildings" />
+        <img src={LandPageImage} alt="Buildings" className={login ? "image-background" : "image-absolute"}/>
         <div className="box-cards">
           <Text type="Montserrat" size="Subtitle2">
             Find an Apartment you Love

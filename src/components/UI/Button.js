@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { colors } from "../UI/ColorStyles";
+import { colors } from "./ColorStyles";
 
 const paddings = {
   large: "16px 24px",
