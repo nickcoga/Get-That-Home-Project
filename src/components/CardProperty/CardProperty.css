@@ -1,6 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Piazzolla:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap");
 @import url('https://rsms.me/inter/inter.css');
 
-.secondHeader--login {
+.login-form {
+    width: 99%;
+    height: 100%;
     position: absolute;
-}
+    box-sizing: border-box;
+  }
+
+  .login-form--position {
+    width: 100%;
+    height: 686px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.24);
+  }
+
+  .secondHeader--login {
+    width: 100%;
+    height: 626px;
+    background-image: url('../../assets/illustration_1.png');
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
