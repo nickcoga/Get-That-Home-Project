@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import React, { useReducer } from "react";
-import { colors } from "../../components/UI/ColorStyles";
-import ButtonNavbarWelcome from "./ButtonNavbarWelcome";
+import { colors } from "../UI/ColorStyles";
+import ButtonNavbarWelcome from "../UI/ButtonNavbarWelcome";
 import "../CardComponentProperty/CardComponentProperty.css";
-import SelectOptions from "../SelectOptions/SelectOptions";
+import SelectOptions from "../select/SelectOptions";
 import formReducer from "../../reducers/formReducer";
 
 const NavbarWelcomeStyles = styled.div`

@@ -3,11 +3,11 @@ import React from "react";
 import LandPageImage from "../../assets/illustration_1.png";
 import Text from "../components/UI/Heading";
 import "../CardComponentProperty/CardComponentProperty.css";
-import NavbarWelcome from "../Components/NavbarWelcome/NavbarWelcome";
+import NavbarWelcome from "../components/navbar/NavbarWelcome";
 import NavbarLanding from "../components/NavbarLanding";
 import CardComponentProperty from "";
 import { colors } from "../components/UI/ColorStyles";
-import ButtonNavbarWelcome from "../Components/NavbarWelcome/ButtonNavbarWelcome";
+import ButtonNavbarWelcome from "../components/UI/ButtonNavbarWelcome";
 import CardTeam from "../components/UI/CardTeam";
 import FooterLanding from "../components/UI/FooterLanding";
 

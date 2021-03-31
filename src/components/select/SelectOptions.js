@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { colors } from "../../components/UI/ColorStyles";
+import { colors } from "../UI/ColorStyles";
 
 const FieldContainer = styled.div`
   display: flex;

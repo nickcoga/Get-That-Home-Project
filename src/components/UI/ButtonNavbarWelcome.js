@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
-import { colors } from "../../components/UI/ColorStyles";
+import { colors } from "./ColorStyles";
 import "../CardComponentProperty/CardComponentProperty.css";
 
 const ButtonNavbarWelcomeStyles = styled.button(
