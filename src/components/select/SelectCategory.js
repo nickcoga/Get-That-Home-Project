@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
-import Icons from "./Icons";
+import Icons from "../UI/Icons";
 
 function SelectCategory({ categories }) {
   const [categoriesTags, setCategoriesTags] = useState([]);

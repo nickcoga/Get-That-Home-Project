@@ -1,10 +1,11 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import React from 'react';
-import { colors } from '../styles/ColorStyles';
-import '../CardComponentProperty/CardComponentProperty.css'
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import React from "react";
+import { colors } from "../../components/UI/ColorStyles";
+import "../CardComponentProperty/CardComponentProperty.css";
 
-const ButtonNavbarWelcomeStyles=styled.button(({
+const ButtonNavbarWelcomeStyles = styled.button(
+  ({
     paddingTop,
     paddingRight,
     paddingBottom,
@@ -13,7 +14,7 @@ const ButtonNavbarWelcomeStyles=styled.button(({
     family,
     letter,
     margin,
-}) => css`
+  }) => css`
     padding: ${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft};
     margin: ${margin};
     box-sizing: border-box;
@@ -28,42 +29,43 @@ const ButtonNavbarWelcomeStyles=styled.button(({
     font-family: ${family};
     letter-spacing: ${letter};
     outline: none;
-    
+
     &:hover {
-    background: ${colors.White};
-    color: ${colors.Pink};
-    border: ${colors.Pink} solid 1px;
-    letter-spacing: ${letter};
+      background: ${colors.White};
+      color: ${colors.Pink};
+      border: ${colors.Pink} solid 1px;
+      letter-spacing: ${letter};
     }
-`);
+  `
+);
 
 const ButtonNavbarWelcome = ({
-    paddingTop,
-    paddingRight,
-    paddingBottom,
-    paddingLeft,
-    nameButton,
-    size,
-    family,
-    onClick,
-    letter,
-    margin,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+  nameButton,
+  size,
+  family,
+  onClick,
+  letter,
+  margin,
 }) => {
-    return (
-        <ButtonNavbarWelcomeStyles
-            paddingTop={paddingTop}
-            paddingRight={paddingRight}
-            paddingBottom={paddingBottom}
-            paddingLeft={paddingLeft}
-            onClick={onClick}
-            size={size}
-            family={family}
-            letter={letter}
-            margin={margin}
-        >
-            {nameButton}
-        </ButtonNavbarWelcomeStyles>
-    )
-}
+  return (
+    <ButtonNavbarWelcomeStyles
+      paddingTop={paddingTop}
+      paddingRight={paddingRight}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      onClick={onClick}
+      size={size}
+      family={family}
+      letter={letter}
+      margin={margin}
+    >
+      {nameButton}
+    </ButtonNavbarWelcomeStyles>
+  );
+};
 
 export default ButtonNavbarWelcome;

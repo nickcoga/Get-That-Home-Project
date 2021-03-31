@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
-import Icons from "./Icons";
+import Icons from "./UI/Icons";
 
 function Pagination({pages = 10}) {
   const numbersPages = [];

@@ -1,12 +1,12 @@
-import styled from '@emotion/styled';
-import React from 'react';
-import DefaultImage from '../../Images/DefaultImage.svg';
-import { colors } from '../styles/ColorStyles';
-import Icons from '../UI/Icons';
-import './CardComponentProperty.css';
+import styled from "@emotion/styled";
+import React from "react";
+import DefaultImage from "../../Images/DefaultImage.svg";
+import { colors } from "../../components/UI/ColorStyles";
+import Icons from "../../components/UI/Icons";
+import "./CardComponentProperty.css";
 // import Icons from '../UI/Icons';
 
-const CardComponentPropertyStyles=styled.div`
+const CardComponentPropertyStyles = styled.div`
     width: 300px;
     height: 360px;
     border-radius: 8px;
@@ -129,63 +129,62 @@ const CardComponentPropertyStyles=styled.div`
 `;
 
 const CardComponentProperty = ({
-    image=DefaultImage,
-    stateProperty='For Rental',
-    priceProperty=3000,
-    typeProperty='Apartment',
-    information='86872 Jacob Gateway, Durganport, WV 48044',
-    bed=4,
-    bath=2,
-    area=180,
+  image = DefaultImage,
+  stateProperty = "For Rental",
+  priceProperty = 3000,
+  typeProperty = "Apartment",
+  information = "86872 Jacob Gateway, Durganport, WV 48044",
+  bed = 4,
+  bath = 2,
+  area = 180,
 }) => {
-    return (
-        <div>
-            <CardComponentPropertyStyles>
-                <div className="header">
-                    <div className="header--width">
-                        <div className="header--width__color">
-                            <Icons type="price"/>
-                            <p>{stateProperty}</p>
-                        </div>
-                    </div>
-                    <div className="bodyCard">
-                        <div className="header-body">
-                            <div className="header-body--price">
-                                <Icons type="dollar" className="dollar"/>
-                                <p className="price">{priceProperty}</p>
-                            </div>
-                            <div className="header-body--price">
-                                <Icons type="department" className="department"/>
-                                <p className="property">{typeProperty}</p>
-                            </div>
-                        </div>
-                        <div className="description">
-                            <p>{information}</p>
-                        </div>
-                        <div className="footerCard">
-                            <div className="footerCard-number">
-                                <Icons type="bed" className="iconsFooter" />
-                                <p>{bed}</p>
-                            </div>
-                            <div className="footerCard-number">
-                                <Icons type="bath" className="iconsFooter" />
-                                <p>{bath}</p>
-                            </div>
-                            <div className="footerCard-number">
-                                <Icons type="area" className="iconsFooter" />
-                                <p>{area} m2</p>
-                            </div>
-                            <div className="footerCard-number">
-                                <Icons type="pet" className="iconsFooter" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               <img src={image} alt='Aparment' />
-
-            </CardComponentPropertyStyles>
+  return (
+    <div>
+      <CardComponentPropertyStyles>
+        <div className="header">
+          <div className="header--width">
+            <div className="header--width__color">
+              <Icons type="price" />
+              <p>{stateProperty}</p>
+            </div>
+          </div>
+          <div className="bodyCard">
+            <div className="header-body">
+              <div className="header-body--price">
+                <Icons type="dollar" className="dollar" />
+                <p className="price">{priceProperty}</p>
+              </div>
+              <div className="header-body--price">
+                <Icons type="department" className="department" />
+                <p className="property">{typeProperty}</p>
+              </div>
+            </div>
+            <div className="description">
+              <p>{information}</p>
+            </div>
+            <div className="footerCard">
+              <div className="footerCard-number">
+                <Icons type="bed" className="iconsFooter" />
+                <p>{bed}</p>
+              </div>
+              <div className="footerCard-number">
+                <Icons type="bath" className="iconsFooter" />
+                <p>{bath}</p>
+              </div>
+              <div className="footerCard-number">
+                <Icons type="area" className="iconsFooter" />
+                <p>{area} m2</p>
+              </div>
+              <div className="footerCard-number">
+                <Icons type="pet" className="iconsFooter" />
+              </div>
+            </div>
+          </div>
         </div>
-    )
-}
+        <img src={image} alt="Aparment" />
+      </CardComponentPropertyStyles>
+    </div>
+  );
+};
 
 export default CardComponentProperty;

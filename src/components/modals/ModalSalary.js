@@ -1,4 +1,4 @@
-import { InputNumber } from "./Inputs";
+import { InputNumber } from "../UI/Inputs";
 import { useReducer, useState } from "react";
 import styled from "@emotion/styled";
 import formReducer from "../../reducers/formReducer";

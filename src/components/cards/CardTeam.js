@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import Icons from "./Icons";
 import user1 from "../../assets/user1.svg";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "./ColorStyles";
 import { useState } from "react";
-import Text from "../styles/Heading";
+import Text from "./Heading";
 
 
 const team = [

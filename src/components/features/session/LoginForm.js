@@ -3,7 +3,7 @@ import { fetchLogin } from "./sessionSlice";
 import { InputText, InputPassword } from "../../UI/Inputs";
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { colors } from "../../styles/ColorStyles";
+import { colors } from "../../UI/ColorStyles";
 import Button from "../../UI/Button";
 import Icons from "../../UI/Icons";
 

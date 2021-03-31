@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
-import Text from "../styles/Heading";
+import { colors } from "./ColorStyles";
+import Text from "./Heading";
 import Icons from "./Icons";
 
 export default function FooterLanding() {

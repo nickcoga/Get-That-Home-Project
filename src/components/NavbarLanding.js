@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import { colors } from "../styles/ColorStyles";
+import { colors } from "./UI/ColorStyles";
 import GetThatHome from "../../assets/GetThatHome.svg";
-import Button from "./Button";
-import Icons from "./Icons";
+import Button from "./UI/Button";
+import Icons from "./UI/Icons";
 
 export default function NavbarLanding() {
   return (

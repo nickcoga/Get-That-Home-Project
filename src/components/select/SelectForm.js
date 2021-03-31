@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { colors } from "../styles/ColorStyles";
 import { useState } from "react";
-import Icons from "./Icons";
+import Icons from "../UI/Icons";
 
 function SelectForm({ label = "Label" }) {
   const [value, setValue] = useState("");
