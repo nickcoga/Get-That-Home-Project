@@ -1,8 +1,9 @@
-import React from 'react'
-import Text from '../UI/Heading'
-import '../CardProperty/CardProperty.css'
-import ButtonNavbarWelcome from '../UI/ButtonNavbarWelcome'
-import { colors } from '../UI/ColorStyles'
+import React from 'react';
+import Text from '../UI/Heading';
+import '../CardProperty/CardProperty.css';
+import ButtonNavbarWelcome from '../UI/ButtonNavbarWelcome';
+import { colors } from '../UI/ColorStyles';
+import { InputPlace } from '../InputPlace/InputPlace';
 
 const FormProperty = () => {
     return (
@@ -72,6 +73,9 @@ const FormProperty = () => {
                         // onClick
                     />
                 </div>
+            </div>
+            <div>
+                <InputPlace />
             </div>
         </div>
     )

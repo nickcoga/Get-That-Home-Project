@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { colors } from "./UI/ColorStyles";
+import Icons from "./UI/Icons";
 
 const FieldContainer = styled.div(
   ({ cssProp }) => css`
@@ -119,11 +120,14 @@ function InputText({
   value = "",
   onChange,
   cssProp,
+  className,
+  icon
 }) {
   return (
     <FieldContainer cssProp={cssProp}>
       {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
       <Container error={error}>
+        <Icons type={icon} className={className} />
         <StyledInput
           value={value}
           name={name}
@@ -131,7 +135,6 @@ function InputText({
           id={name}
           onChange={onChange}
         />
-        {icon}
       </Container>
       {caption && <Caption error={error}>Caption test</Caption>}
     </FieldContainer>
