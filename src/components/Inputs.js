@@ -113,7 +113,6 @@ const StyledSelect = styled.select`
 function InputText({
   label = "",
   caption = "",
-  icon,
   error = false,
   placeholder = "",
   name = "",
@@ -121,7 +120,7 @@ function InputText({
   onChange,
   cssProp,
   className,
-  icon
+  icon,
 }) {
   return (
     <FieldContainer cssProp={cssProp}>
