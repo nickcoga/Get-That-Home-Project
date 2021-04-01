@@ -149,14 +149,21 @@ const NavbarWelcome = () => {
           />
         </RightOptionsStyles>
         <ButtonNavbarWelcome
-          paddingTop="8px"
-          paddingRight="16px"
-          paddingBottom="8px"
-          paddingLeft="16px"
-          nameButton="SEARCH"
+          padding="8px 16px"
           size="14px"
           family="Inter"
           letter="1.25px"
+          nameButton="search"
+          backgroundH={colors.White}
+          background={colors.Pink}
+          colorH={colors.Pink}
+          color={colors.White}
+          borderColorH={colors.Pink}
+          borderColor={colors.Pink}
+          borderRadius="16px"
+          borderSizeH="1px"
+          borderSize="1px"
+          transform="uppercase"
         />
       </NavbarWelcomeStyles>
     </div>
