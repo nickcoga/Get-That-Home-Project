@@ -1,26 +1,9 @@
 import styled from "@emotion/styled";
 import { colors } from "../UI/ColorStyles";
 
-export default function Text({ 
-  type, 
-  size, 
-  color, 
-  caption, 
-  children, 
-  letter, 
-  transform,
-  textAlign,
-}) {
+export default function Text({ type, size, color, caption, children }) {
   return (
-    <StyledText 
-      type={type} 
-      size={size} 
-      color={color} 
-      caption={caption} 
-      letter={letter} 
-      transform={transform}
-      textAlign={textAlign}
-    >
+    <StyledText type={type} size={size} color={color} caption={caption}>
       {children}
     </StyledText>
   );
@@ -111,7 +94,5 @@ const StyledText = styled.p`
   ${(props) => calcSize(props.size)}
   color: ${(props) => colors[props.color]};
   margin: 0 0 8px 0;
-  text-align: ${(props) => (props.textAlign ? "jutify" : "center")};
-  letter-spacing: ${(props) => props.letter};
-  text-transform: ${(props) => props.transform};
+  text-align: center;
 `;
