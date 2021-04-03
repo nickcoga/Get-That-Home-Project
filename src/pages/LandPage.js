@@ -11,7 +11,7 @@ import ButtonNavbarWelcome from "../components/UI/ButtonNavbarWelcome";
 import Partners from "../components/Partners/Partners";
 import FooterLanding from "../components/Footers/FooterLanding";
 import { useState } from "react";
-import LoginForm from "../components/Features/session/LoginForm";
+import LoginForm from "../components/Features/Session/LoginForm";
 
 const LandPageStyles = styled.div`
   width: 100%;
