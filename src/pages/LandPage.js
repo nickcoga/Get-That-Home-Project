@@ -11,7 +11,7 @@ import ButtonNavbarWelcome from "../components/UI/ButtonNavbarWelcome";
 import Partners from "../components/Partners/Partners";
 import FooterLanding from "../components/Footers/FooterLanding";
 import { useState } from "react";
-import LoginForm from "../components/Features/session/LoginForm";
+import LoginForm from "../components/Features/Session/LoginForm";
 
 const LandPageStyles = styled.div`
   width: 100%;
@@ -88,6 +88,16 @@ const LandPageStyles = styled.div`
 
 const LandPage = () => {
   const [login, setLogin] = useState(false);
+  // const history = useHistory();
+  // const token = useSelector((state) => state.session.token);
+
+  // useEffect(() => {
+  //   if (token) {
+  //     sessionStorage.setItem("token", token);
+  //     history.push("/");
+  //   }
+  // }, [token]);
+
   return (
     <LandPageStyles>
       <div className="navbar-landing">
