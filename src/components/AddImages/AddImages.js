@@ -8,6 +8,8 @@ import {
     BackgroundPhotosStyles,
     DefaultBackgroundImageStyles,
 } from './AddImagesStyles';
+import { ButtonNavbarWelcome } from '../UI/ButtonNavbarWelcome';
+import { colors } from '../UI/ColorStyles';
 
 const AddImages = () => {
     return (
@@ -63,6 +65,26 @@ const AddImages = () => {
                     </Text>
                 </DefaultBackgroundImageStyles>
             </BackgroundPhotosStyles> 
+
+            <ButtonNavbarWelcome
+                nameButton="Publish property listing"
+                padding="16px 24px"
+                margin="0 8px 0 0"
+                size="16px"
+                family="Inter"
+                letter="0.25px"
+                backgroundH={colors.White}
+                background={colors.Pink}
+                colorH={colors.Pink}
+                color={colors.White}
+                borderColorH={colors.Pink}
+                borderColor={colors.Pink}
+                borderRadius="16px"
+                borderSizeH="1px"
+                borderSize="1px"
+                className="choose-a-file"
+                // onClick={onClick}
+            />
         </AddImagesStyles>
     )
 }
