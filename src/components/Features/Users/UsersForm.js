@@ -1,14 +1,14 @@
 import { fetchSignup } from "./UsersSlice";
 import { useDispatch, useSelector } from "react-redux";
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 import { useState } from "react";
-import Button from '../../UI/Button';
-import { colors } from '../../UI/ColorStyles';
+import Button from "../../UI/Button";
+import { colors } from "../../UI/ColorStyles";
 import { useHistory } from "react-router-dom";
 
 export default function UsersForm({ id, typeUser }) {
-  const status = useSelector(state => state.users.status);
-  const token = useSelector(state => state.users.token);
+  const status = useSelector((state) => state.users.status);
+  const token = useSelector((state) => state.users.token);
   const dispatch = useDispatch();
   const history = useHistory();
   const [form, setForm] = useState({
@@ -16,16 +16,15 @@ export default function UsersForm({ id, typeUser }) {
     password: "",
     name: "",
     username: "",
-    role: typeUser.toLowerCase()
+    role: typeUser.toLowerCase(),
   });
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(fetchSignup(form));
-
   };
 
-  if(status === "succeeded" || token) {
-    history.push("listproperties");
+  if (status === "succeeded" || token) {
+    history.push("/");
   }
 
   const { email, password, name, username } = form;
@@ -44,20 +43,24 @@ export default function UsersForm({ id, typeUser }) {
             placeholder="Jhohn Doe"
             value={name}
             required
-            onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, [e.target.name]: e.target.value })
+            }
           />
         </StyledContainerInput>
         <StyledContainerInput>
-        <label>Username</label>
-        <StyledInput
-          type="text"
-          name="username"
-          placeholder="Jhohn Doe"
-          value={username}
-          required
-          onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
-        />
-      </StyledContainerInput>
+          <label>Username</label>
+          <StyledInput
+            type="text"
+            name="username"
+            placeholder="Jhohn Doe"
+            value={username}
+            required
+            onChange={(e) =>
+              setForm({ ...form, [e.target.name]: e.target.value })
+            }
+          />
+        </StyledContainerInput>
         <StyledContainerInput>
           <label>Email</label>
           <StyledInput
@@ -66,7 +69,9 @@ export default function UsersForm({ id, typeUser }) {
             placeholder="users@mail.com"
             value={email}
             required
-            onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, [e.target.name]: e.target.value })
+            }
           />
         </StyledContainerInput>
         <StyledContainerInput>
@@ -77,13 +82,16 @@ export default function UsersForm({ id, typeUser }) {
             placeholder="*******"
             value={password}
             required
-            onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, [e.target.name]: e.target.value })
+            }
           />
         </StyledContainerInput>
-        
       </StyledContainerInputs>
       <StyledContainerButton>
-        <Button type="submit">{status === "loading" ? "Loading..." : "Create Account"}</Button>
+        <Button type="submit">
+          {status === "loading" ? "Loading..." : "Create Account"}
+        </Button>
       </StyledContainerButton>
       {/*<InputText
         label="NAME"
@@ -122,15 +130,14 @@ export default function UsersForm({ id, typeUser }) {
 
 const StyledForm = styled.form`
   width: 390px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 16px;
   display: flex;
-  gap:16px;
+  gap: 16px;
   flex-direction: column;
 `;
-
 
 const StyledInput = styled.input`
   border: 1px solid ${colors.Pink};
@@ -162,12 +169,9 @@ const StyledContainerInputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  
 `;
 
-
 const StyledContainerInput = styled.div`
-
   & > label {
     font-style: normal;
     font-weight: normal;
@@ -177,8 +181,6 @@ const StyledContainerInput = styled.div`
     text-transform: uppercase;
     color: ${colors.DarkGray};
   }
-
-  
 `;
 
 const StyledContainerButton = styled.div`
