@@ -87,7 +87,7 @@ const FormRent = () => {
                 </Text>
                 <PropertyTypeStyles>
                     <CheckboxStyles>
-                        <input type="checkbox" />
+                        <input type="radio" name="property" className="checkbox"/>
                         <Text 
                             type="Inter" 
                             size="Body1" 
@@ -101,7 +101,7 @@ const FormRent = () => {
                     </CheckboxStyles>
 
                     <CheckboxStyles>
-                        <input type="checkbox" />
+                        <input type="radio" name="property" className="checkbox"/>
                         <Text 
                             type="Inter" 
                             size="Body1" 
@@ -194,7 +194,7 @@ const FormRent = () => {
                 </div>
             </div>
             <CheckboxStyles>
-                <input type="checkbox" />
+                <input type="checkbox"/>
                 <Text 
                     type="Inter" 
                     size="Body1" 

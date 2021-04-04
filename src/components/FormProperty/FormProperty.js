@@ -4,6 +4,7 @@ import '../CardProperty/CardProperty.css';
 import {ButtonNavbarWelcome} from '../UI/ButtonNavbarWelcome';
 import { colors } from '../UI/ColorStyles';
 import FormRent from '../FormRent/FormRent';
+import { PropertyButtonsStyles } from './FormPropertyStyles';
 
 const FormProperty = () => {
     return (
