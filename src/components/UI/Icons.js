@@ -66,15 +66,21 @@ const iconSet = {
 };
 
 const Icons = ({ type, color, className, onClick }) => {
-  const ComponentToRender = iconSet[type];
+  const ComponentToRender =iconSet[type];
   return (
-    <ComponentToRender
-      className={className}
-      css={css`
-        color: ${color};
-      `}
-      onClick={onClick}
-    />
+    <>
+      { type?
+        <ComponentToRender
+          className={className}
+          css={css`
+            color: ${color};
+          `}
+          onClick={onClick}
+        />:
+        <span></span>
+      }
+    </>
+   
   );
 };
 
