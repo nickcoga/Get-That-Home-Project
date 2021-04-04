@@ -3,7 +3,6 @@ import Text from "../UI/Heading";
 import "../CardProperty/CardProperty.css";
 import ButtonNavbarWelcome from "../UI/ButtonNavbarWelcome";
 import { colors } from "../UI/ColorStyles";
-import { InputPlace } from "../InputPlace/InputPlace";
 import styled from "@emotion/styled";
 import Icons from "../UI/Icons";
 import { InputNumber } from "../Inputs";
@@ -112,7 +111,7 @@ const FormProperty = () => {
 
         <InputWithIconStyles>
           <Icons type="search" className="inputSearch" />
-          <InputPlace />
+          <input />
         </InputWithIconStyles>
       </div>
       <div>
