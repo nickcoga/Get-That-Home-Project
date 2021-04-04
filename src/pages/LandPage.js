@@ -88,6 +88,16 @@ const LandPageStyles = styled.div`
 
 const LandPage = () => {
   const [login, setLogin] = useState(false);
+  // const history = useHistory();
+  // const token = useSelector((state) => state.session.token);
+
+  // useEffect(() => {
+  //   if (token) {
+  //     sessionStorage.setItem("token", token);
+  //     history.push("/");
+  //   }
+  // }, [token]);
+
   return (
     <LandPageStyles>
       <div className="navbar-landing">

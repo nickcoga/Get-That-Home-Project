@@ -3,13 +3,13 @@ import { colors } from "../UI/ColorStyles";
 import GetThatHome from "../../assets/GetThatHome.svg";
 import Button from "../UI/Button";
 import Icons from "../UI/Icons";
+import { Link } from "react-router-dom";
 
-export default function NavbarLanding({ login, setLogin}) {
-
+export default function NavbarLanding({ login, setLogin }) {
   const handleClick = (e) => {
     e.preventDefault();
     setLogin(!login);
-  }
+  };
 
   return (
     <Navbar>
@@ -25,9 +25,9 @@ export default function NavbarLanding({ login, setLogin}) {
           </Button>
 
           <Join>
-            <Button size="medium">
+            <Link to="/signup" className="link">
               <Icons type="userplus" className="userplus" /> JOIN
-            </Button>
+            </Link>
           </Join>
           <Login>
             <Button size="medium" onClick={(e) => handleClick(e)}>
@@ -80,25 +80,23 @@ const Login = styled.li`
   }
 `;
 
-const Join = styled.li`
-  button {
-    display: flex;
-    align-items: center;
-    background: ${colors.White};
-    color: ${colors.Gray};
-    font-family: Inter;no such file or directory
-    display: flex;
-    align-items: center;
-    background: ${colors.White};
-    color: ${colors.Gray};
-    font-family: Inter;
-    font-size: 14px;
-    gap: 9px;
-    border: none;
-  }
-  .search {
-    font-size: 20.31px;
-  }
+const Join = styled.div`
+  display: flex;
+  align-items: center;
+    .link{
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      background: ${colors.White};
+      color: ${colors.Gray};
+      font-family: Inter;no such file or directory
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      border: solid 1px ${colors.Pink};
+      border-radius: 16px;
+      padding:10px 18px;
+    }
 `;
 
 const Logo = styled.li`
