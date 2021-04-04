@@ -1,8 +1,6 @@
 import React from 'react';
 import Text from '../UI/Heading';
-import '../CardProperty/CardProperty.css'
-import { ButtonImage } from '../UI/ButtonNavbarWelcome';
-import { colors } from '../UI/ColorStyles';
+import '../CardProperty/CardProperty.css';
 import { 
     AddImagesStyles, 
     UploadPhotoStyles, 
@@ -39,38 +37,7 @@ const AddImages = () => {
                 </Text>
 
                 <ButtonUploadStyles>
-                    <ButtonImage
-                        nameButton="Choose a file"
-                        padding="4px 8px"
-                        margin="0 8px 0 0"
-                        size="14px"
-                        family="Inter"
-                        letter="0.25px"
-                        backgroundH={colors.White}
-                        background={colors.Pink}
-                        colorH={colors.Pink}
-                        color={colors.White}
-                        borderColorH={colors.Pink}
-                        borderColor={colors.Pink}
-                        borderRadius="8px"
-                        borderSizeH="1px"
-                        borderSize="1px"
-                        className="choose-a-file"
-                        // onClick={onClick}
-                    />
-                    
-                    {/* THERE IS A CONDITION HERE */}
-                    <Text
-                        type="Inter" 
-                        size="Body2" 
-                        color="Gray" 
-                        letter="0.4px"
-                        textAlign="justify"
-                        margin="0"
-                    >
-                        No file chosen
-                    </Text>
-                    {/*----------------------------*/}
+                    <input type="file" name="file" className="input-file"/>
 
                 </ButtonUploadStyles>
                 <Text

@@ -44,15 +44,14 @@ const CheckboxStyles = styled.div(
         appearance: none;
         background: white;
         border: 2px solid ${colors.Gray};
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         outline: none;
     }
 
     .checkbox:checked {
-        border: 2px solid white;
-        outline: ;
-        background: #333;
+        border: 3px solid ${colors.Gray};
+        background: ${colors.LightGray};
     }
 `);
 
