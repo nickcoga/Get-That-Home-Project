@@ -23,6 +23,7 @@ const SessionSlice = createSlice({
   name: "session",
   initialState: {
     token: sessionStorage.getItem("token"),
+    status: "idle",
     error: null,
   },
   reducers: {
@@ -32,9 +33,14 @@ const SessionSlice = createSlice({
     },
   },
   extraReducers: {
+    [fetchLogin.pending]: (state, action) => {
+      state.error = null;
+      state.status = "loading";
+    },
     [fetchLogin.fulfilled]: (state, action) => {
       state.error = null;
       state.token = action.payload.token;
+      state.status = "succeced";
     },
     [fetchLogin.rejected]: (state, action) => {
       state.error = action.error.message;
