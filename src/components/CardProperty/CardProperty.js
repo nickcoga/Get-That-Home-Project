@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 import React from "react";
+import { Link } from "react-router-dom";
 import DefaultImage from "../../assets/DefaultImage.svg";
 import { colors } from "../UI/ColorStyles";
 import Icons from "../UI/Icons";
 import "./CardProperty.css";
 
-const CardComponentPropertyStyles = styled.div`
+const CardComponentPropertyStyles = styled.div` 
+    
     width: 300px;
     height: 360px;
     border-radius: 8px;
@@ -140,47 +142,49 @@ const CardComponentProperty = ({
   return (
     <div>
       <CardComponentPropertyStyles>
-        <div className="header">
-          <div className="header--width">
-            <div className="header--width__color">
-              <Icons type="price" />
-              <p>{stateProperty}</p>
+        <Link to="/propertydetail" className="#">
+          <div className="header">
+            <div className="header--width">
+              <div className="header--width__color">
+                <Icons type="price" />
+                <p>{stateProperty}</p>
+              </div>
+            </div>
+            <div className="bodyCard">
+              <div className="header-body">
+                <div className="header-body--price">
+                  <Icons type="dollar" className="dollar" />
+                  <p className="price">{priceProperty}</p>
+                </div>
+                <div className="header-body--price">
+                  <Icons type="department" className="department" />
+                  <p className="property">{typeProperty}</p>
+                </div>
+              </div>
+              <div className="description">
+                <p>{information}</p>
+              </div>
+              <div className="footerCard">
+                <div className="footerCard-number">
+                  <Icons type="bed" className="iconsFooter" />
+                  <p>{bed}</p>
+                </div>
+                <div className="footerCard-number">
+                  <Icons type="bath" className="iconsFooter" />
+                  <p>{bath}</p>
+                </div>
+                <div className="footerCard-number">
+                  <Icons type="area" className="iconsFooter" />
+                  <p>{area} m2</p>
+                </div>
+                <div className="footerCard-number">
+                  <Icons type="pet" className="iconsFooter" />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="bodyCard">
-            <div className="header-body">
-              <div className="header-body--price">
-                <Icons type="dollar" className="dollar" />
-                <p className="price">{priceProperty}</p>
-              </div>
-              <div className="header-body--price">
-                <Icons type="department" className="department" />
-                <p className="property">{typeProperty}</p>
-              </div>
-            </div>
-            <div className="description">
-              <p>{information}</p>
-            </div>
-            <div className="footerCard">
-              <div className="footerCard-number">
-                <Icons type="bed" className="iconsFooter" />
-                <p>{bed}</p>
-              </div>
-              <div className="footerCard-number">
-                <Icons type="bath" className="iconsFooter" />
-                <p>{bath}</p>
-              </div>
-              <div className="footerCard-number">
-                <Icons type="area" className="iconsFooter" />
-                <p>{area} m2</p>
-              </div>
-              <div className="footerCard-number">
-                <Icons type="pet" className="iconsFooter" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <img src={image} alt="Aparment" />
+          <img src={image} alt="Aparment" />
+        </Link>
       </CardComponentPropertyStyles>
     </div>
   );
