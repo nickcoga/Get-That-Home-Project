@@ -1,6 +1,7 @@
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import React from "react";
-import SearchLocationInput from "./components/InputPlace/InputPlacesAutocomplete";
+// import SearchLocationInput from "./components/InputPlace/InputPlacesAutocomplete";
+import Maps from "./components/Maps/Maps";
 // import FormProperty from "./components/FormProperty/FormProperty";
 // import LandPage from "./pages/LandPage";
 // import Login from "./pages/Login";
@@ -15,7 +16,8 @@ function App() {
         </div>
       </Router> */}
       {/* <FormProperty /> */}
-      <SearchLocationInput onChange={() => null} />
+      {/* <SearchLocationInput onChange={() => null} /> */}
+      <Maps />
     </div>
   );
 }
