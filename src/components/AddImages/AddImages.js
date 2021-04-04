@@ -11,7 +11,7 @@ import {
 import { ButtonNavbarWelcome } from '../UI/ButtonNavbarWelcome';
 import { colors } from '../UI/ColorStyles';
 
-const AddImages = () => {
+const AddImages = ({handleFile, handleUpload, fileValue}) => {
     return (
         <AddImagesStyles>
             <UploadPhotoStyles>
@@ -39,7 +39,14 @@ const AddImages = () => {
                 </Text>
 
                 <ButtonUploadStyles>
-                    <input type="file" name="file" className="input-file"/>
+                    <input 
+                        type="file" 
+                        name="file" 
+                        // value={fileValue}
+                        className="input-file"
+                        onChange={handleFile}
+                        multiple
+                    />
 
                 </ButtonUploadStyles>
                 <Text
@@ -51,6 +58,26 @@ const AddImages = () => {
                 >
                     Only images, max 5MB
                 </Text>
+                <ButtonNavbarWelcome
+                    nameButton="upload"
+                    padding="4px 8px"
+                    margin="4px 0"
+                    size="14px"
+                    family="Inter"
+                    letter="0.25px"
+                    backgroundH={colors.White}
+                    background={colors.Pink}
+                    colorH={colors.Pink}
+                    color={colors.White}
+                    borderColorH={colors.Pink}
+                    borderColor={colors.Pink}
+                    borderRadius="8px"
+                    borderSizeH="1px"
+                    borderSize="1px"
+                    transform="capitalize"
+                    className="choose-a-file"
+                    onClick={handleUpload}
+                />
             </UploadPhotoStyles>
             <BackgroundPhotosStyles>
                 <DefaultBackgroundImageStyles>

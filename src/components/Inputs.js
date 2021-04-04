@@ -250,15 +250,16 @@ function InputTextArea({
   value,
   onChange,
   footer = "",
+  textAlign,
+  maxLength,
 }) {
   return (
     <FieldContainer>
       {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
       <Container error={error}>
         <StyledTextArea
-          rows="5"
-          cols="30"
-          maxLength="140"
+          text-align={textAlign}
+          maxLength={maxLength}
           value={value}
           name={name}
           placeholder={placeholder}

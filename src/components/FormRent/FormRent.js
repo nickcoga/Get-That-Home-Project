@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckboxStyles, InputWithIconStyles, PropertyTypeStyles } from '../FormProperty/FormPropertyStyles';
 import SelectOptions from '../Select/SelectOptions';
 import Text from '../UI/Heading';
@@ -7,8 +7,42 @@ import { InputNumberNoStyles, InputTextAreaNoStyles } from '../Inputs';
 import AddImages from '../AddImages/AddImages';
 
 const FormRent = () => {
+    const [rentForm, setRentForm] = useState({
+        address: '',
+        montlyRent: 0,
+        maintanance: 0,
+        property: {code: ''},
+        bedrooms: {code: ''},
+        bathrooms: {code: ''},
+        area: 0,
+        pets: false,
+        aboutThisProperty: '',
+        file: null,
+    })
+    // const [fileImage, setFileImage] = useState({file: null})
+
+    const handleFile = (e) => {
+        const file=e.target.files;
+        setRentForm({...rentForm, file: file});
+        console.log(file);
+    }
+
+    const handleUpload = (e) => {
+        e.preventDefault();
+        console.log(rentForm);
+
+        console.log(rentForm.file); 
+    }
+
+    const handleSubmimt = (e) => {
+        e.preventDefault();
+        const completeForm=e.target.value;
+        setRentForm({...rentForm, name: completeForm});
+        console.log(rentForm)
+    }
+
     return (
-        <div className="rent">   
+        <form onChange={(e) => handleSubmimt(e)} className="rent">   
             <div>
                 <Text 
                     type="Inter" 
@@ -23,7 +57,7 @@ const FormRent = () => {
 
                 <InputWithIconStyles>
                     <Icons type="search" className="inputSearch" />
-                    <input />
+                    <input name="address" value={rentForm.address}/>
                 </InputWithIconStyles>
             </div>
             <div>
@@ -41,8 +75,8 @@ const FormRent = () => {
                     <Icons type="dollar" className="inputCoin" />
                     <InputNumberNoStyles 
                         type="text"
-                        // value={value}
-                        name="montly rent"
+                        value={rentForm.montlyRent}
+                        name="montlyRent"
                         placeholder="2000"
                         maxLength="10"
                         // onChange={onChange}
@@ -65,7 +99,7 @@ const FormRent = () => {
                     <Icons type="dollar" className="inputCoin" />
                     <InputNumberNoStyles 
                         type="text"
-                        // value={value}
+                        value={rentForm.maintanance}
                         name="maintanance"
                         placeholder="100"
                         maxLength="10"
@@ -87,7 +121,12 @@ const FormRent = () => {
                 </Text>
                 <PropertyTypeStyles>
                     <CheckboxStyles>
-                        <input type="radio" name="property" className="checkbox"/>
+                        <input 
+                            type="radio" 
+                            name="property" 
+                            value={rentForm.property.code="AP"}
+                            className="checkbox"    
+                        />
                         <Text 
                             type="Inter" 
                             size="Body1" 
@@ -101,7 +140,12 @@ const FormRent = () => {
                     </CheckboxStyles>
 
                     <CheckboxStyles>
-                        <input type="radio" name="property" className="checkbox"/>
+                        <input 
+                            type="radio" 
+                            name="property" 
+                            value={rentForm.property.code="HO"}
+                            className="checkbox"
+                        />
                         <Text 
                             type="Inter" 
                             size="Body1" 
@@ -129,9 +173,9 @@ const FormRent = () => {
                     </Text>
 
                     <SelectOptions
-                        placeholder="Favorite District"
-                        name="district"
-                        // value={state.district.code}
+                        placeholder="Choose a Number"
+                        name="bedrroms"
+                        value={rentForm.bedrooms.code}
                         // onChange={(e) => handleChange(e)}
                         options={[
                         { value: "1Ba", text: "1" },
@@ -155,9 +199,9 @@ const FormRent = () => {
                     </Text>
 
                     <SelectOptions
-                        placeholder="Favorite District"
-                        name="district"
-                        // value={state.district.code}
+                        placeholder="Choose a Number"
+                        name="bathrooms"
+                        value={rentForm.bathrooms.code}
                         // onChange={(e) => handleChange(e)}
                         options={[
                         { value: "1Be", text: "1" },
@@ -183,7 +227,7 @@ const FormRent = () => {
 
                     <InputNumberNoStyles 
                         type="text"
-                        // value={value}
+                        value={rentForm.area}
                         name="area"
                         placeholder="##"
                         maxLength="4"
@@ -194,7 +238,7 @@ const FormRent = () => {
                 </div>
             </div>
             <CheckboxStyles>
-                <input type="checkbox"/>
+                <input type="checkbox" name="pets" value={rentForm.pets=true}/>
                 <Text 
                     type="Inter" 
                     size="Body1" 
@@ -230,11 +274,10 @@ const FormRent = () => {
                 </Text>
 
                 <InputTextAreaNoStyles
-                    // rows={rows}
-                    // cols={cols}
-                    // maxLength={maxLength}
-                    // value={value}
-                    name="about this property"
+                    textAlign="justify"
+                    maxLength="200"
+                    value={rentForm.aboutThisProperty}
+                    name="aboutThisProperty"
                     placeholder="My apartment is great because..."
                     // onChange={onChange}
                     className="about-this-property"
@@ -251,9 +294,13 @@ const FormRent = () => {
                 </Text>    
             </div>
             <div>
-                <AddImages />
+                <AddImages  
+                    handleFile={(e) => handleFile(e)}
+                    handleUpload={(e) => handleUpload(e)}
+                    // fileValue={rentForm.file}
+                />
             </div>
-        </div>
+        </form>
     )
 }
 

@@ -7,6 +7,7 @@ import FormRent from '../FormRent/FormRent';
 import { PropertyButtonsStyles } from './FormPropertyStyles';
 
 const FormProperty = () => {
+
     return (
         <div>
             <Text 
