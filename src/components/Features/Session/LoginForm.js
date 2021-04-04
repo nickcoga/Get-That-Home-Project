@@ -16,12 +16,12 @@ export default function LoginForm({ id }) {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     dispatch(fetchLogin({ email, password }));
   };
 
   if (status === "succeced" || token) {
-    history.push("listproperties");
+    history.push("/");
   }
 
   return (
@@ -44,7 +44,7 @@ export default function LoginForm({ id }) {
         <ButtonContainer>
           <Button type="submit" form="login-form">
             <Icons type="login" className="login" />
-            {status === "loading" ? ' LOADING' : 'LOGIN'}
+            {status === "loading" ? " LOADING" : "LOGIN"}
           </Button>
         </ButtonContainer>
       </ContainerForm>

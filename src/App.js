@@ -6,7 +6,9 @@ import ListProperties from "./pages/ListProperties";
 import SavedProperties from "./pages/SavedProperties";
 import PropertyForm from "./pages/PropertyForm";
 import PropertyDetail from "./pages/PropertyDetail";
-import Maps from "./components/Maps/Maps";
+// import FormProperty from "./components/FormProperty/FormProperty";
+// import Maps from "./components/Maps/Maps";
+// import SearchLocationInput from "./components/InputPlace/InputPlacesAutocomplete";
 
 function App() {
   return (
@@ -20,7 +22,15 @@ function App() {
         <Route path="/propertydetail" component={PropertyDetail} />
       </Switch>
     </Router>
-  )
+  );
+
+  // <FormProperty />
+  {
+    /* <SearchLocationInput onChange={() => null} /> */
+  }
+  {
+    /* <Maps /> */
+  }
 }
 
 export default App;
