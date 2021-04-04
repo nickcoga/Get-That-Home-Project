@@ -1,68 +1,108 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
-import { colors } from "../UI/ColorStyles";
 import "../../components/CardProperty/CardProperty";
 
 const ButtonNavbarWelcomeStyles = styled.button(
   ({
-    paddingTop,
-    paddingRight,
-    paddingBottom,
-    paddingLeft,
+    padding,
+    margin,
     size,
     family,
     letter,
-    margin,
+    backgroundH,
+    background,
+    colorH,
+    color,
+    borderColorH,
+    borderColor,
+    borderSizeH,
+    borderSize,
+    borderRadius,
+    BTLR,
+    BTRR,
+    BBLR,
+    BBRR,
+    transform,
   }) => css`
-    padding: ${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft};
+    padding: ${padding};
     margin: ${margin};
     box-sizing: border-box;
     text-align: center;
-    border-radius: 16px;
-    border: none;
-    background: ${colors.Pink};
-    color: ${colors.White};
+    border-radius: ${borderRadius};
+    border: ${borderColor} solid ${borderSize};
+    background: ${background};
+    color: ${color};
     font-size: ${size};
     line-height: 24px;
     cursor: pointer;
     font-family: ${family};
     letter-spacing: ${letter};
     outline: none;
+    text-transform: ${transform};
+    
+    border-top-left-radius: ${BTLR};
+    border-top-right-radius: ${BTRR};
+    border-bottom-left-radius: ${BBLR};
+    border-bottom-right-radius: ${BBRR};
 
     &:hover {
-      background: ${colors.White};
-      color: ${colors.Pink};
-      border: ${colors.Pink} solid 1px;
+      background: ${backgroundH};
+      color: ${colorH};
+      border: ${borderColorH} solid ${borderSizeH};
       letter-spacing: ${letter};
     }
   `
 );
 
 const ButtonNavbarWelcome = ({
-  paddingTop,
-  paddingRight,
-  paddingBottom,
-  paddingLeft,
+  padding,
   nameButton,
   size,
   family,
-  onClick,
   letter,
   margin,
+  backgroundH,
+  background,
+  colorH,
+  color,
+  borderColorH,
+  borderColor,
+  borderSizeH,
+  borderSize,
+  borderRadius,
+  BTLR,
+  BTRR,
+  BBLR,
+  BBRR,
+  transform,
+  onClick,
+  className,
 }) => {
   return (
     <ButtonNavbarWelcomeStyles
-      paddingTop={paddingTop}
-      paddingRight={paddingRight}
-      paddingBottom={paddingBottom}
-      paddingLeft={paddingLeft}
-      onClick={onClick}
+      padding={padding}
+      margin={margin}
       size={size}
       family={family}
       letter={letter}
-      margin={margin}
-    >
+      backgroundH={backgroundH}
+      background={background}
+      colorH={colorH}
+      color={color}
+      borderColorH={borderColorH}
+      borderColor={borderColor}
+      borderRadius={borderRadius}
+      borderSizeH={borderSizeH}
+      borderSize={borderSize}
+      BTLR={BTLR}
+      BTRR={BTRR}
+      BBLR={BBLR}
+      BBRR={BBRR}
+      transform={transform}
+      onClick={onClick}
+      className={className}
+      >
       {nameButton}
     </ButtonNavbarWelcomeStyles>
   );

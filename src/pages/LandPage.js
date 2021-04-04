@@ -87,20 +87,29 @@ const LandPageStyles = styled.div`
 `;
 
 const LandPage = () => {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(false);
+  // const history = useHistory();
+  // const token = useSelector((state) => state.session.token);
+
+  // useEffect(() => {
+  //   if (token) {
+  //     sessionStorage.setItem("token", token);
+  //     history.push("/");
+  //   }
+  // }, [token]);
+
   return (
     <LandPageStyles>
       <div className="navbar-landing">
-        <NavbarLanding login={login} setLogin={setLogin}/>
+        <NavbarLanding login={login} setLogin={setLogin} />
       </div>
-      {
-        login && 
-          <div className="login-form">
-            <div className="login-form--position">
-              <LoginForm />
-            </div>
+      {login && (
+        <div className="login-form">
+          <div className="login-form--position">
+            <LoginForm />
           </div>
-      }
+        </div>
+      )}
       <div className="landPage">
         <div className={login ? "secondHeader--login" : "secondHeader"}>
           <div className="secondHeader--styles">
@@ -113,7 +122,11 @@ const LandPage = () => {
             <NavbarWelcome />
           </div>
         </div>
-        <img src={LandPageImage} alt="Buildings" className={login ? "image-background" : "image-absolute"}/>
+        <img
+          src={LandPageImage}
+          alt="Buildings"
+          className={login ? "image-background" : "image-absolute"}
+        />
         <div className="box-cards">
           <Text type="Montserrat" size="Subtitle2">
             Find an Apartment you Love
@@ -134,15 +147,21 @@ const LandPage = () => {
             Getting someone to rent your apartment has never been this easy
           </Text>
           <ButtonNavbarWelcome
-            paddingTop="16px"
-            paddingRight="24px"
-            paddingBottom="16px"
-            paddingLeft="24px"
-            family="Inter"
+            padding="16px 24px"
+            margin="32px 0 0 0"
             size="14px"
+            family="Inter"
             letter="1.25px"
             nameButton="Create an account now"
-            margin="32px 0 0 0"
+            backgroundH={colors.White}
+            background={colors.Pink}
+            colorH={colors.Pink}
+            color={colors.White}
+            borderColorH={colors.Pink}
+            borderColor={colors.Pink}
+            borderRadius="16px"
+            borderSizeH="1px"
+            borderSize="1px"
           />
         </div>
 

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import landlordImage from "../../assets/user-landlord.svg";
 import homeSeekerImage from "../../assets/user-home-seeker.svg";
 
-function Payment({ type }) {
+function Payment({ type, setType, nextStep }) {
   const typeUsers = {
     landlord: {
       image: landlordImage,
@@ -16,8 +16,13 @@ function Payment({ type }) {
     },
   };
   const { image, name, description } = typeUsers[type];
+  const handleClick = () => {
+    setType(type);
+    console.log(type);
+    nextStep(prev => prev + 1);
+  }
   return (
-    <StyledContainer>
+    <StyledContainer onClick={handleClick}>
       <img src={image} alt={name} />
       <h2>{name}</h2>
       <p>{description}</p>
@@ -37,6 +42,10 @@ const StyledContainer = styled.div`
   font-family: "Montserrat", sans-serif;
   color: #373737;
   height: 274px;
+  background: #fff;
+  &:hover {
+    cursor: pointer;
+  }
   & > h2 {
     margin: 0;
     font-weight: 500;

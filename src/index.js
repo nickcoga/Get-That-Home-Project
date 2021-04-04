@@ -6,6 +6,7 @@ import App from "./App";
 import { css, Global } from "@emotion/react";
 
 const GlobalStyles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -16,7 +17,7 @@ const GlobalStyles = css`
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    font-family: "SF Pro Rounded";
+    font-family: 'Roboto', sans-serif;
     height: 100vh;
   }
   
