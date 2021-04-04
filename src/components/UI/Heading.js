@@ -10,6 +10,7 @@ export default function Text({
   letter, 
   transform,
   textAlign,
+  margin,
 }) {
   return (
     <StyledText 
@@ -20,6 +21,7 @@ export default function Text({
       letter={letter} 
       transform={transform}
       textAlign={textAlign}
+      margin={margin}
     >
       {children}
     </StyledText>
@@ -110,7 +112,7 @@ const StyledText = styled.p`
   font-weight: ${(props) => (props.type === "SemiBold" ? 500 : "normal")};
   ${(props) => calcSize(props.size)}
   color: ${(props) => colors[props.color]};
-  margin: 0 0 8px 0;
+  margin: ${(props) => props.margin  ? "0" : "0 0 8px 0"};
   text-align: ${(props) => (props.textAlign ? "jutify" : "center")};
   letter-spacing: ${(props) => props.letter};
   text-transform: ${(props) => props.transform};

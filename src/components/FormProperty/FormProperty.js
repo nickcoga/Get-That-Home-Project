@@ -4,6 +4,7 @@ import '../CardProperty/CardProperty.css';
 import {ButtonNavbarWelcome} from '../UI/ButtonNavbarWelcome';
 import { colors } from '../UI/ColorStyles';
 import FormRent from '../FormRent/FormRent';
+import { PropertyButtonsStyles } from './FormPropertyStyles';
 
 const FormProperty = () => {
     return (
@@ -27,7 +28,7 @@ const FormProperty = () => {
                     >
                     operation Type
                 </Text>
-                <div>
+                <PropertyButtonsStyles>
                     <ButtonNavbarWelcome
                         padding="8px 10px"
                         margin="0"
@@ -72,7 +73,7 @@ const FormProperty = () => {
                         transform="capitalize"
                         // onClick
                     />
-                </div>
+                </PropertyButtonsStyles>
             </div>
             <FormRent />
         </div>

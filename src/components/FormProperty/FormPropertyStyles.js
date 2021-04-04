@@ -23,6 +23,11 @@ const PropertyTypeStyles = styled.div(
     display: flex;
 `);
 
+const PropertyButtonsStyles = styled.div(
+    ({}) => css`
+    display: flex;
+`);
+
 const CheckboxStyles = styled.div(
     ({}) => css`
     display: flex;
@@ -33,4 +38,4 @@ const CheckboxStyles = styled.div(
     }
 `);
 
-export {InputWithIconStyles, PropertyTypeStyles, CheckboxStyles}
+export {InputWithIconStyles, PropertyTypeStyles, CheckboxStyles, PropertyButtonsStyles}

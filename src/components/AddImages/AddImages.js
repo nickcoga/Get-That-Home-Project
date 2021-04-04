@@ -3,11 +3,18 @@ import Text from '../UI/Heading';
 import '../CardProperty/CardProperty.css'
 import { ButtonImage } from '../UI/ButtonNavbarWelcome';
 import { colors } from '../UI/ColorStyles';
+import { 
+    AddImagesStyles, 
+    UploadPhotoStyles, 
+    ButtonUploadStyles, 
+    BackgroundPhotosStyles,
+    DefaultBackgroundImageStyles,
+} from './AddImagesStyles';
 
 const AddImages = () => {
     return (
-        <div>
-            <div>
+        <AddImagesStyles>
+            <UploadPhotoStyles>
                 <Text
                     type="Montserrat" 
                     size="H6" 
@@ -26,14 +33,15 @@ const AddImages = () => {
                     letter="1.5px"
                     transform="uppercase"
                     textAlign="justify"
+                    margin="0"
                 >
                     Upload as many photos as you wish
                 </Text>
 
-                <div>
+                <ButtonUploadStyles>
                     <ButtonImage
                         nameButton="Choose a file"
-                        padding="8px"
+                        padding="4px 8px"
                         margin="0 8px 0 0"
                         size="14px"
                         family="Inter"
@@ -58,24 +66,25 @@ const AddImages = () => {
                         color="Gray" 
                         letter="0.4px"
                         textAlign="justify"
+                        margin="0"
                     >
                         No file chosen
                     </Text>
                     {/*----------------------------*/}
 
-                </div>
+                </ButtonUploadStyles>
                 <Text
                         type="Inter" 
                         size="Caption" 
-                        color="Gray" 
+                        color="LightGray" 
                         letter="0.4px"
                         textAlign="justify"
                 >
                     Only images, max 5MB
                 </Text>
-            </div>
-            <div className="background-photos">
-                <div className="background-photos--first-photo">
+            </UploadPhotoStyles>
+            <BackgroundPhotosStyles>
+                <DefaultBackgroundImageStyles>
                     <Text
                             type="Inter" 
                             size="Caption" 
@@ -85,9 +94,9 @@ const AddImages = () => {
                     >
                         No photos yet
                     </Text>
-                </div>
-            </div> 
-        </div>
+                </DefaultBackgroundImageStyles>
+            </BackgroundPhotosStyles> 
+        </AddImagesStyles>
     )
 }
 

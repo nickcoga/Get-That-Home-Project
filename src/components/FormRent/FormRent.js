@@ -243,7 +243,7 @@ const FormRent = () => {
                 <Text 
                     type="Inter" 
                     size="Caption" 
-                    color="Gray" 
+                    color="LightGray" 
                     letter="0.4px"
                     textAlign="justify"
                 >
