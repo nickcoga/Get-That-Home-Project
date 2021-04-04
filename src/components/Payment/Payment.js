@@ -9,7 +9,7 @@ function Payment({ type, setType, nextStep }) {
       name: "Landord",
       description: "You want to rent or sell a home.",
     },
-    homeSeeker: {
+    homeseeker: {
       image: homeSeekerImage,
       name: "Home Seeker",
       description: "You want to find a home.",
@@ -18,7 +18,6 @@ function Payment({ type, setType, nextStep }) {
   const { image, name, description } = typeUsers[type];
   const handleClick = () => {
     setType(type);
-    console.log(type);
     nextStep(prev => prev + 1);
   }
   return (

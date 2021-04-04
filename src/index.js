@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-// import store from "./app/Store";
-// import { Provider } from "react-redux";
+import store from "./app/Store";
+import { Provider } from "react-redux";
 import { css, Global } from "@emotion/react";
 
 const GlobalStyles = css`
@@ -30,10 +30,10 @@ const GlobalStyles = css`
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
       <Global styles={GlobalStyles} />
       <App />
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

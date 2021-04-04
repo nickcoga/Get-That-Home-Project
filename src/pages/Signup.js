@@ -21,11 +21,11 @@ function Signup() {
           ? 
           <StyledContainerPayment>
             <Payment setType={setTypeUser} nextStep={setStep} type="landlord" />
-            <Payment setType={setTypeUser} nextStep={setStep} type="homeSeeker" />
+            <Payment setType={setTypeUser} nextStep={setStep} type="homeseeker" />
           </StyledContainerPayment>
           :
           <StyledContainerForm>
-            <UsersForm id={1}/>
+            <UsersForm id={1} typeUser={typeUser}/>
           </StyledContainerForm> 
         }
       </StyledBody>

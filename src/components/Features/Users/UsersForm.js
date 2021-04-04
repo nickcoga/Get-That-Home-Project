@@ -1,31 +1,29 @@
-// import { fetchSignup } from "./UsersSlice";
-//import { useDispatch, useSelector } from "react-redux";
+import { fetchSignup } from "./UsersSlice";
+import { useDispatch, useSelector } from "react-redux";
 import styled from '@emotion/styled';
 import { useState } from "react";
-import { InputNumber, InputPassword, InputText } from "../../Inputs";
 import Button from '../../UI/Button';
 import { colors } from '../../UI/ColorStyles';
 
-export default function UsersForm({ id }) {
+export default function UsersForm({ id, typeUser }) {
   // const status = useSelector((state) => state.users.status);
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     email: "",
     password: "",
     name: "",
+    username: "",
+    role: typeUser.toLowerCase()
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fd = new FormData();
-    for (let key in form) {
-      fd.append(key, form[key]);
-    }
-    //dispatch(fetchSignup(fd));
+    console.log(form);
+    dispatch(fetchSignup(form));
   };
 
-  const { email, password, name } = form;
+  const { email, password, name, username } = form;
 
   return (
     <StyledForm onSubmit={handleSubmit} id={id}>
@@ -43,6 +41,16 @@ export default function UsersForm({ id }) {
             onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
           />
         </StyledContainerInput>
+        <StyledContainerInput>
+        <label>Username</label>
+        <StyledInput
+          type="text"
+          name="username"
+          placeholder="Jhohn Doe"
+          value={username}
+          onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
+        />
+      </StyledContainerInput>
         <StyledContainerInput>
           <label>Email</label>
           <StyledInput
@@ -66,7 +74,7 @@ export default function UsersForm({ id }) {
         
       </StyledContainerInputs>
       <StyledContainerButton>
-        <Button>CREATE ACCOUNT</Button>
+        <Button type="submit">CREATE ACCOUNT</Button>
       </StyledContainerButton>
       {/*<InputText
         label="NAME"
