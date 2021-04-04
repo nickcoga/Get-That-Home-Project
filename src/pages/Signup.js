@@ -5,12 +5,12 @@ import NavbarLanding from "../components/Navbars/NavbarLanding";
 import FooterLanding from "../components/Footers/FooterLanding";
 import Payment from "../components/Payment/Payment";
 import UsersForm from "../components/Features/Users/UsersForm";
+import { useSelector } from "react-redux";
 import { colors } from '../components/UI/ColorStyles';
 
 function Signup() {
   const [step, setStep] = useState(1);
   const [typeUser, setTypeUser] = useState('');
-
   return (
     <StyledContainer>
       <StyledHeader>
@@ -29,9 +29,7 @@ function Signup() {
           </StyledContainerForm> 
         }
       </StyledBody>
-      <StyledFooter>
-        <FooterLanding /> 
-      </StyledFooter>
+      <FooterLanding />
     </StyledContainer>
   )
 }
@@ -70,10 +68,6 @@ const StyledContainerForm = styled.div`
   gap:20px;
   height: 100%;
   width: 460px;
-`;
-
-const StyledFooter = styled.div`
-
 `;
 
 

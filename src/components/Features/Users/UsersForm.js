@@ -4,11 +4,13 @@ import styled from '@emotion/styled';
 import { useState } from "react";
 import Button from '../../UI/Button';
 import { colors } from '../../UI/ColorStyles';
+import { useHistory } from "react-router-dom";
 
 export default function UsersForm({ id, typeUser }) {
-  // const status = useSelector((state) => state.users.status);
+  const status = useSelector(state => state.users.status);
+  const token = useSelector(state => state.users.token);
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -16,12 +18,15 @@ export default function UsersForm({ id, typeUser }) {
     username: "",
     role: typeUser.toLowerCase()
   });
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
     dispatch(fetchSignup(form));
+
   };
+
+  if(status === "succeeded" || token) {
+    history.push("listproperties");
+  }
 
   const { email, password, name, username } = form;
 
@@ -38,6 +43,7 @@ export default function UsersForm({ id, typeUser }) {
             name="name"
             placeholder="Jhohn Doe"
             value={name}
+            required
             onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
           />
         </StyledContainerInput>
@@ -48,6 +54,7 @@ export default function UsersForm({ id, typeUser }) {
           name="username"
           placeholder="Jhohn Doe"
           value={username}
+          required
           onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
         />
       </StyledContainerInput>
@@ -58,6 +65,7 @@ export default function UsersForm({ id, typeUser }) {
             name="email"
             placeholder="users@mail.com"
             value={email}
+            required
             onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
           />
         </StyledContainerInput>
@@ -68,13 +76,14 @@ export default function UsersForm({ id, typeUser }) {
             name="password"
             placeholder="*******"
             value={password}
+            required
             onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
           />
         </StyledContainerInput>
         
       </StyledContainerInputs>
       <StyledContainerButton>
-        <Button type="submit">CREATE ACCOUNT</Button>
+        <Button type="submit">{status === "loading" ? "Loading..." : "Create Account"}</Button>
       </StyledContainerButton>
       {/*<InputText
         label="NAME"

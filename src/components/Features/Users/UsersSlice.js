@@ -16,7 +16,7 @@ export const fetchSignup = createAsyncThunk(
       console.log(data);
       throw new Error(JSON.stringify(data));
     }
-    return { user: data.user };
+    return { user: data.user, token: data.token };
   }
 );
 
@@ -25,6 +25,7 @@ const usersSlice = createSlice({
   initialState: {
     user: null,
     status: "idle",
+    token: sessionStorage.getItem("token"),
     errors: {},
   },
   extraReducers: {
@@ -34,6 +35,7 @@ const usersSlice = createSlice({
     [fetchSignup.fulfilled]: (state, action) => {
       state.status = "succeeded";
       state.user = action.payload.user;
+      state.token = action.payload.token;
     },
     [fetchSignup.rejected]: (state, action) => {
       state.status = "failed";
