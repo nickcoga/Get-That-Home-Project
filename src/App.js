@@ -6,6 +6,7 @@ import ListProperties from "./pages/ListProperties";
 import SavedProperties from "./pages/SavedProperties";
 import PropertyForm from "./pages/PropertyForm";
 import PropertyDetail from "./pages/PropertyDetail";
+import Maps from "./components/Maps/Maps";
 
 function App() {
   return (
