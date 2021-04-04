@@ -1,12 +1,17 @@
-import React from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from "react";
+// import SearchLocationInput from "./components/InputPlace/InputPlacesAutocomplete";
+// import Maps from "./components/Maps/Maps";
+import FormProperty from "./components/FormProperty/FormProperty";
+// import LandPage from "./pages/LandPage";
+// import Login from "./pages/Login";
+
 // import LandPage from "./pages/LandPage";
 // import Signup from "./pages/Signup";
 // import ListProperties from "./pages/ListProperties";
 // import SavedProperties from "./pages/SavedProperties";
 // import PropertyForm from "./pages/PropertyForm";
 // import PropertyDetail from "./pages/PropertyDetail";
-import FormProperty from "./components/FormProperty/FormProperty";
 
 function App() {
   return (
@@ -20,8 +25,10 @@ function App() {
           <Route path="/propertyform" component={PropertyForm} />
           <Route path="/propertydetail" component={PropertyDetail} />
         </div>
-      </Router> */}
+      </Router>  */}
       <FormProperty />
+      {/* <SearchLocationInput onChange={() => null} /> */}
+      {/* <Maps /> */}
     </div>
   );
 }
