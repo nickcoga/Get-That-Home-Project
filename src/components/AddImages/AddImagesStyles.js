@@ -49,8 +49,8 @@ const ButtonUploadStyles = styled.div`
 `;
 
 const BackgroundPhotosStyles = styled.div`
-    width: 584px;
-    height: 124px;
+    width: 600px;
+    height: 136px;
     padding: 8px;
     margin: 16px 0;
     background: ${colors.Background};
@@ -59,8 +59,9 @@ const BackgroundPhotosStyles = styled.div`
 const DefaultBackgroundImageStyles = styled.div`
     width: 120px;
     height: 120px;
+    box-sizing: border-box;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 8px;
     display: flex;
     align-items: center;
     justify-content: center;
