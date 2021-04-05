@@ -1,28 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Text from '../UI/Heading';
 import '../CardProperty/CardProperty.css';
 import {ButtonNavbarWelcome} from '../UI/ButtonNavbarWelcome';
 import { colors } from '../UI/ColorStyles';
+import FormSale from '../FormSale/FormSale';
 import FormRent from '../FormRent/FormRent';
 import { PropertyButtonsStyles } from './FormPropertyStyles';
 
 const FormProperty = () => {
-
+    const [operationType, setOperationType] = useState(false)
     return (
         <div>
-            <Text 
-                type="Montserrat" 
-                size="H4" 
+            <Text
+                type="Montserrat"
+                size="H4"
                 color="balck"
                 textAlign="justify"
             >
                 Create a property listing
             </Text>
             <div>
-                <Text 
-                    type="Inter" 
-                    size="Caption" 
-                    color="Gray" 
+                <Text
+                    type="Inter"
+                    size="Caption"
+                    color="Gray"
                     letter="1.5px"
                     transform="uppercase"
                     textAlign="justify"
@@ -37,10 +38,10 @@ const FormProperty = () => {
                         family="Inter"
                         letter="0.25px"
                         nameButton="rent"
-                        backgroundH={colors.Pink}
-                        background={colors.White}
-                        colorH={colors.White}
-                        color={colors.Gray}
+                        backgroundH={operationType ? colors.LightPink : colors.White}
+                        background={operationType ? colors.White : colors.Pink}
+                        colorH={operationType ? colors.DarkGray : colors.Gray}
+                        color={operationType ? colors.Gray : colors.White}
                         borderColorH={colors.Gray}
                         borderColor={colors.Gray}
                         borderSizeH="1px"
@@ -50,7 +51,7 @@ const FormProperty = () => {
                         BBLR="8px"
                         BBRR="0"
                         transform="capitalize"
-                        // onClick
+                        onClick={() => setOperationType(false)}
                     />
                     <ButtonNavbarWelcome
                         padding="8px 10px"
@@ -59,10 +60,10 @@ const FormProperty = () => {
                         family="Inter"
                         letter="0.25px"
                         nameButton="sale"
-                        backgroundH={colors.Pink}
-                        background={colors.White}
-                        colorH={colors.White}
-                        color={colors.Gray}
+                        backgroundH={!operationType ? colors.LightPink : colors.White}
+                        background={!operationType ? colors.White : colors.Pink}
+                        colorH={!operationType ? colors.DarkGray : colors.Gray}
+                        color={!operationType ? colors.Gray : colors.White}
                         borderColorH={colors.Gray}
                         borderColor={colors.Gray}
                         borderSizeH="1px"
@@ -72,11 +73,15 @@ const FormProperty = () => {
                         BBLR="0"
                         BBRR="8px"
                         transform="capitalize"
-                        // onClick
+                        onClick={() => setOperationType(true)}
                     />
                 </PropertyButtonsStyles>
             </div>
-            <FormRent />
+            {
+                operationType 
+                    ? <FormSale />
+                    : <FormRent />
+            }
         </div>
     )
 }
