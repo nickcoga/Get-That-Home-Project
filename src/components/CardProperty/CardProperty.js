@@ -1,10 +1,18 @@
-import styled from "@emotion/styled";
 import React from "react";
+import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import DefaultImage from "../../assets/DefaultImage.svg";
 import { colors } from "../UI/ColorStyles";
 import Icons from "../UI/Icons";
 import "./CardProperty.css";
+import { BASE_URI } from "../../app/Config";
+
+const UlStyles = styled.ul`
+  display: grid;
+  grid-gap: 1rem;
+  box-sizing: border-box;
+  grid-template-columns: 33% 34% 33%;
+`;
 
 const CardComponentPropertyStyles = styled.div` 
     
@@ -13,6 +21,7 @@ const CardComponentPropertyStyles = styled.div`
     border-radius: 8px;
     background: ${colors.DarkPink};
     margin: 16px 32px 16px 32px;
+    
     
     img {
         width: 100%;
@@ -129,63 +138,74 @@ const CardComponentPropertyStyles = styled.div`
     }
 `;
 
-const CardComponentProperty = ({
-  image = DefaultImage,
-  stateProperty = "For Rental",
-  priceProperty = 3000,
-  typeProperty = "Apartment",
-  information = "86872 Jacob Gateway, Durganport, WV 48044",
-  bed = 4,
-  bath = 2,
-  area = 180,
-}) => {
+const CardComponentProperty = () => {
+  const [card, setCard] = React.useState([]);
+
+  React.useEffect(() => {
+    // console.log("useEffect");
+    obtenerdatos();
+  }, []);
+
+  const obtenerdatos = async () => {
+    const data = await fetch(`${BASE_URI}/properties`);
+    const cards = await data.json();
+    // console.log(cards);
+    setCard(cards);
+  };
+
   return (
     <div>
-      <CardComponentPropertyStyles>
-        <Link to="/propertydetail" className="#">
-          <div className="header">
-            <div className="header--width">
-              <div className="header--width__color">
-                <Icons type="price" />
-                <p>{stateProperty}</p>
-              </div>
-            </div>
-            <div className="bodyCard">
-              <div className="header-body">
-                <div className="header-body--price">
-                  <Icons type="dollar" className="dollar" />
-                  <p className="price">{priceProperty}</p>
+      <UlStyles>
+        {card
+          .map((item) => (
+            <CardComponentPropertyStyles key={item.id}>
+              <Link to="/propertydetail" className="#">
+                <div className="header">
+                  <div className="header--width">
+                    <div className="header--width__color">
+                      <Icons type="price" />
+                      <p>{item.operation_type}</p>
+                    </div>
+                  </div>
+                  <div className="bodyCard">
+                    <div className="header-body">
+                      <div className="header-body--price">
+                        <Icons type="dollar" className="dollar" />
+                        <p className="price">{item.price}</p>
+                      </div>
+                      <div className="header-body--price">
+                        <Icons type="department" className="department" />
+                        <p className="property">{item.property_type}</p>
+                      </div>
+                    </div>
+                    <div className="description">
+                      <p>{item.address}</p>
+                    </div>
+                    <div className="footerCard">
+                      <div className="footerCard-number">
+                        <Icons type="bed" className="iconsFooter" />
+                        <p>{item.bedrooms}</p>
+                      </div>
+                      <div className="footerCard-number">
+                        <Icons type="bath" className="iconsFooter" />
+                        <p>{item.bathrooms}</p>
+                      </div>
+                      <div className="footerCard-number">
+                        <Icons type="area" className="iconsFooter" />
+                        <p>{item.area} m2</p>
+                      </div>
+                      <div className="footerCard-number">
+                        <Icons type="pet" className="iconsFooter" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="header-body--price">
-                  <Icons type="department" className="department" />
-                  <p className="property">{typeProperty}</p>
-                </div>
-              </div>
-              <div className="description">
-                <p>{information}</p>
-              </div>
-              <div className="footerCard">
-                <div className="footerCard-number">
-                  <Icons type="bed" className="iconsFooter" />
-                  <p>{bed}</p>
-                </div>
-                <div className="footerCard-number">
-                  <Icons type="bath" className="iconsFooter" />
-                  <p>{bath}</p>
-                </div>
-                <div className="footerCard-number">
-                  <Icons type="area" className="iconsFooter" />
-                  <p>{area} m2</p>
-                </div>
-                <div className="footerCard-number">
-                  <Icons type="pet" className="iconsFooter" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <img src={image} alt="Aparment" />
-        </Link>
-      </CardComponentPropertyStyles>
+                <img src={DefaultImage} alt="Aparment" />
+              </Link>
+            </CardComponentPropertyStyles>
+          ))
+          .slice(1, 4)}
+      </UlStyles>
     </div>
   );
 };
