@@ -11,7 +11,7 @@ import {
 import { ButtonNavbarWelcome } from '../UI/ButtonNavbarWelcome';
 import { colors } from '../UI/ColorStyles';
 
-const AddImages = ({handleFile, handleUpload, fileValue}) => {
+const AddImages = ({handleUpload, fileValue, handleChange}) => {
     return (
         <AddImagesStyles>
             <UploadPhotoStyles>
@@ -42,9 +42,9 @@ const AddImages = ({handleFile, handleUpload, fileValue}) => {
                     <input 
                         type="file" 
                         name="file" 
-                        // value={fileValue}
+                        value={fileValue}
                         className="input-file"
-                        onChange={handleFile}
+                        onChange={handleChange}
                         multiple
                     />
 

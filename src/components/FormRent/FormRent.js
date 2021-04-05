@@ -9,45 +9,48 @@ import AddImages from '../AddImages/AddImages';
 const FormRent = () => {
     const [rentForm, setRentForm] = useState({
         address: '',
-        montlyRent: 0,
-        maintanance: 0,
-        property: {code: ''},
+        montlyRent: '',
+        maintanance: '',
+        property: '',
         bedrooms: {code: ''},
         bathrooms: {code: ''},
-        area: 0,
-        pets: false,
+        area: '',
+        pets: '',
         aboutThisProperty: '',
-        file: null,
-    })
-    // const [fileImage, setFileImage] = useState({file: null})
+        file: '',
+    });
 
-    const handleFile = (e) => {
-        const file=e.target.files;
-        setRentForm({...rentForm, file: file});
-        console.log(file);
-    }
+    const [cannotBeLetters, setCannotBeLetters] = useState(false)
 
     const handleUpload = (e) => {
         e.preventDefault();
         console.log(rentForm);
 
-        console.log(rentForm.file); 
+        console.log(rentForm.file);
     }
 
-    const handleSubmimt = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const completeForm=e.target.value;
-        setRentForm({...rentForm, name: completeForm});
+        setRentForm({...rentForm, [e.target.name]: completeForm});
         console.log(rentForm)
     }
 
+    const handleChange = (e) => {
+        setRentForm({[e.target.name]: e.target.value})
+        console.log(e.target.value)
+    }
+
     return (
-        <form onChange={(e) => handleSubmimt(e)} className="rent">   
+        <form
+            onChange={(e) => handleSubmit(e)}
+            className="rent"
+        >
             <div>
-                <Text 
-                    type="Inter" 
-                    size="Caption" 
-                    color="Gray" 
+                <Text
+                    type="Inter"
+                    size="Caption"
+                    color="Gray"
                     letter="1.5px"
                     transform="uppercase"
                     textAlign="justify"
@@ -57,14 +60,14 @@ const FormRent = () => {
 
                 <InputWithIconStyles>
                     <Icons type="search" className="inputSearch" />
-                    <input name="address" value={rentForm.address}/>
+                    <input name="address" value={rentForm.address} onChange={(e) => handleChange(e)}/>
                 </InputWithIconStyles>
             </div>
             <div>
-                <Text 
-                    type="Inter" 
-                    size="Caption" 
-                    color="Gray" 
+                <Text
+                    type="Inter"
+                    size="Caption"
+                    color="Gray"
                     letter="1.5px"
                     transform="uppercase"
                     textAlign="justify"
@@ -73,22 +76,22 @@ const FormRent = () => {
                 </Text>
                 <InputWithIconStyles>
                     <Icons type="dollar" className="inputCoin" />
-                    <InputNumberNoStyles 
+                    <InputNumberNoStyles
                         type="text"
                         value={rentForm.montlyRent}
                         name="montlyRent"
                         placeholder="2000"
                         maxLength="10"
-                        // onChange={onChange}
+                        onChange={(e) => handleChange(e)}
                         className="montlyRent"
                     />
                 </InputWithIconStyles>
             </div>
             <div>
-                <Text 
-                    type="Inter" 
-                    size="Caption" 
-                    color="Gray" 
+                <Text
+                    type="Inter"
+                    size="Caption"
+                    color="Gray"
                     letter="1.5px"
                     transform="uppercase"
                     textAlign="justify"
@@ -97,22 +100,22 @@ const FormRent = () => {
                 </Text>
                 <InputWithIconStyles>
                     <Icons type="dollar" className="inputCoin" />
-                    <InputNumberNoStyles 
+                    <InputNumberNoStyles
                         type="text"
                         value={rentForm.maintanance}
                         name="maintanance"
                         placeholder="100"
                         maxLength="10"
-                        // onChange={onChange}
+                        onChange={(e) => handleChange(e) }
                         className="maintanance"
                     />
                 </InputWithIconStyles>
             </div>
             <div>
-                <Text 
-                    type="Inter" 
-                    size="Caption" 
-                    color="Gray" 
+                <Text
+                    type="Inter"
+                    size="Caption"
+                    color="Gray"
                     letter="1.5px"
                     transform="uppercase"
                     textAlign="justify"
@@ -121,16 +124,17 @@ const FormRent = () => {
                 </Text>
                 <PropertyTypeStyles>
                     <CheckboxStyles>
-                        <input 
-                            type="radio" 
-                            name="property" 
-                            value={rentForm.property.code="AP"}
-                            className="checkbox"    
+                        <input
+                            type="radio"
+                            name="property"
+                            value="apartment"
+                            className="checkbox"
+                            onChange={(e) => handleChange(e)}
                         />
-                        <Text 
-                            type="Inter" 
-                            size="Body1" 
-                            color="Gray" 
+                        <Text
+                            type="Inter"
+                            size="Body1"
+                            color="Gray"
                             letter="1.5px"
                             transform="capitalize"
                             textAlign="justify"
@@ -140,16 +144,17 @@ const FormRent = () => {
                     </CheckboxStyles>
 
                     <CheckboxStyles>
-                        <input 
-                            type="radio" 
-                            name="property" 
-                            value={rentForm.property.code="HO"}
+                        <input
+                            type="radio"
+                            name="property"
+                            value="house"
                             className="checkbox"
+                            onChange={(e) => handleChange(e)}
                         />
-                        <Text 
-                            type="Inter" 
-                            size="Body1" 
-                            color="Gray" 
+                        <Text
+                            type="Inter"
+                            size="Body1"
+                            color="Gray"
                             letter="0.25px"
                             transform="capitalize"
                             textAlign="justify"
@@ -161,10 +166,10 @@ const FormRent = () => {
             </div>
             <div>
                 <div>
-                    <Text 
-                        type="Inter" 
-                        size="Caption" 
-                        color="Gray" 
+                    <Text
+                        type="Inter"
+                        size="Caption"
+                        color="Gray"
                         letter="1.5px"
                         transform="uppercase"
                         textAlign="justify"
@@ -174,9 +179,9 @@ const FormRent = () => {
 
                     <SelectOptions
                         placeholder="Choose a Number"
-                        name="bedrroms"
+                        name="bedrooms"
                         value={rentForm.bedrooms.code}
-                        // onChange={(e) => handleChange(e)}
+                        onChange={(e) => handleChange(e)}
                         options={[
                         { value: "1Ba", text: "1" },
                         { value: "2Ba", text: "2" },
@@ -187,10 +192,10 @@ const FormRent = () => {
 
                 </div>
                 <div>
-                    <Text 
-                        type="Inter" 
-                        size="Caption" 
-                        color="Gray" 
+                    <Text
+                        type="Inter"
+                        size="Caption"
+                        color="Gray"
                         letter="1.5px"
                         transform="uppercase"
                         textAlign="justify"
@@ -202,7 +207,7 @@ const FormRent = () => {
                         placeholder="Choose a Number"
                         name="bathrooms"
                         value={rentForm.bathrooms.code}
-                        // onChange={(e) => handleChange(e)}
+                        onChange={(e) => handleChange(e)}
                         options={[
                         { value: "1Be", text: "1" },
                         { value: "2Be", text: "2" },
@@ -211,13 +216,13 @@ const FormRent = () => {
                         { value: "5Be", text: "5" },
                     ]}
                     />
-                        
+
                 </div>
                 <div>
-                    <Text 
-                        type="Inter" 
-                        size="Caption" 
-                        color="Gray" 
+                    <Text
+                        type="Inter"
+                        size="Caption"
+                        color="Gray"
                         letter="1.5px"
                         transform="uppercase"
                         textAlign="justify"
@@ -225,24 +230,24 @@ const FormRent = () => {
                         area in m2
                     </Text>
 
-                    <InputNumberNoStyles 
+                    <InputNumberNoStyles
                         type="text"
                         value={rentForm.area}
                         name="area"
                         placeholder="##"
                         maxLength="4"
-                        // onChange={onChange}
+                        onChange={(e) => handleChange(e)}
                         className="area-input-form"
                     />
-                        
+
                 </div>
             </div>
             <CheckboxStyles>
-                <input type="checkbox" name="pets" value={rentForm.pets=true}/>
-                <Text 
-                    type="Inter" 
-                    size="Body1" 
-                    color="Gray" 
+                <input type="checkbox" name="pets" value="pet" onChange={(e) => handleChange(e)}/>
+                <Text
+                    type="Inter"
+                    size="Body1"
+                    color="Gray"
                     letter="0.25px"
                     transform="capitalize"
                     textAlign="justify"
@@ -250,10 +255,10 @@ const FormRent = () => {
                     pets allowed
                 </Text>
             </CheckboxStyles>
-            <Text 
-                    type="Inter" 
-                    size="Caption" 
-                    color="Gray" 
+            <Text
+                    type="Inter"
+                    size="Caption"
+                    color="Gray"
                     letter="0.4px"
                     textAlign="justify"
             >
@@ -262,10 +267,10 @@ const FormRent = () => {
             </Text>
 
             <div>
-                <Text 
-                    type="Inter" 
-                    size="Caption" 
-                    color="Gray" 
+                <Text
+                    type="Inter"
+                    size="Caption"
+                    color="Gray"
                     letter="1.5px"
                     transform="uppercase"
                     textAlign="justify"
@@ -279,25 +284,25 @@ const FormRent = () => {
                     value={rentForm.aboutThisProperty}
                     name="aboutThisProperty"
                     placeholder="My apartment is great because..."
-                    // onChange={onChange}
+                    onChange={(e) => handleChange(e)}
                     className="about-this-property"
                 />
-                    
-                <Text 
-                    type="Inter" 
-                    size="Caption" 
-                    color="LightGray" 
+
+                <Text
+                    type="Inter"
+                    size="Caption"
+                    color="LightGray"
                     letter="0.4px"
                     textAlign="justify"
                 >
                     Renters will read this first, so highlight any features or important information the apartment has.
-                </Text>    
+                </Text>
             </div>
             <div>
-                <AddImages  
-                    handleFile={(e) => handleFile(e)}
+                <AddImages
                     handleUpload={(e) => handleUpload(e)}
-                    // fileValue={rentForm.file}
+                    fileValue={rentForm.file}
+                    handleChange={(e) => handleChange(e)}
                 />
             </div>
         </form>
