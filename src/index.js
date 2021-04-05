@@ -1,41 +1,39 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-// import store from "./app/Store";
-// import { Provider } from "react-redux";
-// import { css, Global } from "@emotion/react";
-// import { colors } from "./components/styles/ColorStyles";
+import store from "./app/Store";
+import { Provider } from "react-redux";
+import { css, Global } from "@emotion/react";
 
-// const GlobalStyles = css`
-//   * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//   }
+const GlobalStyles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-//   body {
-//     display: flex;
-//     justify-content: center;
-//     max-width: 1440px;
-//     margin: 0 auto;
-//     font-family: "SF Pro Rounded";
-//     background-color: ${colors.ShallowGray};
-//     padding: 32px 0;
-//   }
-
-//   .root {
-//     width: 376px;
-//     min-height: 100vh;
-//     border-radius: 20px;
-//   }
-// `;
+  body {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+  }
+  
+  #root {
+    width: 100%;
+    min-height: 100%;
+    border-radius: 20px;
+  }
+`;
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-      {/* <Global styles={GlobalStyles} /> */}
+    <Provider store={store}>
+      <Global styles={GlobalStyles} />
       <App />
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

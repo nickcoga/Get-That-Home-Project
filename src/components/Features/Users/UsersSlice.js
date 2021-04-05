@@ -2,18 +2,21 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { BASE_URI } from "../../../app/Config";
 
 export const fetchSignup = createAsyncThunk(
-  "session/fetchSignup",
-  async (formData) => {
-    const response = await fetch(`${BASE_URI}/profile`, {
+  "users/fetchSignup",
+  async (user) => {
+    const response = await fetch(`${BASE_URI}/signup`, {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user),
     });
-
     const data = await response.json();
     if (!response.ok) {
+      console.log(data);
       throw new Error(JSON.stringify(data));
     }
-    return { user: data };
+    return { user: data.user, token: data.token };
   }
 );
 
@@ -22,6 +25,7 @@ const usersSlice = createSlice({
   initialState: {
     user: null,
     status: "idle",
+    token: sessionStorage.getItem("token"),
     errors: {},
   },
   extraReducers: {
@@ -30,11 +34,11 @@ const usersSlice = createSlice({
     },
     [fetchSignup.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.user = action.payload;
+      state.user = action.payload.user;
+      state.token = action.payload.token;
     },
     [fetchSignup.rejected]: (state, action) => {
       state.status = "failed";
-      state.errors = JSON.parse(action.error.message);
     },
   },
 });

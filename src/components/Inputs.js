@@ -120,7 +120,7 @@ function InputText({
   onChange,
   cssProp,
   className,
-  icon,
+  icon
 }) {
   return (
     <FieldContainer cssProp={cssProp}>

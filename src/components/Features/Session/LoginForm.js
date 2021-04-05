@@ -1,11 +1,56 @@
-// import { useDispatch } from "react-redux";
-// import { fetchLogin } from "./SessionSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLogin } from "./SessionSlice";
 import { InputText, InputPassword } from "../../Inputs";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../../UI/ColorStyles";
 import Button from "../../UI/Button";
 import Icons from "../../UI/Icons";
+import { useHistory } from "react-router-dom";
+export default function LoginForm({ id }) {
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.session.status);
+  const token = useSelector((state) => state.session.token);
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    dispatch(fetchLogin({ email, password }));
+  };
+
+  if (status === "succeced" || token) {
+    history.push("/");
+  }
+
+  return (
+    <form onSubmit={handleSubmit} id={id}>
+      <ContainerForm>
+        <h1>Login</h1>
+        <InputText
+          label="EMAIL"
+          placeholder="user@mail.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <InputPassword
+          label="PASSWORD"
+          placeholder="********"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <ButtonContainer>
+          <Button type="submit" form="login-form">
+            <Icons type="login" className="login" />
+            {status === "loading" ? " LOADING" : "LOGIN"}
+          </Button>
+        </ButtonContainer>
+      </ContainerForm>
+    </form>
+  );
+}
 
 const ContainerForm = styled.div`
   display: flex;
@@ -50,45 +95,3 @@ const ButtonContainer = styled.div`
     padding-right: 4px;
   }
 `;
-
-export default function LoginForm({ id }) {
-  // const dispatch = useDispatch();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   dispatch(fetchLogin({ email, password }));
-  // };
-
-  return (
-    <form
-      // onSubmit={handleSubmit}
-      id={id}
-    >
-      <ContainerForm>
-        <h1>Login</h1>
-        <InputText
-          label="EMAIL"
-          placeholder="user@mail.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <InputPassword
-          label="PASSWORD"
-          placeholder="********"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <ButtonContainer>
-          <Button type="submit" form="login-form">
-            <Icons type="login" className="login" />
-            LOGIN
-          </Button>
-        </ButtonContainer>
-      </ContainerForm>
-    </form>
-  );
-}
