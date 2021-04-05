@@ -7,7 +7,7 @@ import NavbarWelcome from "../components/Navbars/NavbarWelcome";
 import NavbarLanding from "../components/Navbars/NavbarLanding";
 import CardProperty from "../components/CardProperty/CardProperty";
 import { colors } from "../components/UI/ColorStyles";
-import ButtonNavbarWelcome from "../components/UI/ButtonNavbarWelcome";
+import { ButtonNavbarWelcome } from "../components/UI/ButtonNavbarWelcome";
 import Partners from "../components/Partners/Partners";
 import FooterLanding from "../components/Footers/FooterLanding";
 import { useState } from "react";

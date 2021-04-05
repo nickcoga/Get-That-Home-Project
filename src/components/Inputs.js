@@ -202,6 +202,44 @@ function InputNumber({
   );
 }
 
+/*-------------------------------Input number no styles --------------------------*/
+
+function InputNumberNoStyles({
+  label = "",
+  icon,
+  error = false,
+  placeholder = "",
+  caption = "",
+  name = "",
+  value = "",
+  onChange,
+  cssProp,
+  maxLength,
+  className,
+}) {
+  return (
+    <FieldContainer cssProp={cssProp}>
+      {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
+      <div>
+        <input
+          type="text"
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          id={name}
+          maxLength={maxLength}
+          onChange={onChange}
+          className={className}
+        />
+        {icon}
+      </div>
+      {caption && <Caption error={error}>Caption test</Caption>}
+    </FieldContainer>
+  );
+}
+
+/*-----------------------------------------------------------------------------*/
+
 function InputTextArea({
   label = "",
   caption = "",
@@ -212,15 +250,16 @@ function InputTextArea({
   value,
   onChange,
   footer = "",
+  textAlign,
+  maxLength,
 }) {
   return (
     <FieldContainer>
       {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
       <Container error={error}>
         <StyledTextArea
-          rows="5"
-          cols="30"
-          maxlength="140"
+          text-align={textAlign}
+          maxLength={maxLength}
           value={value}
           name={name}
           placeholder={placeholder}
@@ -233,6 +272,47 @@ function InputTextArea({
     </FieldContainer>
   );
 }
+
+/*--------------------------------------TEXT AREA NO STYLES-----------------------*/
+
+function InputTextAreaNoStyles({
+  label = "",
+  caption = "",
+
+  error = false,
+  placeholder = "",
+  name = "",
+  value,
+  onChange,
+  footer = "",
+  maxLength,
+  rows,
+  cols,
+  className,
+}) {
+  return (
+    <FieldContainer>
+      {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
+      <div>
+        <textarea
+          rows={rows}
+          cols={cols}
+          maxLength={maxLength}
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          id={name}
+          onChange={onChange}
+          className={className}
+        />
+      </div>
+      {footer}
+      {caption && <Caption error={error}>Caption test</Caption>}
+    </FieldContainer>
+  );
+}
+
+/*-----------------------------------------------------------------------*/
 
 function Select({
   label = "",
@@ -273,4 +353,4 @@ function Select({
   );
 }
 
-export { InputText, Select, InputTextArea, InputNumber, InputPassword };
+export { InputText, Select, InputTextArea, InputNumber, InputPassword, InputNumberNoStyles, InputTextAreaNoStyles };
