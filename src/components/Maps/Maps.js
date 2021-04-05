@@ -7,8 +7,8 @@ import Search from "./Search";
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  width: "80vw",
-  height: "80vw",
+  width: "44vw",
+  height: "44vw",
 };
 
 const center = {
