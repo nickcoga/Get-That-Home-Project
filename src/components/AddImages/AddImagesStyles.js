@@ -56,17 +56,4 @@ const BackgroundPhotosStyles = styled.div`
     background: ${colors.Background};
 `;
 
-const DefaultBackgroundImageStyles = styled.div`
-    width: 120px;
-    height: 120px;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0 0 0 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background: ${colors.BackgroundLight};
-`;
-
-export {AddImagesStyles, UploadPhotoStyles, ButtonUploadStyles, BackgroundPhotosStyles, DefaultBackgroundImageStyles};
+export {AddImagesStyles, UploadPhotoStyles, ButtonUploadStyles, BackgroundPhotosStyles };
