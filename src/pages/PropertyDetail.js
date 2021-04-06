@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FooterLanding from "../components/Footers/FooterLanding";
 import NavbarLanding from "../components/Navbars/NavbarLanding";
 import image from ".././assets/DefaultImage.svg";
@@ -8,27 +8,68 @@ import { colors } from "../components/UI/ColorStyles";
 import Maps from "../components/Maps/Maps";
 import Text from "../components/UI/Heading";
 import Button from "../components/UI/Button";
+import MapsPoint from "../components/Maps/MapsPoint";
+import { useParams } from "react-router-dom";
+
+import { BASE_URI } from "../app/Config";
+import Carrusel from "../components/Carrusel";
 
 export default function PropertyDetail({ login, setLogin }) {
+  const params = useParams();
+  const [property, setProperty] = useState(null);
+  console.log(params);
+
   const handleClick = (e) => {
     e.preventDefault();
     setLogin(!login);
   };
+
+  React.useEffect(() => {
+    // console.log("useEffect");
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const response = await fetch(`${BASE_URI}/properties/${params.id}`);
+    const  data = await response.json();
+    console.log(data);
+    setProperty(data);
+  };
+  let area, address, pets, bedrooms, bathrooms, lng, lat, name, operation_type, phone, price, property_type, photos;
+  
+  if(property) {
+    area = property.property.area;
+    address = property.property.address;
+    pets = property.property.pets;
+    bedrooms = property.property.address;
+    bathrooms = property.property.bathrooms;
+    lng = property.property.lng;
+    lat = property.property.lat;
+    name = property.property.address;
+    operation_type = property.property.operation_type;
+    phone = property.property.phone;
+    price = property.property.price;
+    property_type = property.property.operatiproperty_typeon_type;
+    photos = property.photos.map(item => item.url);
+  }
+
   return (
     <Container>
       <NavbarLanding />
+      {!property? <h1>Loading ...</h1>: 
       <Section>
         <div>
           <Photo>
-            <Icons type="previous" />
+            <Carrusel photos={photos} ></Carrusel>
+            {/*<Icons type="previous" />
             <img className="img" src={image} alt="Property" />
-            <Icons type="next" />
+      <Icons type="next" />*/}
           </Photo>
           <Info>
             <Firstinfo>
-              <Address>Francisco de Paula Ugarriza 27 Miraflores, Lima</Address>
+              <Address>{address}</Address>
               <Price>
-                <Icons type="price" /> 3,000
+                <Icons type="price" />{price}
                 <div className="plus">+100</div>
               </Price>
             </Firstinfo>
@@ -36,23 +77,24 @@ export default function PropertyDetail({ login, setLogin }) {
             <Line />
             <Details>
               <div>
-                <Icons type="bed" /> 4 bedrooms
+                <Icons type="bed" /> {bedrooms} bedrooms
               </div>
               <div>
-                <Icons type="bath" /> 2 bathrooms
+                <Icons type="bath" /> {bathrooms} bathrooms
               </div>
               <div>
-                <Icons type="area" /> 180 m2
+                <Icons type="area" /> {area} m2
               </div>
               <div>
-                <Icons type="pet" /> Pets allowed
+                {pets && <Icons type="pet" /> }
+               
               </div>
             </Details>
             <Line />
             <About>
-              <Title>About this property</Title>
+              <Title>{name}</Title>
               <TextAbout>
-                3 Bedroom/2 Bathroom apartment available for ASAP move-in!
+                {bedrooms} Bedroom/{bathrooms} Bathroom apartment available for ASAP move-in!
                 Apartment features hardwood floors throughout, virtual doorman,
                 Central AC/heat, dishwasher and a microwave. The kitchen has
                 custom cabinetry and the living room is big enough to fit a
@@ -61,7 +103,7 @@ export default function PropertyDetail({ login, setLogin }) {
             </About>
             <Location>
               <Title>Location</Title>
-              <Maps />
+              <MapsPoint lat={lat} lng={lng}/>
             </Location>
           </Info>
         </div>
@@ -75,7 +117,7 @@ export default function PropertyDetail({ login, setLogin }) {
           </SecondCard>
         </div>
       </Section>
-
+      }
       <FooterLanding />
     </Container>
   );
