@@ -32,7 +32,7 @@ const FormRent = () => {
                 setRentForm(newObject);
             }
         }
-        reader.readAsDataURL(e.target.files)
+        reader.readAsDataURL(e.target.files[0])
         console.log(reader.readyState)
     }
 

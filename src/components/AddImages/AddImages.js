@@ -82,18 +82,10 @@ const AddImages = ({handleUpload, fileValue, handleChange,}) => {
             </UploadPhotoStyles>
             <BackgroundPhotosStyles>
                 <div className="background-images">
-                    <Text
-                            type="Inter" 
-                            size="Caption" 
-                            color="Gray" 
-                            letter="0.4px"
-                            textAlign="justify"
-                    >
-                        No photos yet
-                    </Text>
                         <img 
                             src={fileValue} 
                             alt='property photo'
+                            className='image-change'
                         />
                 </div>
             </BackgroundPhotosStyles> 
