@@ -17,7 +17,6 @@ import Carrusel from "../components/Carrusel";
 export default function PropertyDetail({ login, setLogin }) {
   const params = useParams();
   const [property, setProperty] = useState(null);
-  console.log(params);
 
   const handleClick = (e) => {
     e.preventDefault();
