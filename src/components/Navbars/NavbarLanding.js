@@ -15,14 +15,18 @@ export default function NavbarLanding({ login, setLogin }) {
     <Navbar>
       <Container>
         <Logo>
-          <img src={GetThatHome} alt="Aparment" />
+          <Link to={`/`}>
+            <img src={GetThatHome} alt="Aparment" />
+          </Link>
         </Logo>
 
         <Div>
-          <Button size="medium">
-            <Icons type="search" className="search" />
-            FIND A HOME
-          </Button>
+          <Link to={`/listproperties`}>
+            <Button size="medium">
+              <Icons type="search" className="search" />
+              FIND A HOME
+            </Button>
+          </Link>
 
           <Join>
             <Link to="/signup" className="link">
