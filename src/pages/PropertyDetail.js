@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FooterLanding from "../components/Footers/FooterLanding";
 import NavbarLanding from "../components/Navbars/NavbarLanding";
 import image from ".././assets/DefaultImage.svg";
@@ -8,74 +8,130 @@ import { colors } from "../components/UI/ColorStyles";
 import Maps from "../components/Maps/Maps";
 import Text from "../components/UI/Heading";
 import Button from "../components/UI/Button";
+import MapsPoint from "../components/Maps/MapsPoint";
+import { useParams } from "react-router-dom";
+
+import { BASE_URI } from "../app/Config";
+import Carrusel from "../components/Carrusel";
 
 export default function PropertyDetail({ login, setLogin }) {
+  const params = useParams();
+  const [property, setProperty] = useState(null);
+  console.log(params);
+
   const handleClick = (e) => {
     e.preventDefault();
     setLogin(!login);
   };
+
+  React.useEffect(() => {
+    // console.log("useEffect");
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const response = await fetch(`${BASE_URI}/properties/${params.id}`);
+    const data = await response.json();
+    console.log(data);
+    setProperty(data);
+  };
+  let area,
+    address,
+    pets,
+    bedrooms,
+    bathrooms,
+    lng,
+    lat,
+    name,
+    operation_type,
+    phone,
+    price,
+    property_type,
+    photos;
+
+  if (property) {
+    area = property.property.area;
+    address = property.property.address;
+    pets = property.property.pets;
+    bedrooms = property.property.address;
+    bathrooms = property.property.bathrooms;
+    lng = property.property.lng;
+    lat = property.property.lat;
+    name = property.property.address;
+    operation_type = property.property.operation_type;
+    phone = property.property.phone;
+    price = property.property.price;
+    property_type = property.property.operatiproperty_typeon_type;
+    photos = property.photos.map((item) => item.url);
+  }
+
   return (
     <Container>
       <NavbarLanding />
-      <Section>
-        <div>
-          <Photo>
-            <Icons type="previous" />
+      {!property ? (
+        <h1>Loading ...</h1>
+      ) : (
+        <Section>
+          <div>
+            <Photo>
+              <Carrusel photos={photos}></Carrusel>
+              {/*<Icons type="previous" />
             <img className="img" src={image} alt="Property" />
-            <Icons type="next" />
-          </Photo>
-          <Info>
-            <Firstinfo>
-              <Address>Francisco de Paula Ugarriza 27 Miraflores, Lima</Address>
-              <Price>
-                <Icons type="price" /> 3,000
-                <div className="plus">+100</div>
-              </Price>
-            </Firstinfo>
+      <Icons type="next" />*/}
+            </Photo>
+            <Info>
+              <Firstinfo>
+                <Address>{address}</Address>
+                <Price>
+                  <Icons type="price" />
+                  {price}
+                  <div className="plus">+100</div>
+                </Price>
+              </Firstinfo>
 
-            <Line />
-            <Details>
-              <div>
-                <Icons type="bed" /> 4 bedrooms
-              </div>
-              <div>
-                <Icons type="bath" /> 2 bathrooms
-              </div>
-              <div>
-                <Icons type="area" /> 180 m2
-              </div>
-              <div>
-                <Icons type="pet" /> Pets allowed
-              </div>
-            </Details>
-            <Line />
-            <About>
-              <Title>About this property</Title>
-              <TextAbout>
-                3 Bedroom/2 Bathroom apartment available for ASAP move-in!
-                Apartment features hardwood floors throughout, virtual doorman,
-                Central AC/heat, dishwasher and a microwave. The kitchen has
-                custom cabinetry and the living room is big enough to fit a
-                dinner table, a couch and a tv set up.
-              </TextAbout>
-            </About>
-            <Location>
-              <Title>Location</Title>
-              <Maps />
-            </Location>
-          </Info>
-        </div>
+              <Line />
+              <Details>
+                <div>
+                  <Icons type="bed" /> {bedrooms} bedrooms
+                </div>
+                <div>
+                  <Icons type="bath" /> {bathrooms} bathrooms
+                </div>
+                <div>
+                  <Icons type="area" /> {area} m2
+                </div>
+                <div>{pets && <Icons type="pet" />}</div>
+              </Details>
+              <Line />
+              <About>
+                <Title>{name}</Title>
+                <TextAbout>
+                  {bedrooms} Bedroom/{bathrooms} Bathroom apartment available
+                  for ASAP move-in! Apartment features hardwood floors
+                  throughout, virtual doorman, Central AC/heat, dishwasher and a
+                  microwave. The kitchen has custom cabinetry and the living
+                  room is big enough to fit a dinner table, a couch and a tv set
+                  up.
+                </TextAbout>
+              </About>
+              <Location>
+                <Title>Location</Title>
+                <LocationAddress>{address}</LocationAddress>
+                <MapsPoint lat={lat} lng={lng} />
+              </Location>
+            </Info>
+          </div>
 
-        <div>
-          <SecondCard>
-            <Text type="body1">Log in or Join to contact the advertiser</Text>
-            <Button size="medium" onClick={(e) => handleClick(e)}>
-              <Icons type="userplus" className="userplus" /> LOGIN
-            </Button>
-          </SecondCard>
-        </div>
-      </Section>
-
+          <div>
+            <SecondCard>
+              <Text type="body1">Log in or Join to contact the advertiser</Text>
+              <Button size="medium" onClick={(e) => handleClick(e)}>
+                <Icons type="userplus" className="userplus" /> LOGIN
+              </Button>
+            </SecondCard>
+          </div>
+        </Section>
+      )}
       <FooterLanding />
     </Container>
   );
@@ -120,7 +176,7 @@ const Firstinfo = styled.div`
 `;
 
 const Address = styled.div`
-  width: 70%;
+  width: 65%;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
@@ -131,7 +187,7 @@ const Address = styled.div`
 `;
 
 const Price = styled.div`
-  width: 20%;
+  width: 25%;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
@@ -139,7 +195,7 @@ const Price = styled.div`
   line-height: 48px;
   padding: 20px 0px;
   .plus {
-    margin-left: 60px;
+    margin-left: 100px;
   }
 `;
 
@@ -194,6 +250,16 @@ const Location = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
+`;
+
+const LocationAddress = styled.p`
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  padding: 10px 0px;
 `;
 
 const SecondCard = styled.div`
