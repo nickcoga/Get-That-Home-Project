@@ -1,11 +1,8 @@
 import React from "react";
+import FormProperty from "../components/FormProperty/FormProperty";
 
 const PropertyForm = () => {
-  return (
-    <div>
-      <h1>Property Form</h1>
-    </div>
-  );
+  return <FormProperty />;
 };
 
 export default PropertyForm;
