@@ -4,8 +4,11 @@ import GetThatHome from "../../assets/GetThatHome.svg";
 import Button from "../UI/Button";
 import Icons from "../UI/Icons";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function NavbarLanding({ login, setLogin }) {
+  const token = useSelector((state) => state.session.token);
+  const user = useSelector((state) => state.session.user);
   const handleClick = (e) => {
     e.preventDefault();
     setLogin(!login);
@@ -27,17 +30,39 @@ export default function NavbarLanding({ login, setLogin }) {
               FIND A HOME
             </Button>
           </Link>
+          {token && user.role === "admin" ? (
+            <Join>
+              <Link to="/propertyform" className="link">
+                <Icons type="userplus" className="userplus" /> Create Property
+              </Link>
+            </Join>
+          ) : (
+            ""
+          )}
+          {token && user.role === "user" ? (
+            <Join>
+              <Link to="/listproperties" className="link">
+                <Icons type="userplus" className="userplus" /> {user.username}
+              </Link>
+            </Join>
+          ) : (
+            ""
+          )}
 
-          <Join>
-            <Link to="/signup" className="link">
-              <Icons type="userplus" className="userplus" /> JOIN
-            </Link>
-          </Join>
-          <Login>
-            <Button size="medium" onClick={(e) => handleClick(e)}>
-              <Icons type="userplus" className="userplus" /> LOGIN
-            </Button>
-          </Login>
+          {!token && (
+            <>
+              <Join>
+                <Link to="/signup" className="link">
+                  <Icons type="userplus" className="userplus" /> JOIN
+                </Link>
+              </Join>
+              <Login>
+                <Button size="medium" onClick={(e) => handleClick(e)}>
+                  <Icons type="userplus" className="userplus" /> LOGIN
+                </Button>
+              </Login>
+            </>
+          )}
         </Div>
       </Container>
     </Navbar>

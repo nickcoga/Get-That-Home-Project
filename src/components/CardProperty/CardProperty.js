@@ -149,7 +149,6 @@ const CardComponentProperty = () => {
   const obtenerdatos = async () => {
     const data = await fetch(`${BASE_URI}/properties`);
     const cards = await data.json();
-    console.log(cards);
     setCard(cards);
   };
 
