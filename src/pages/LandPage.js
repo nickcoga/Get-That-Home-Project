@@ -12,6 +12,7 @@ import Partners from "../components/Partners/Partners";
 import FooterLanding from "../components/Footers/FooterLanding";
 import { useState } from "react";
 import LoginForm from "../components/Features/Session/LoginForm";
+import { Link } from "react-router-dom";
 
 const LandPageStyles = styled.div`
   width: 100%;
@@ -72,6 +73,11 @@ const LandPageStyles = styled.div`
       background: ${colors.ShallowPink};
     }
 
+    .link {
+      color: ${colors.Gray};
+      text-decoration: none;
+    }
+
     .team {
       width: 100%;
       margin: 64px 0;
@@ -87,15 +93,6 @@ const LandPageStyles = styled.div`
 
 const LandPage = () => {
   const [login, setLogin] = useState(false);
-  // const history = useHistory();
-  // const token = useSelector((state) => state.session.token);
-
-  // useEffect(() => {
-  //   if (token) {
-  //     sessionStorage.setItem("token", token);
-  //     history.push("/");
-  //   }
-  // }, [token]);
 
   return (
     <LandPageStyles>
@@ -142,23 +139,25 @@ const LandPage = () => {
           <Text type="Montserrat" size="H4" color="DarkGray">
             Getting someone to rent your apartment has never been this easy
           </Text>
-          <ButtonNavbarWelcome
-            padding="16px 24px"
-            margin="32px 0 0 0"
-            size="14px"
-            family="Inter"
-            letter="1.25px"
-            nameButton="Create an account now"
-            backgroundH={colors.White}
-            background={colors.Pink}
-            colorH={colors.Pink}
-            color={colors.White}
-            borderColorH={colors.Pink}
-            borderColor={colors.Pink}
-            borderRadius="16px"
-            borderSizeH="1px"
-            borderSize="1px"
-          />
+          <Link to="/signup" className="link">
+            <ButtonNavbarWelcome
+              padding="16px 24px"
+              margin="32px 0 0 0"
+              size="14px"
+              family="Inter"
+              letter="1.25px"
+              nameButton="Create an account now"
+              backgroundH={colors.White}
+              background={colors.Pink}
+              colorH={colors.Pink}
+              color={colors.White}
+              borderColorH={colors.Pink}
+              borderColor={colors.Pink}
+              borderRadius="16px"
+              borderSizeH="1px"
+              borderSize="1px"
+            />
+          </Link>
         </div>
 
         <div className="team">
