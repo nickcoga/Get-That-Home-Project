@@ -149,7 +149,7 @@ const CardComponentProperty = () => {
   const obtenerdatos = async () => {
     const data = await fetch(`${BASE_URI}/properties`);
     const cards = await data.json();
-    // console.log(cards);
+    console.log(cards);
     setCard(cards);
   };
 
@@ -159,7 +159,7 @@ const CardComponentProperty = () => {
         {card
           .map((item) => (
             <CardComponentPropertyStyles key={item.id}>
-              <Link to="/propertydetail" className="#">
+              <Link to={`/propertydetail/${item.id}`} className="#">
                 <div className="header">
                   <div className="header--width">
                     <div className="header--width__color">

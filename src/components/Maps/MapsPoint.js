@@ -9,16 +9,21 @@ const mapContainerStyle = {
   height: "44vw",
 };
 
-const center = {
-  lat: -12.04318,
-  lng: -77.02824,
-};
+// const center = {
+//   lat: -12.04318,
+//   lng: -77.02824,
+// };
 
-export default function Maps() {
+export default function MapsPoint({lat = "-12.04318", lng= "-77.02824"}) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
     libraries,
   });
+
+  const center = {
+    lat: +lat,
+    lng: +lng
+  }
 
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
@@ -36,7 +41,7 @@ export default function Maps() {
 
   return (
     <div>
-      <Search panTo={panTo} />
+      {/*  <Search panTo={panTo} /> */}
 
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
