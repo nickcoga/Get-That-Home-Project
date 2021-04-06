@@ -17,6 +17,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn add @react-google-maps/api`
+
+### `yarn add @reach/combobox`
+
+### `yarn add use-places-autocomplete`
+
 ### `yarn start`
 
 Runs the app in the development mode.\
