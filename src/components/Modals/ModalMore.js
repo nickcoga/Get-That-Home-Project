@@ -107,6 +107,7 @@ function ModalMore() {
 const StyleContainer = styled.div`
   position: relative;
   font-family: sans-serif;
+  z-index: 4;
   & > .container-more {
     display: none;
     position: absolute;

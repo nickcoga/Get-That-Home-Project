@@ -1,11 +1,9 @@
 import styled from "@emotion/styled";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import FooterLanding from "../components/Footers/FooterLanding";
 import NavbarLanding from "../components/Navbars/NavbarLanding";
-import image from ".././assets/DefaultImage.svg";
 import Icons from "../components/UI/Icons";
 import { colors } from "../components/UI/ColorStyles";
-import Maps from "../components/Maps/Maps";
 import Text from "../components/UI/Heading";
 import Button from "../components/UI/Button";
 import MapsPoint from "../components/Maps/MapsPoint";
@@ -13,12 +11,12 @@ import { useParams } from "react-router-dom";
 
 import { BASE_URI } from "../app/Config";
 import Carrusel from "../components/Carrusel";
+import { useSelector } from "react-redux";
 
 export default function PropertyDetail({ login, setLogin }) {
   const params = useParams();
   const [property, setProperty] = useState(null);
-  console.log(params);
-
+  const token = useSelector(state => state.session.token);
   const handleClick = (e) => {
     e.preventDefault();
     setLogin(!login);
@@ -123,12 +121,20 @@ export default function PropertyDetail({ login, setLogin }) {
           </div>
 
           <div>
-            <SecondCard>
-              <Text type="body1">Log in or Join to contact the advertiser</Text>
+            {token ? 
+              <SecondCard>
+              <Text type="body1">Add to favorite</Text>
               <Button size="medium" onClick={(e) => handleClick(e)}>
-                <Icons type="userplus" className="userplus" /> LOGIN
+                <Icons type="heart" className="userplus" /> Favorite
               </Button>
-            </SecondCard>
+              </SecondCard> :
+              <SecondCard>
+                <Text type="body1">Log in or Join to contact the advertiser</Text>
+                <Button size="medium" onClick={(e) => handleClick(e)}>
+                  <Icons type="userplus" className="userplus" /> LOGIN
+                </Button>
+              </SecondCard>
+            }
           </div>
         </Section>
       )}

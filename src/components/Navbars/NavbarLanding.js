@@ -4,15 +4,22 @@ import GetThatHome from "../../assets/GetThatHome.svg";
 import Button from "../UI/Button";
 import Icons from "../UI/Icons";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { killToken } from "../Features/Session/SessionSlice";
 
 export default function NavbarLanding({ login, setLogin }) {
   const token = useSelector((state) => state.session.token);
   const user = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
   const handleClick = (e) => {
     e.preventDefault();
     setLogin(!login);
   };
+
+  const handleLogout = () => {
+    dispatch(killToken());
+    window.location.reload();
+  }
 
   return (
     <Navbar>
@@ -31,20 +38,34 @@ export default function NavbarLanding({ login, setLogin }) {
             </Button>
           </Link>
           {token && user.role === "admin" ? (
+            <>
+            <Join>
+              <Button onClick={handleLogout}>
+                <Icons type="logout" className="userplus" /> Logout
+              </Button>
+            </Join>
             <Join>
               <Link to="/propertyform" className="link">
                 <Icons type="userplus" className="userplus" /> Create Property
               </Link>
             </Join>
+            </>
           ) : (
             ""
           )}
           {token && user.role === "user" ? (
+            <>
+            <Join>
+              <Button onClick={handleLogout}>
+                <Icons type="logout" className="userplus" /> Logout
+              </Button>
+            </Join>
             <Join>
               <Link to="/listproperties" className="link">
                 <Icons type="userplus" className="userplus" /> {user.username}
               </Link>
             </Join>
+            </>
           ) : (
             ""
           )}

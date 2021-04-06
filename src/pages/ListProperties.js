@@ -9,6 +9,9 @@ import { BASE_URI } from "../app/Config";
 import SearchLocationInput from "../components/InputPlace/InputPlacesAutocomplete";
 import NavbarLanding from "../components/Navbars/NavbarLanding";
 import FooterLanding from "../components/Footers/FooterLanding";
+import ModalBedsAndBath from "../components/Modals/ModalBedsAndBath";
+import ModalMore from "../components/Modals/ModalMore";
+import ModalPropertyType from "../components/Modals/ModalPropertyType";
 
 const ListProperties = () => {
   const [card, setCard] = React.useState([]);
@@ -28,7 +31,14 @@ const ListProperties = () => {
   return (
     <div>
       <NavbarLanding />
-      <SearchLocationInput />
+      <StyledContainerFilters>
+        <SearchLocationInput className="input-search"/>
+        <div className="modal-filter-main">
+          <ModalBedsAndBath />
+          <ModalPropertyType />
+          <ModalMore />
+        </div>
+      </StyledContainerFilters>
       <div>
         <UlStyles>
           {card.map((item) => (
@@ -92,6 +102,23 @@ const UlStyles = styled.ul`
   grid-gap: 1rem;
   box-sizing: border-box;
   grid-template-columns: 33% 34% 33%;
+`;
+
+const StyledContainerFilters = styled.div`
+  padding: 20px 200px 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+  & > .modal-filter-main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 100px;
+  }
+  & > .input-search {
+    padding: 8px;
+  }
 `;
 
 const CardComponentPropertyStyles = styled.div` 

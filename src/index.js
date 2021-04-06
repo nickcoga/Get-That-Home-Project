@@ -21,6 +21,11 @@ const GlobalStyles = css`
     height: 100vh;
   }
   
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
   #root {
     width: 100%;
     min-height: 100%;

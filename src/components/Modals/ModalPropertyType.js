@@ -79,6 +79,7 @@ function ModalPropertyType({ disabled = false }) {
 const StyledContainer = styled.div`
   position: relative;
   font-family: sans-serif;
+  z-index: 4;
   & > .container-property-types {
     display: none;
     position: absolute;

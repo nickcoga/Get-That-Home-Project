@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import styled from "@emotion/styled";
+import Icons from "../UI/Icons";
+import { colors } from "../UI/ColorStyles";
 
 let autoComplete;
 
@@ -54,15 +57,36 @@ function SearchLocationInput() {
   }, []);
 
   return (
-    <div className="search-location-input">
+    <StyledContainer className="search-location-input">
+      <Icons type="search" />
       <input
         ref={autoCompleteRef}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Enter a City"
         value={query}
       />
-    </div>
+    </StyledContainer>
   );
 }
+
+
+const StyledContainer = styled.div`
+  border: 1px solid ${colors.gray4};
+  background-color: #fff;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: space-between;
+  padding: 8px;
+  gap: 4px;
+  & > input {
+    border: none;
+    flex: 1;
+  }
+  & > input:focus {
+    outline: none;
+  }
+`;
 
 export default SearchLocationInput;

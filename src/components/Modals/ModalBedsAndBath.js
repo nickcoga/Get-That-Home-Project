@@ -112,6 +112,7 @@ const StyledContainer = styled.div`
     background: ${colors.White};
     top: 40px;
     display: none;
+    z-index: 4;
   }
   & > .container-main-beds_and_baths > .container-nums {
     font-family: sans-serif;
