@@ -1,39 +1,37 @@
 import styled from "@emotion/styled";
 import Icons from "../UI/Icons";
-import user1 from "../../assets/user1.svg";
 import { colors } from "../UI/ColorStyles";
 import { useState } from "react";
 import Text from "../UI/Heading";
 
 const team = [
   {
-    image: user1,
+    image: "https://media-exp1.licdn.com/dms/image/C5603AQHneHTCK9dMYw/profile-displayphoto-shrink_200_200/0/1613845199476?e=1623283200&v=beta&t=r3Vid7-zdZtkXOJZIIY_655uhlClrEJv59t1oCOD1hQ",
     nickname: "Abel Arbildo",
     linkedin: "https://www.linkedin.com/in/abel-arbildo-jurupe/",
     github: "https://github.com/AbelJohn2020",
   },
   {
-    image: user1,
+    image: "https://media-exp1.licdn.com/dms/image/C4E03AQGye_epHFrMmA/profile-displayphoto-shrink_200_200/0/1611368680018?e=1623283200&v=beta&t=LkHKdpphNdHlX4jjrkzgxL8_gBm__FNXCjIzzfA2ok8",
     nickname: "Christian Tordoya",
     linkedin: "https://www.linkedin.com/in/christian-tordoya-suca/",
     github: "https://github.com/christianTordoya03",
   },
   {
-    image: user1,
+    image: "https://media-exp1.licdn.com/dms/image/C5603AQFijqJXvnYXkQ/profile-displayphoto-shrink_200_200/0/1517355330560?e=1623283200&v=beta&t=s3sKRkv2D0awU9aH7o0_x7c9-7piCSZqsoCGWGNUqJM",
     nickname: "Nick Correa",
     linkedin: "https://www.linkedin.com/in/nickcorreagarcia/",
     github: "https://github.com/nickcoga",
   },
   {
-    image: user1,
+    image: "https://media-exp1.licdn.com/dms/image/C4E03AQEbDtbMC8cALg/profile-displayphoto-shrink_800_800/0/1613978917044?e=1623283200&v=beta&t=S0obev6mWqvcz6AAfD6if3cgSBEXNHOsB1o8-_6AexY",
     nickname: "Carlos Echevarria",
     linkedin: "https://www.linkedin.com/in/juancarlosechevarria/",
     github: "https://github.com/CarlosEnrique103",
   },
 ];
 function Partners() {
-  const [partners, setpartners] = useState(team);
-
+  const partners = team;
   return (
     <StyledContainer>
       <div className="container">
@@ -69,12 +67,13 @@ const StyledContainer = styled.div`
   justify-content: space-between;
   gap: 16px;
 
-  & > .image {
+  &  .image {
     width: 185px;
   }
-  & > .image > img {
+  &  .image > img {
     height: 180px;
     width: 180px;
+    border-radius: 50%;
   }
 
   & > h2 {

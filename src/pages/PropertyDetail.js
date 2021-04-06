@@ -1,11 +1,9 @@
 import styled from "@emotion/styled";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import FooterLanding from "../components/Footers/FooterLanding";
 import NavbarLanding from "../components/Navbars/NavbarLanding";
-import image from ".././assets/DefaultImage.svg";
 import Icons from "../components/UI/Icons";
 import { colors } from "../components/UI/ColorStyles";
-import Maps from "../components/Maps/Maps";
 import Text from "../components/UI/Heading";
 import Button from "../components/UI/Button";
 import MapsPoint from "../components/Maps/MapsPoint";

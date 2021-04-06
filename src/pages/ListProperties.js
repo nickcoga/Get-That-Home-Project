@@ -36,8 +36,8 @@ const ListProperties = () => {
         <div className="modal-filter-main">
           <ModalBedsAndBath />
           <ModalPropertyType />
+          <ModalMore />
         </div>
-        <ModalMore />
       </StyledContainerFilters>
       <div>
         <UlStyles>
