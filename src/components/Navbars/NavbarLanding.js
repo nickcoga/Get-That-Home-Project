@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function NavbarLanding({ login, setLogin }) {
-  const token = useSelector(state => state.session.token);
-  const user = useSelector(state => state.session.user);
+  const token = useSelector((state) => state.session.token);
+  const user = useSelector((state) => state.session.user);
   const handleClick = (e) => {
     e.preventDefault();
     setLogin(!login);
@@ -18,45 +18,51 @@ export default function NavbarLanding({ login, setLogin }) {
     <Navbar>
       <Container>
         <Logo>
-          <img src={GetThatHome} alt="Aparment" />
+          <Link to={`/`}>
+            <img src={GetThatHome} alt="Aparment" />
+          </Link>
         </Logo>
 
         <Div>
-          <Button size="medium">
-            <Icons type="search" className="search" />
-            FIND A HOME
-          </Button>
-          { 
-            token && user.role === "admin"?  
+          <Link to={`/listproperties`}>
+            <Button size="medium">
+              <Icons type="search" className="search" />
+              FIND A HOME
+            </Button>
+          </Link>
+          {token && user.role === "admin" ? (
             <Join>
               <Link to="/propertyform" className="link">
                 <Icons type="userplus" className="userplus" /> Create Property
               </Link>
-            </Join> : '' 
-          }
-          { 
-            token && user.role === "user"? 
+            </Join>
+          ) : (
+            ""
+          )}
+          {token && user.role === "user" ? (
             <Join>
               <Link to="/listproperties" className="link">
                 <Icons type="userplus" className="userplus" /> {user.username}
               </Link>
-            </Join> : '' 
-          }
-
-          {!token && 
-            <>
-            <Join>
-              <Link to="/signup" className="link">
-                <Icons type="userplus" className="userplus" /> JOIN
-              </Link>
             </Join>
-            <Login>
-              <Button size="medium" onClick={(e) => handleClick(e)}>
-                <Icons type="userplus" className="userplus" /> LOGIN
-              </Button>
-            </Login>
+          ) : (
+            ""
+          )}
+
+          {!token && (
+            <>
+              <Join>
+                <Link to="/signup" className="link">
+                  <Icons type="userplus" className="userplus" /> JOIN
+                </Link>
+              </Join>
+              <Login>
+                <Button size="medium" onClick={(e) => handleClick(e)}>
+                  <Icons type="userplus" className="userplus" /> LOGIN
+                </Button>
+              </Login>
             </>
-          }
+          )}
         </Div>
       </Container>
     </Navbar>

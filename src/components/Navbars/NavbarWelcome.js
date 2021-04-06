@@ -5,6 +5,8 @@ import { ButtonNavbarWelcome } from "../UI/ButtonNavbarWelcome";
 import "../CardProperty/CardProperty.css";
 import SelectOptions from "../Select/SelectOptions";
 import formReducer from "../../reducers/formReducer";
+import SearchLocationInput from "../InputPlace/InputPlacesAutocomplete";
+import { Link } from "react-router-dom";
 
 const NavbarWelcomeStyles = styled.div`
   width: 800px;
@@ -88,8 +90,9 @@ const NavbarWelcome = () => {
         </LeftOptionsStyles>
         <RightOptionsStyles>
           <HeaderNavbarStyles>where</HeaderNavbarStyles>
+          <SearchLocationInput />
           {/* Modo prueba del selection */}
-          <SelectOptions
+          {/* <SelectOptions
             placeholder="Favorite District"
             name="district"
             value={state.district.code}
@@ -146,25 +149,27 @@ const NavbarWelcome = () => {
               { value: "VS", text: "Villa El Salvador" },
               { value: "VMT", text: "Villa María del Triunfo" },
             ]}
-          />
+          /> */}
         </RightOptionsStyles>
-        <ButtonNavbarWelcome
-          padding="8px 16px"
-          size="14px"
-          family="Inter"
-          letter="1.25px"
-          nameButton="search"
-          backgroundH={colors.White}
-          background={colors.Pink}
-          colorH={colors.Pink}
-          color={colors.White}
-          borderColorH={colors.Pink}
-          borderColor={colors.Pink}
-          borderRadius="16px"
-          borderSizeH="1px"
-          borderSize="1px"
-          transform="uppercase"
-        />
+        <Link to="/listproperties" className="link">
+          <ButtonNavbarWelcome
+            padding="8px 16px"
+            size="14px"
+            family="Inter"
+            letter="1.25px"
+            nameButton="search"
+            backgroundH={colors.White}
+            background={colors.Pink}
+            colorH={colors.Pink}
+            color={colors.White}
+            borderColorH={colors.Pink}
+            borderColor={colors.Pink}
+            borderRadius="16px"
+            borderSizeH="1px"
+            borderSize="1px"
+            transform="uppercase"
+          />
+        </Link>
       </NavbarWelcomeStyles>
     </div>
   );
