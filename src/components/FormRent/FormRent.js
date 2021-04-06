@@ -28,12 +28,12 @@ const FormRent = () => {
         const reader = new FileReader();
         const newObject = {...rentForm, file: reader.result}
         reader.onload = () => {
-            if(reader.readyState===2) {
+            if(reader.readyState===0) {
                 setRentForm(newObject);
             }
         }
-        reader.readAsDataURL(e.target.files[0])
-        console.log(reader.readyState)
+        // console.log(e.target.files[0])
+        // reader.readAsDataURL(e.target.files[0])
     }
 
     const handleSubmit = (e) => {
