@@ -15,7 +15,7 @@ export const fetchLogin = createAsyncThunk(
     if (!response.ok) {
       throw new Error(data.errors.message);
     }
-    return { token: data.token };
+    return { token: data.token, user:data.user };
   }
 );
 
@@ -25,6 +25,7 @@ const SessionSlice = createSlice({
     token: sessionStorage.getItem("token"),
     status: "idle",
     error: null,
+    user: {},
   },
   reducers: {
     killToken: (state) => {
@@ -40,6 +41,7 @@ const SessionSlice = createSlice({
     [fetchLogin.fulfilled]: (state, action) => {
       state.error = null;
       state.token = action.payload.token;
+      state.user = action.payload.user;
       state.status = "succeced";
     },
     [fetchLogin.rejected]: (state, action) => {
