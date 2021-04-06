@@ -7,7 +7,7 @@ import { colors } from "../../UI/ColorStyles";
 import Button from "../../UI/Button";
 import Icons from "../../UI/Icons";
 import { useHistory } from "react-router-dom";
-export default function LoginForm({ id }) {
+export default function LoginForm({ id="form-login" }) {
   const dispatch = useDispatch();
   const status = useSelector((state) => state.session.status);
   const token = useSelector((state) => state.session.token);
@@ -16,12 +16,12 @@ export default function LoginForm({ id }) {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     dispatch(fetchLogin({ email, password }));
   };
 
   if (status === "succeced" || token) {
-    history.push("/");
+    history.push("listproperties");
   }
 
   return (
