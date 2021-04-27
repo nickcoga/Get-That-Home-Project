@@ -47,8 +47,6 @@ function SearchLocationInput() {
   const [query, setQuery] = useState("");
   const autoCompleteRef = useRef(null);
 
-  console.log(process.env);
-
   useEffect(() => {
     loadScript(
       `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`,
@@ -68,7 +66,6 @@ function SearchLocationInput() {
     </StyledContainer>
   );
 }
-
 
 const StyledContainer = styled.div`
   border: 1px solid ${colors.gray4};

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import FooterLanding from "../components/Footers/FooterLanding";
 import NavbarLanding from "../components/Navbars/NavbarLanding";
 import Icons from "../components/UI/Icons";
@@ -15,8 +15,9 @@ import { useSelector } from "react-redux";
 
 export default function PropertyDetail({ login, setLogin }) {
   const params = useParams();
+  console.log(params);
   const [property, setProperty] = useState(null);
-  const token = useSelector(state => state.session.token);
+  const token = useSelector((state) => state.session.token);
   const handleClick = (e) => {
     e.preventDefault();
     setLogin(!login);
@@ -121,20 +122,23 @@ export default function PropertyDetail({ login, setLogin }) {
           </div>
 
           <div>
-            {token ? 
+            {token ? (
               <SecondCard>
-              <Text type="body1">Add to favorite</Text>
-              <Button size="medium" onClick={(e) => handleClick(e)}>
-                <Icons type="heart" className="userplus" /> Favorite
-              </Button>
-              </SecondCard> :
+                <Text type="body1">Add to favorite</Text>
+                <Button size="medium" onClick={(e) => handleClick(e)}>
+                  <Icons type="heart" className="userplus" /> Favorite
+                </Button>
+              </SecondCard>
+            ) : (
               <SecondCard>
-                <Text type="body1">Log in or Join to contact the advertiser</Text>
+                <Text type="body1">
+                  Log in or Join to contact the advertiser
+                </Text>
                 <Button size="medium" onClick={(e) => handleClick(e)}>
                   <Icons type="userplus" className="userplus" /> LOGIN
                 </Button>
               </SecondCard>
-            }
+            )}
           </div>
         </Section>
       )}
