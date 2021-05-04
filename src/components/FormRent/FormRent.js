@@ -5,6 +5,7 @@ import Text from '../UI/Heading';
 import Icons from '../UI/Icons';
 import { InputNumberNoStyles, InputTextAreaNoStyles } from '../Inputs';
 import AddImages from '../AddImages/AddImages';
+import defaultImage from '../../assets/Missing.png';
 
 const FormRent = () => {
     const [rentForm, setRentForm] = useState({
@@ -17,16 +18,22 @@ const FormRent = () => {
         area: '',
         pets: '',
         aboutThisProperty: '',
-        file: '',
+        file: defaultImage,
     });
 
     const [cannotBeLetters, setCannotBeLetters] = useState(false)
 
     const handleUpload = (e) => {
         e.preventDefault();
-        console.log(rentForm);
-
-        console.log(rentForm.file);
+        const reader = new FileReader();
+        const newObject = {...rentForm, file: reader.result}
+        reader.onload = () => {
+            if(reader.readyState===0) {
+                setRentForm(newObject);
+            }
+        }
+        // console.log(e.target.files[0])
+        // reader.readAsDataURL(e.target.files[0])
     }
 
     const handleSubmit = (e) => {

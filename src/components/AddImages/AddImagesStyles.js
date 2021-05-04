@@ -49,23 +49,11 @@ const ButtonUploadStyles = styled.div`
 `;
 
 const BackgroundPhotosStyles = styled.div`
-    width: 584px;
-    height: 124px;
+    width: 600px;
+    height: 136px;
     padding: 8px;
     margin: 16px 0;
     background: ${colors.Background};
 `;
 
-const DefaultBackgroundImageStyles = styled.div`
-    width: 120px;
-    height: 120px;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background: ${colors.BackgroundLight};
-`;
-
-export {AddImagesStyles, UploadPhotoStyles, ButtonUploadStyles, BackgroundPhotosStyles, DefaultBackgroundImageStyles};
+export {AddImagesStyles, UploadPhotoStyles, ButtonUploadStyles, BackgroundPhotosStyles };

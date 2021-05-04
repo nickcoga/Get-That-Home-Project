@@ -6,12 +6,12 @@ import {
     UploadPhotoStyles, 
     ButtonUploadStyles, 
     BackgroundPhotosStyles,
-    DefaultBackgroundImageStyles,
 } from './AddImagesStyles';
 import { ButtonNavbarWelcome } from '../UI/ButtonNavbarWelcome';
 import { colors } from '../UI/ColorStyles';
+import '../CardProperty/CardProperty.css'
 
-const AddImages = ({handleUpload, fileValue, handleChange}) => {
+const AddImages = ({handleUpload, fileValue, handleChange,}) => {
     return (
         <AddImagesStyles>
             <UploadPhotoStyles>
@@ -41,9 +41,10 @@ const AddImages = ({handleUpload, fileValue, handleChange}) => {
                 <ButtonUploadStyles>
                     <input 
                         type="file" 
-                        name="file" 
-                        value={fileValue}
+                        id='input'
+                        name="image-upload" 
                         className="input-file"
+                        accept='image/*'
                         onChange={handleChange}
                         multiple
                     />
@@ -80,17 +81,13 @@ const AddImages = ({handleUpload, fileValue, handleChange}) => {
                 />
             </UploadPhotoStyles>
             <BackgroundPhotosStyles>
-                <DefaultBackgroundImageStyles>
-                    <Text
-                            type="Inter" 
-                            size="Caption" 
-                            color="Gray" 
-                            letter="0.4px"
-                            textAlign="justify"
-                    >
-                        No photos yet
-                    </Text>
-                </DefaultBackgroundImageStyles>
+                <div className="background-images">
+                        <img 
+                            src={fileValue} 
+                            alt='property photo'
+                            className='image-change'
+                        />
+                </div>
             </BackgroundPhotosStyles> 
 
             <ButtonNavbarWelcome
